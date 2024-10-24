@@ -1,18 +1,21 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="es">
     <head>
-        <meta charset="utf-8" />
-        <!-- Reemplazar por los datos que correspondan -->
-        <title>Programación I | Parcial 2 | APELLIDO/S</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
-        <link rel="shortcut icon" href="favicon.ico" />
-        <link rel="stylesheet" href="styles.css" />
-        <script src="index.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Programación I | Parcial 2 | CORBALAN</title>
+        <!-- <link rel="shortcut icon" href="favicon.ico"> -->
+
+        <!-- ESTILOS -->
+        <link rel="stylesheet" href="css/styles.css">
+
+        <!-- SCRIPTS -->
+        <script src="js/clase-producto.js" defer></script>
+        <script src="js/main.js" defer></script>
     </head>
     <body>
-        <header>
-            <!-- Reemplazar por los datos que correspondan -->
-            <h1>Programación I | Parcial 2 | APELLIDO/S | Mi carrito</h1>
+        <header class="d-none">
+            <p>Programación I | Parcial 2 | APELLIDO/S | Mi carrito</p>
         </header>
         <main>
             <!-- Este es un ejemplo de contenedor de carrito -->
@@ -21,10 +24,10 @@
                 <p>$<span>0</span> es el total</p>
                 <!-- Estos filtros pueden ser links, botones, menu desplegable. Sugiero generarlos dinamicamente -->
                 <p>Filtrar por <a href="#">Categoría 1</a> | <a href="#">Categoría 2</a> | <a href="#">Categoría 3</a></p>
-                <button>Ver carrito</button>
+                <button id="verCarrito">Ver carrito</button>
             </div>
-            <h2>Productos</h2>
-            
+            <h1>Productos</h1>
+
             <div id="productos">
                 <!-- Aca irian los productos -->
             </div>
@@ -32,18 +35,20 @@
         </main>
 
         <footer>
-            <ul>
-                <li>Profesor Fabrizio Carlassara</li>
+            <ul class="footer-list">
+                <li>
+                    Profesor Fabrizio Carlassara
+                </li>
                 <li>
                     <a href="mailto:fabrizio.carlassara@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre" target="_blank">fabrizio.carlassara@davinci.edu.ar</a>
                 </li>
-                <li>Programación 1</li>
                 <li>
-                    <!-- Reemplazar por el link del repositorio de GitHub -->
-                    <a href="#">URL del repo de GitHub</a>
+                    Programación 1
+                </li>
+                <li>
+                    <a href="https://github.com/corbalan-nicolas/p1-parcial-2" target="_blank">Repo de Github</a>
                 </li>
             </ul>
         </footer>
-        
     </body>
 </html>

@@ -3,8 +3,16 @@
         "id": 1,
         "nombre": "Producto",
         "descripcion": "Descripción del producto",
-        "precio": 0,
+        "precio": 10,
         "imagen": "images/producto-de-ejemplo.jpg",
-        "categoría": "Nombre de la categoría"
+        "categoria": "Nombre de la categoria"
+    },
+    {
+        "id": 2,
+        "nombre": "Producto 2",
+        "descripcion": "Descripción del producto 2",
+        "precio": 20,
+        "imagen": "images/producto-de-ejemplo.jpg",
+        "categoria": "Nombre de la categoria"
     }
 ]

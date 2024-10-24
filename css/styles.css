@@ -1,0 +1,37 @@
+:root {
+    --bg-color-1: #222;
+    --txt-color-1: #f0f0f0;
+    --link-color-1: #6fb3ef;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 1680px;
+
+    background-color: var(--bg-color-1);
+    color: var(--txt-color-1);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: var(--link-color-1);
+}
+
+.d-none {
+    display: none;
+}
+
+@media (width > 1280px) {
+    .footer-list {
+        display: flex;
+        justify-content: space-between;
+    }
+}
