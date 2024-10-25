@@ -6,6 +6,9 @@
 
 // VARIABLES ------------------------------------------------------------------------------------------------------------------
 // arrays
+
+
+
 const productos = [];
 const carrito = [];
 
@@ -14,7 +17,7 @@ const $contenedorProductos = document.querySelector("#productos");
 const $verCarrito = document.querySelector("#verCarrito");
 
 // objetos
-const CATEGORIAS = {
+const GENEROS = {
     1 : "Metroidvania",
     2 : "Videojuego de pelea",
     3 : "Plataforma",
@@ -26,7 +29,11 @@ const CATEGORIAS = {
     9 : "Estrategia"
 }
 
+
+
 // JSON -----------------------------------------------------------------------------------------------------------------------
+
+
 
 fetch("productos.json").then(response => response.json()).then(productoJson => {
     productoJson.forEach((producto)=> {
@@ -37,7 +44,7 @@ fetch("productos.json").then(response => response.json()).then(productoJson => {
             producto.descripcion,
             producto.precio,
             producto.imagenes,
-            producto.categorias
+            producto.generos
         );
         // Lo pusheo en el array
         productos.push(obj);
@@ -45,14 +52,79 @@ fetch("productos.json").then(response => response.json()).then(productoJson => {
     mostrarProductos(productos);
 });
 
-// MOSTRAR PRODUCTOS ----------------------------------------------------------------------------------------------------------
 
+
+// MOSTRAR --------------------------------------------------------------------------------------------------------------------
+
+
+
+/**
+ * Función que muestra todos los productos pasados como argumento en el html
+ * @param {Array} arrayProductos productos los cuales mostrará en pantalla
+ */
 function mostrarProductos(arrayProductos) {
+    // Borro todo lo que tenía antes
+    $contenedorProductos.innerHTML = "";
+    // Recorro el array que pasaron como argumento y lo muestro
     arrayProductos.forEach((producto)=> {
-        console.log($contenedorProductos);
         $contenedorProductos.append(producto.generarEstructuraHtml());
     })
 }
+
+/*
+ * Genero los filtros de forma dinámica
+ */
+const $aside = document.createElement("aside"); // Contenedor general
+const $ul = document.createElement("ul"); // ul con los filtros
+const $li = document.createElement("li"); // cada tipo de filtro
+const $a = document.createElement("a");
+const $tipoFiltro = document.createElement("span");
+const $icono = document.createElement("span");
+const $contenido = document.createElement("span");
+
+$tipoFiltro.innerText = "Filtrar por género";
+$icono.innerText = "🔽";
+
+$a.setAttribute("href", "#");
+$a.classList.add("titulo");
+$contenido.classList.add("contenido");
+
+$a.append($tipoFiltro, $icono);
+
+// filtros por género (array)
+for(let i in GENEROS) {
+    // Creo los elementos
+    const $label = document.createElement("label");
+    const $checkbox = document.createElement("input");
+    const $texto = document.createElement("span");
+
+    // Atributos
+    $label.setAttribute("for", "genero" + GENEROS[i]);
+    $checkbox.setAttribute("type", "checkbox");
+    $checkbox.setAttribute("id", "genero" + GENEROS[i]);
+
+    // Contenido
+    $texto.innerText = GENEROS[i];
+
+    // Copilación de elementos
+    $label.append($checkbox, $texto);
+    $contenido.append($label);
+}
+
+$li.append($a, $contenido);
+$ul.append($li);
+$aside.append($ul);
+document.body.prepend($aside);
+/*
+<li>
+    <a href="#" class="titulo"><span>Ítem 02</span> <span>🔽</span></a>
+    <span class="contenido">
+        <label for="id-check"><input id="id-check" type="checkbox"><span>GENERO</span></label>
+    </span>
+</li>
+*/
+
+
 
 // EVENTOS --------------------------------------------------------------------------------------------------------------------
 $verCarrito.addEventListener("click", ()=> {

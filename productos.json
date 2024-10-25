@@ -19,7 +19,7 @@
             "./img/celeste_slide_11.jpg",
             "./img/celeste_slide_12.jpg"
         ],
-        "categorias": [3, 4]
+        "generos": [3, 4]
     },
     {
         "id": 2,
@@ -44,7 +44,7 @@
             "./img/hollow_knight_slide_14.jpg",
             "./img/hollow_knight_slide_15.jpg"
         ],
-        "categorias": [1, 2]
+        "generos": [1, 2]
     },
     {
         "id": 3,
@@ -80,7 +80,7 @@
             "./img/ori_wisps_slide_25.jpg",
             "./img/ori_wisps_slide_26.jpg"
         ],
-        "categorias": [1, 2, 5]
+        "generos": [1, 2, 5]
     },
     {
         "id": 4,
@@ -100,7 +100,7 @@
             "./img/street_fighter_6_slide_9.jpg",
             "./img/street_fighter_6_slide_10.jpg"
         ],
-        "categorias": [4, 2, 6]
+        "generos": [4, 2, 6]
     },
     {
         "id": 5,
@@ -121,7 +121,7 @@
             "./img/animal_well_slide_10.jpg",
             "./img/animal_well_slide_11.jpg"
         ],
-        "categorias": [1, 7, 4]
+        "generos": [1, 7, 4]
     },
     {
         "id": 6,
@@ -144,7 +144,7 @@
             "./img/fez_slide_12.jpg",
             "./img/fez_slide_13.jpg"
         ],
-        "categorias": [3, 7]
+        "generos": [3, 7]
     },
     {
         "id": 7,
@@ -165,7 +165,7 @@
             "./img/portal_slide_10.jpg",
             "./img/portal_slide_11.jpg"
         ],
-        "categorias": [7, 3, 8]
+        "generos": [7, 3, 8]
     },
     {
         "id": 8,
@@ -194,6 +194,6 @@
             "./img/bg3_slide_18.jpg",
             "./img/bg3_slide_19.jpg"
         ],
-        "categorias": [9, 6, 4]
+        "generos": [9, 6, 4]
     }
 ]

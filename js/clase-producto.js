@@ -20,6 +20,7 @@ class Producto {
     generarEstructuraHtml() {
         // Creación de elementos
         const $contenedor = document.createElement("article");
+        const $contenido = document.createElement("div");
         const $nombre = document.createElement("h2");
         const $descripcion = document.createElement("p");
         const $precio = document.createElement("p");
@@ -30,7 +31,6 @@ class Producto {
         // Atributos
         $contenedor.setAttribute("data-id", this.#id);
         $contenedor.className = "producto";
-        console.log(this.#imagen);
         $img.setAttribute("src", this.#imagen[0]);
         $img.setAttribute("alt", "Foto del producto", this.#imagen);
 
@@ -42,9 +42,9 @@ class Producto {
         $btn.innerText = "Agregar al carrito";
 
         // Copilación de elementos
-        $contenedor.append($nombre, $img, $precio, $categorias, $btn);
+        $contenido.append($nombre, $img, $precio, $categorias);
+        $contenedor.append($contenido, $btn);
 
-        console.log($contenedor);
         return $contenedor;
     }
 
