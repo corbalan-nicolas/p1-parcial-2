@@ -6,38 +6,53 @@
 
 // VARIABLES ------------------------------------------------------------------------------------------------------------------
 // arrays
-let productos = [];
+const productos = [];
 const carrito = [];
 
 // dom
-const $productos = document.querySelector("#productos");
+const $contenedorProductos = document.querySelector("#productos");
 const $verCarrito = document.querySelector("#verCarrito");
 
-console.log($productos);
 // objetos
 const CATEGORIAS = {
-    1 : "Comidas",
-    2 : "Recuerdos",
-    3 : "Papita"
+    1 : "Metroidvania",
+    2 : "Videojuego de pelea",
+    3 : "Plataforma",
+    4 : "Aventura",
+    5 : "Disparos",
+    6 : "Rol",
+    7 : "Logica",
+    8 : "Disparos en primera persona",
+    9 : "Estrategia"
 }
 
 // JSON -----------------------------------------------------------------------------------------------------------------------
+
 fetch("productos.json").then(response => response.json()).then(productoJson => {
-    productos = productoJson.map((producto)=> {
-        return new Producto(
+    productoJson.forEach((producto)=> {
+        // Guardo el producto en una variable
+        const obj = new Producto(
             producto.id,
             producto.nombre,
             producto.descripcion,
             producto.precio,
-            producto.imagen,
-            producto.categoria
+            producto.imagenes,
+            producto.categorias
         );
+        // Lo pusheo en el array
+        productos.push(obj);
     });
-
-    // console.log(productos);
+    mostrarProductos(productos);
 });
 
 // MOSTRAR PRODUCTOS ----------------------------------------------------------------------------------------------------------
+
+function mostrarProductos(arrayProductos) {
+    arrayProductos.forEach((producto)=> {
+        console.log($contenedorProductos);
+        $contenedorProductos.append(producto.generarEstructuraHtml());
+    })
+}
 
 // EVENTOS --------------------------------------------------------------------------------------------------------------------
 $verCarrito.addEventListener("click", ()=> {
