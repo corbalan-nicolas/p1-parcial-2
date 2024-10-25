@@ -11,6 +11,7 @@
 
 const productos = [];
 const carrito = [];
+const filtrosPorGenero = [];
 
 // dom
 const $contenedorProductos = document.querySelector("#productos");
@@ -101,6 +102,7 @@ for(let i in GENEROS) {
     // Atributos
     $label.setAttribute("for", "genero" + GENEROS[i]);
     $checkbox.setAttribute("type", "checkbox");
+    $checkbox.setAttribute("data-i", i);
     $checkbox.setAttribute("id", "genero" + GENEROS[i]);
 
     // Contenido
@@ -130,4 +132,20 @@ document.body.prepend($aside);
 $verCarrito.addEventListener("click", ()=> {
     // Abrir modal y etc etc
     console.log(carrito);
+})
+
+const $listaCheckbox = document.querySelectorAll("aside input[type='checkbox']");
+
+$listaCheckbox.forEach(($checkbox)=> {
+    $checkbox.addEventListener("click", (ev)=>{
+        if(ev.currentTarget.checked) {
+            filtrosPorGenero.push(+ev.currentTarget.dataset.i);
+        }else {
+            let posicion = filtrosPorGenero.indexOf(+ev.currentTarget.dataset.i);
+            filtrosPorGenero.splice(posicion, ++posicion);
+        }
+
+        const productosFiltrados = productos.filter(producto => producto.tieneGeneros(filtrosPorGenero));
+        mostrarProductos(productosFiltrados);
+    })
 })

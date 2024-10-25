@@ -5,16 +5,16 @@ class Producto {
     #nombre; // str
     #descripcion; // str
     #precio; // int
-    #imagen; // str
-    #categoria; // str
+    #imagenes; // str
+    #generos; // str
 
-    constructor(id, nombre, descripcion, precio, imagen, categoria){
+    constructor(id, nombre, descripcion, precio, imagenes, generos){
         this.#id = id;
         this.#nombre = nombre;
         this.#descripcion = descripcion;
         this.#precio = precio;
-        this.#imagen = imagen;
-        this.#categoria = categoria;
+        this.#imagenes = imagenes;
+        this.#generos = generos;
     }
 
     generarEstructuraHtml() {
@@ -31,14 +31,14 @@ class Producto {
         // Atributos
         $contenedor.setAttribute("data-id", this.#id);
         $contenedor.className = "producto";
-        $img.setAttribute("src", this.#imagen[0]);
-        $img.setAttribute("alt", "Foto del producto", this.#imagen);
+        $img.setAttribute("src", this.#imagenes[0]);
+        $img.setAttribute("alt", "Foto del producto", this.#imagenes);
 
         // Contenido
         $nombre.innerText = this.#nombre;
         $descripcion.innerText = this.#descripcion;
         $precio.innerText = this.#precio;
-        $categorias.innerText = this.#categoria;
+        $categorias.innerText = this.#generos;
         $btn.innerText = "Agregar al carrito";
 
         // Copilación de elementos
@@ -48,7 +48,24 @@ class Producto {
         return $contenedor;
     }
 
+    tieneGeneros(generos) {
+        for(const genero of generos) {
+            if(this.#generos.includes(genero)) {
+                continue;
+            }else {
+                return false;
+            }
+        }
+        return true;
+    }
+
     get getPrecio(){
         return this.#precio;
+    }
+
+
+
+    get getNombre() {
+        return this.#nombre;
     }
 }
