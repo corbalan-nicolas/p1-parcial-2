@@ -19,15 +19,29 @@ const $verCarrito = document.querySelector("#verCarrito");
 
 // objetos
 const GENEROS = {
-    1 : "Metroidvania",
     2 : "Videojuego de pelea",
-    3 : "Plataforma",
+    1 : "Metroidvania",
+    3 : "Plataformas",
     4 : "Aventura",
-    5 : "Disparos",
-    6 : "Rol",
+    5 : "Shooter",
+    6 : "Rol (RPG)",
     7 : "Logica",
-    8 : "Disparos en primera persona",
-    9 : "Estrategia"
+    8 : "Shooter en 1ra persona",
+    9 : "Estrategia",
+    10 : "Simulación",
+    11 : "Mundo abierto",
+    12 : "Supervivencia",
+    13 : "Acción",
+    14 : "Shooter en 3ra persona",
+    15 : "Rítmico",
+    16 : "Habilidad",
+    17 : "Multijugador cooperativo",
+    18 : "Survival Horror",
+    19 : "Puzzle",
+    20 : "Beat 'em up",
+    21 : "Física",
+    22 : "Roguelike",
+    23 : "Gestión de recursos"
 }
 
 

@@ -195,5 +195,243 @@
             "./img/bg3_slide_19.jpg"
         ],
         "generos": [9, 6, 4]
+    },
+    {
+        "id": 9,
+        "nombre": "Project Zomboid",
+        "descripcion": "Project Zomboid es la máxima experiencia en supervivencia de zombies. Solo o en multijugador: saqueas, construyes, fabricas, luchas, cultivas y pescas en una lucha por sobrevivir. Un conjunto de habilidades RPG hardcore, un mapa extenso, un sandbox masivamente personalizable y un adorable mapache tutorial esperan a los desprevenidos. ¿Y tú, cómo morirás? Solo se necesita una mordida.",
+        "precio": 16999.99,
+        "imagenes": [
+            "./img/project_zomboid_portada.jpg",
+            "./img/project_zomboid_slide_1.jpg",
+            "./img/project_zomboid_slide_2.jpg",
+            "./img/project_zomboid_slide_3.jpg",
+            "./img/project_zomboid_slide_4.jpg",
+            "./img/project_zomboid_slide_5.jpg",
+            "./img/project_zomboid_slide_6.jpg",
+            "./img/project_zomboid_slide_7.jpg",
+            "./img/project_zomboid_slide_8.jpg",
+            "./img/project_zomboid_slide_9.jpg",
+            "./img/project_zomboid_slide_10.jpg",
+            "./img/project_zomboid_slide_11.jpg"
+        ],
+        "generos": [6, 10, 11, 12]
+    },
+    {
+        "id": 10,
+        "nombre": "Grand Theft Auto V",
+        "descripcion": "Grand Theft Auto V para PC ofrece a los jugadores la opción de explorar el galardonado mundo de Los Santos y el condado de Blaine con una resolución de 4K y disfrutar del juego a 60 fotogramas por segundo.",
+        "precio": 39599.99,
+        "imagenes": [
+            "./img/gta_v_portada.jpg",
+            "./img/gta_v_slide_1.jpg",
+            "./img/gta_v_slide_2.jpg",
+            "./img/gta_v_slide_3.jpg",
+            "./img/gta_v_slide_4.jpg",
+            "./img/gta_v_slide_5.jpg",
+            "./img/gta_v_slide_6.jpg",
+            "./img/gta_v_slide_7.jpg",
+            "./img/gta_v_slide_8.jpg",
+            "./img/gta_v_slide_9.jpg",
+            "./img/gta_v_slide_10.jpg",
+            "./img/gta_v_slide_11.jpg"
+        ],
+        "generos": [4, 6, 11, 13, 14]
+    },
+    {
+        "id": 11,
+        "nombre": "Geometry Dash",
+        "descripcion": "¡Salta y vuela a través del peligro en este juego de plataformas de acción basado en ritmos!",
+        "precio": 4899.99,
+        "imagenes": [
+            "./img/gd_portada.jpg",
+            "./img/gd_slide_1.jpg",
+            "./img/gd_slide_2.jpg",
+            "./img/gd_slide_3.jpg",
+            "./img/gd_slide_4.jpg",
+            "./img/gd_slide_5.jpg",
+            "./img/gd_slide_6.jpg",
+            "./img/gd_slide_7.jpg",
+            "./img/gd_slide_8.jpg",
+            "./img/gd_slide_9.jpg",
+            "./img/gd_slide_10.jpg",
+            "./img/gd_slide_11.jpg"
+        ],
+        "generos": [3, 15, 16]
+    },
+    {
+        "id": 12,
+        "nombre": "Just Shapes & Beats",
+        "descripcion": "'Just Shapes & Beats' es un caótico juego cooperativo de bullet-hell musical basado en tres cosas simples: evita las Formas, muévete al ritmo de los increíbles Beats y muere, repetidamente.",
+        "precio": 14699.99,
+        "imagenes": [
+            "./img/shapes_beats_portada.jpg",
+            "./img/shapes_beats_slide_1.jpg",
+            "./img/shapes_beats_slide_2.jpg",
+            "./img/shapes_beats_slide_3.jpg",
+            "./img/shapes_beats_slide_4.jpg",
+            "./img/shapes_beats_slide_5.jpg"
+        ],
+        "generos": [15, 13, 17]
+    },
+    {
+        "id": 13,
+        "nombre": "Amnesia: The Dark Descent",
+        "descripcion": "Amnesia: The Dark Descent es un juego de survival horror en primera persona. Una experiencia sobre la inmersión, el descubrimiento y vivir una pesadilla. Un juego que te helará hasta los huesos.",
+        "precio": 32599.99,
+        "imagenes": [
+            "./img/amnesia_dark_descent_portada.jpg",
+            "./img/amnesia_dark_descent_slide_1.jpg",
+            "./img/amnesia_dark_descent_slide_2.jpg",
+            "./img/amnesia_dark_descent_slide_3.jpg",
+            "./img/amnesia_dark_descent_slide_4.jpg",
+            "./img/amnesia_dark_descent_slide_5.jpg",
+            "./img/amnesia_dark_descent_slide_6.jpg"
+        ],
+        "generos": [4, 18, 19]
+    },
+    {
+        "id": 14,
+        "nombre": "Amnesia: A Machine for Pigs",
+        "descripcion": "De los creadores de Amnesia: The Dark Descent y Dear Esther llega un nuevo juego de horror en primera persona que te llevará a las profundidades de la avaricia, el poder y la locura. Te confrontará con desafíos aterradores y te hará sentir el peso de tus decisiones",
+        "precio": 32599.99,
+        "imagenes": [
+            "./img/amnesia_pigs_portada.jpg",
+            "./img/amnesia_pigs_slide_1.jpg",
+            "./img/amnesia_pigs_slide_2.jpg",
+            "./img/amnesia_pigs_slide_3.jpg",
+            "./img/amnesia_pigs_slide_4.jpg",
+            "./img/amnesia_pigs_slide_5.jpg",
+            "./img/amnesia_pigs_slide_6.jpg",
+            "./img/amnesia_pigs_slide_7.jpg",
+            "./img/amnesia_pigs_slide_8.jpg",
+            "./img/amnesia_pigs_slide_9.jpg"
+        ],
+        "generos": [4, 18, 19]
+    },
+    {
+        "id": 15,
+        "nombre": "Blasphemous",
+        "descripcion": "Blasphemous es un juego de acción y plataformas muy difícil que combina el ritmo rápido y el combate de un hack-n-slash con una narrativa profunda y evocadora, presentada al explorar un universo enorme hecho de niveles no lineales",
+        "precio": 4999.99,
+        "imagenes": [
+            "./img/blasphemous_portada.jpg",
+            "./img/blasphemous_slide_1.jpg",
+            "./img/blasphemous_slide_2.jpg",
+            "./img/blasphemous_slide_3.jpg",
+            "./img/blasphemous_slide_4.jpg",
+            "./img/blasphemous_slide_5.jpg",
+            "./img/blasphemous_slide_6.jpg",
+            "./img/blasphemous_slide_7.jpg",
+            "./img/blasphemous_slide_8.jpg",
+            "./img/blasphemous_slide_9.jpg",
+            "./img/blasphemous_slide_10.jpg",
+            "./img/blasphemous_slide_11.jpg",
+            "./img/blasphemous_slide_12.jpg",
+            "./img/blasphemous_slide_13.jpg",
+            "./img/blasphemous_slide_14.jpg",
+            "./img/blasphemous_slide_15.jpg",
+            "./img/blasphemous_slide_16.jpg",
+            "./img/blasphemous_slide_17.jpg",
+            "./img/blasphemous_slide_18.jpg"
+        ],
+        "generos": [13, 4, 1, 3]
+    },
+    {
+        "id": 16,
+        "nombre": "Castle Crashers",
+        "descripcion": "¡Hackea, corta y aplasta tu camino hacia la victoria en esta galardonada aventura arcade en 2D de The Behemoth!",
+        "precio": 12999.99,
+        "imagenes": [
+            "./img/castle_crashers_portada.jpg",
+            "./img/castle_crashers_slide_1.jpg",
+            "./img/castle_crashers_slide_2.jpg",
+            "./img/castle_crashers_slide_3.jpg",
+            "./img/castle_crashers_slide_4.jpg",
+            "./img/castle_crashers_slide_5.jpg",
+            "./img/castle_crashers_slide_6.jpg",
+            "./img/castle_crashers_slide_7.jpg",
+            "./img/castle_crashers_slide_8.jpg",
+            "./img/castle_crashers_slide_9.jpg",
+            "./img/castle_crashers_slide_10.jpg",
+            "./img/castle_crashers_slide_11.jpg",
+            "./img/castle_crashers_slide_12.jpg"
+        ],
+        "generos": [4, 13, 20, 6, 17]
+    },
+    {
+        "id": 17,
+        "nombre": "Clustertruck",
+        "descripcion": "Clustertruck es un caótico juego de plataformas basado en física. ¡Salta a través de niveles locos en un juego de 'el suelo es lava' sobre camiones en movimiento conducidos por pésimos conductores!",
+        "precio": 12999.99,
+        "imagenes": [
+            "./img/clustertruck_portada.jpg",
+            "./img/clustertruck_slide_1.jpg",
+            "./img/clustertruck_slide_2.jpg",
+            "./img/clustertruck_slide_3.jpg",
+            "./img/clustertruck_slide_4.jpg",
+            "./img/clustertruck_slide_5.jpg",
+            "./img/clustertruck_slide_6.jpg",
+            "./img/clustertruck_slide_7.jpg",
+            "./img/clustertruck_slide_8.jpg",
+            "./img/clustertruck_slide_9.jpg",
+            "./img/clustertruck_slide_10.jpg",
+            "./img/clustertruck_slide_11.jpg",
+            "./img/clustertruck_slide_12.jpg"
+        ],
+        "generos": [3, 13, 16, 21]
+    },
+    {
+        "id": 18,
+        "nombre": "Cult of the Lamb",
+        "descripcion": "Empieza tu propia secta en una tierra de falsos profetas, aventúrate a través de las diversas y misteriosas regiones para construir una comunidad fiel de adeptos del bosque, y difunde tu Palabra para convertir tu secta en la única y verdadera.",
+        "precio": 19999.99,
+        "imagenes": [
+            "./img/cult_lamb_portada.jpg",
+            "./img/cult_lamb_slide_1.jpg",
+            "./img/cult_lamb_slide_2.jpg",
+            "./img/cult_lamb_slide_3.jpg",
+            "./img/cult_lamb_slide_4.jpg",
+            "./img/cult_lamb_slide_5.jpg",
+            "./img/cult_lamb_slide_6.jpg",
+            "./img/cult_lamb_slide_7.jpg",
+            "./img/cult_lamb_slide_8.jpg",
+            "./img/cult_lamb_slide_9.jpg",
+            "./img/cult_lamb_slide_10.jpg",
+            "./img/cult_lamb_slide_11.jpg",
+            "./img/cult_lamb_slide_12.jpg",
+            "./img/cult_lamb_slide_13.jpg",
+            "./img/cult_lamb_slide_14.jpg",
+            "./img/cult_lamb_slide_15.jpg",
+            "./img/cult_lamb_slide_16.jpg",
+            "./img/cult_lamb_slide_17.jpg",
+            "./img/cult_lamb_slide_18.jpg",
+            "./img/cult_lamb_slide_19.jpg",
+            "./img/cult_lamb_slide_20.jpg",
+            "./img/cult_lamb_slide_21.jpg",
+            "./img/cult_lamb_slide_22.jpg",
+            "./img/cult_lamb_slide_23.jpg"
+        ],
+        "generos": [4, 13, 10, 22, 23]
+    },
+    {
+        "id": 19,
+        "nombre": "Cuphead",
+        "descripcion": "Cuphead es un clásico juego de acción de correr y disparar, centrado en batallas contra jefes. Inspirado en los dibujos animados de la década de 1930, los visuales y el audio se crean meticulosamente utilizando las mismas técnicas de la época, es decir, animación tradicional dibujada a mano, fondos en acuarela y grabaciones de jazz originales.",
+        "precio": 31999.99,
+        "imagenes": [
+            "./img/cuphead_portada.jpg",
+            "./img/cuphead_slide_1.jpg",
+            "./img/cuphead_slide_2.jpg",
+            "./img/cuphead_slide_3.jpg",
+            "./img/cuphead_slide_4.jpg",
+            "./img/cuphead_slide_5.jpg",
+            "./img/cuphead_slide_6.jpg",
+            "./img/cuphead_slide_7.jpg",
+            "./img/cuphead_slide_8.jpg",
+            "./img/cuphead_slide_9.jpg",
+            "./img/cuphead_slide_10.jpg"
+        ],
+        "generos": [3, 13, 5]
     }
 ]
