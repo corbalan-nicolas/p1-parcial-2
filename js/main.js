@@ -65,11 +65,14 @@ fetch("productos.json").then(response => response.json()).then(productoJson => {
  */
 function mostrarProductos(arrayProductos) {
     // Borro todo lo que tenía antes
-    $contenedorProductos.innerHTML = "";
+    $contenedorProductos.innerText = "";
     // Recorro el array que pasaron como argumento y lo muestro
     arrayProductos.forEach((producto)=> {
         $contenedorProductos.append(producto.generarEstructuraHtml());
     })
+    // Le agrego los eventos clicks a todos los botones
+    const $botones = document.querySelectorAll(".agregar-producto");
+    asignarEventoClick($botones);
 }
 
 /*
@@ -118,6 +121,7 @@ $ul.append($li);
 $aside.append($ul);
 document.body.prepend($aside);
 /*
+// Estructura de cada filtro
 <li>
     <a href="#" class="titulo"><span>Ítem 02</span> <span>🔽</span></a>
     <span class="contenido">
@@ -149,3 +153,14 @@ $listaCheckbox.forEach(($checkbox)=> {
         mostrarProductos(productosFiltrados);
     })
 })
+
+function asignarEventoClick(nodeList) {
+    nodeList.forEach((btn)=> {
+        btn.addEventListener("click", (ev)=> {
+            const productoId = +ev.currentTarget.parentNode.dataset.id
+            // Para que no se repita el producto
+            carrito.push(productoId);
+            console.log(carrito);
+        })
+    })
+}

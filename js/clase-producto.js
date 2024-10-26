@@ -31,13 +31,14 @@ class Producto {
         // Atributos
         $contenedor.setAttribute("data-id", this.#id);
         $contenedor.className = "producto";
-        $img.setAttribute("src", this.#imagenes[0]);
-        $img.setAttribute("alt", "Foto del producto", this.#imagenes);
+        $btn.className = "agregar-producto";
 
         // Contenido
         $nombre.innerText = this.#nombre;
+        $img.setAttribute("src", this.#imagenes[0]);
+        $img.setAttribute("alt", "Foto del producto", this.#imagenes);
         $descripcion.innerText = this.#descripcion;
-        $precio.innerText = this.#precio;
+        $precio.innerText = this.#precio + " ARS$";
         $categorias.innerText = this.#generos;
         $btn.innerText = "Agregar al carrito";
 
@@ -61,11 +62,5 @@ class Producto {
 
     get getPrecio(){
         return this.#precio;
-    }
-
-
-
-    get getNombre() {
-        return this.#nombre;
     }
 }
