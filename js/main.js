@@ -10,6 +10,8 @@
 
 
 const productos = [];
+// https://store.steampowered.com/
+// https://chatgpt.com/
 const carrito = [];
 const filtrosPorGenero = [];
 
@@ -174,7 +176,17 @@ function asignarEventoClick(nodeList) {
             const productoId = +ev.currentTarget.parentNode.dataset.id
             // Para que no se repita el producto
             carrito.push(productoId);
-            console.log(carrito);
+            // console.log(carrito);
+            actualizarCarrito();
         })
     })
+}
+
+function actualizarCarrito() {
+    const $span = document.querySelector("#cantidadProductos");
+    $span.innerText = carrito.length;
+    $span.parentNode.classList.add("activo");
+    if (carrito.length === 0) {
+        $span.parentNode.classList.remove("activo");
+    }
 }

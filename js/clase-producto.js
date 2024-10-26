@@ -39,7 +39,12 @@ class Producto {
         $img.setAttribute("alt", "Foto del producto", this.#imagenes);
         $descripcion.innerText = this.#descripcion;
         $precio.innerText = this.#precio + " ARS$";
-        $categorias.innerText = this.#generos;
+        // Generos
+        for(const genero of this.#generos) {
+            const $span = document.createElement("span");
+            $span.innerText = GENEROS[genero];
+            $categorias.append($span);
+        }
         $btn.innerText = "Agregar al carrito";
 
         // Copilación de elementos
@@ -57,6 +62,7 @@ class Producto {
                 return false;
             }
         }
+        //Si recorrió todo el for y no retornó falso, significa que tiene todos los generos
         return true;
     }
 
