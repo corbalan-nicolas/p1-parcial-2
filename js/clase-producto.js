@@ -54,6 +54,64 @@ class Producto {
         return $contenedor;
     }
 
+    generarModal() {
+        // ELEMENTOS (la mayoría)
+        const $modal = document.createElement("dialog");
+        const $nombre = document.createElement("h2");
+        const $imgGrande = document.createElement("img");
+        const $portada = document.createElement("img");
+        const $descrip = document.createElement("p");
+        const $btnAgregar = document.createElement("button");
+        const $formCerrar = document.createElement("form");
+        const $btnCerrar = document.createElement("button");
+        const $contImagenes = document.createElement("ol");
+        const $contHeader = document.createElement("div"); // Contenedor header
+        const $contSlider = document.createElement("div"); // Contenedor slider
+        const $contConten = document.createElement("div"); // Contenedor contenido
+        const $contGenero = document.createElement("div"); // Contenedor de los géneros
+
+        // CONTENIDO
+        $nombre.innerText = this.#nombre;
+        $imgGrande.setAttribute("src", this.#imagenes[1]);
+        $imgGrande.setAttribute("alt", `Captura de pantalla N°1`);
+        $portada.setAttribute("src", this.#imagenes[0]);
+        $portada.setAttribute("alt", `Portada del juego ${this.#nombre}`);
+        $descrip.innerText = this.#descripcion;
+        $btnCerrar.innerText = "❌";
+        $btnAgregar.innerText = "Agregar al carrito";
+        for(let i = 1; i < this.#imagenes.length; i++) {
+            const $li = document.createElement("li");
+            const $img = document.createElement("img");
+            $img.setAttribute("src", this.#imagenes[i]);
+            $img.setAttribute("alt", `Captura de pantalla N°${i}`);
+
+            $li.append($img);
+            $contImagenes.append($li);
+        }
+        for(let i = 0; i < this.#generos.length; i++) {
+            const $span = document.createElement("span");
+            $span.innerText = GENEROS[this.#generos[i]];
+
+            $contGenero.append($span);
+        }
+
+        // ATRIBUTOS
+        $modal.classList.add("modal-producto");
+        $contHeader.classList.add("header");
+        $contSlider.classList.add("slider");
+        $contConten.classList.add("contenido");
+        $imgGrande.classList.add("imgGrande");
+        $formCerrar.setAttribute("method", "dialog")
+
+        // APPENDS FINALES
+        $formCerrar.append($btnCerrar);
+        $contHeader.append($nombre, $formCerrar);
+        $contSlider.append($imgGrande, $contImagenes);
+        $contConten.append($portada, $contGenero, $descrip, $btnAgregar);
+        $modal.append($contHeader, $contSlider, $contConten);
+        return $modal;
+    }
+
     tieneGeneros(generos) {
         for(const genero of generos) {
             if(this.#generos.includes(genero)) {
@@ -64,6 +122,14 @@ class Producto {
         }
         //Si recorrió todo el for y no retornó falso, significa que tiene todos los generos
         return true;
+    }
+
+    get getId() {
+        return this.#id;
+    }
+
+    get getNombre() {
+        return this.#nombre;
     }
 
     get getPrecio(){

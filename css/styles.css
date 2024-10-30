@@ -131,6 +131,47 @@ a {
     }
 }
 
+.modal-producto {
+    padding: 40px;
+    margin: auto;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 460px;
+    gap: 20px;
+
+    background-color: var(--bg-color-1);
+    color: var(--txt-color-1);
+
+    ::backdrop {
+        background-color: black;
+        opacity: 1;
+    }
+
+    .header {
+        grid-row: 1 / 2;
+        grid-column: 1 / -1;
+
+        display: flex;
+        justify-content: space-between;
+    }
+    .slider {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+        .imgGrande { width: 600px; }
+        ol {
+            display: flex;
+            overflow: auto;
+            width: 600px;
+            img { width: 150px; }
+        }
+    }
+    .contenido {
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+    }
+}
+
 @media (width > 1280px) {
     .footer-list {
         display: flex;

@@ -11,6 +11,7 @@
 
         <!-- SCRIPTS -->
         <script src="js/clase-producto.js" defer></script>
+        <script src="js/clase-carrito.js" defer></script>
         <script src="js/main.js" defer></script>
     </head>
     <body>
@@ -28,6 +29,22 @@
                 <!-- Aca irian los productos -->
             </div>
         </main>
+        <aside class="aside">
+            <input id="buscador" type="text" placeholder="Buscar" aria-label="Buscar" autocomplete="off">
+            <li>
+                <a href="#" class="titulo"><span>Filtrar por precio</span> <span>🔽</span></a>
+                <span class="contenido">
+                    <span id="txtFiltroPrecio">Cualquier precio</span>
+                    <input id="filtroPrecio" type="range" max="100000" step="10000" value="100000">
+                </span>
+            </li>
+            <li>
+                <a href="#" class="titulo"><span>Filtrar por género</span> <span>🔽</span></a>
+                <span id="generos" class="contenido">
+                    <!-- Generados dinámicamente con JavaScript -->
+                </span>
+            </li>
+        </aside>
         <footer>
             <ul class="footer-list">
                 <li>
@@ -44,5 +61,21 @@
                 </li>
             </ul>
         </footer>
+
+        <!-- <dialog>
+            <form method="dialog">
+                <button>Cerrar modal</button>
+                <input type="checkbox">
+            </form>
+            <p>Esto es una modal!</p>
+        </dialog>
+        <script>
+            const $modal = document.querySelector("dialog");
+            $modal.showModal();
+
+            $modal.addEventListener('close', () => {
+            $modal.remove(); // Eliminamos la modal del documento cuando esta se cierra
+            })
+        </script> -->
     </body>
 </html>

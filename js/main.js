@@ -4,6 +4,10 @@
  * CORBALAN, NICOLAS LEONEL
  */
 
+/*
+    TO DO
+    - Carrito cuando tiene 2 digitos
+*/
 // VARIABLES ------------------------------------------------------------------------------------------------------------------
 // arrays
 
@@ -12,8 +16,12 @@
 const productos = [];
 // https://store.steampowered.com/
 // https://chatgpt.com/
-const carrito = [];
-const filtrosPorGenero = [];
+const carrito = new Carrito;
+
+// Filtros
+let filtroNombre = ""; // Variable para filtrar por nombre
+let filtroPrecio = Infinity; // Para filtrar por precio
+const filtroGeneros = []; // Variable para filtrar por géneros
 
 // dom
 const $contenedorProductos = document.querySelector("#productos");
@@ -79,11 +87,17 @@ fetch("productos.json").then(response => response.json()).then(productoJson => {
  * Función que muestra todos los productos pasados como argumento en el html
  * @param {Array} arrayProductos productos los cuales mostrará en pantalla
  */
-function mostrarProductos(arrayProductos) {
+function mostrarProductos(_arrayProductos = productos) {
     // Borro todo lo que tenía antes
     $contenedorProductos.innerText = "";
+
+    // Le aplico todos los filtros
+    _arrayProductos = filtrarPorNombre(_arrayProductos);
+    _arrayProductos = filtrarPorPrecio(_arrayProductos);
+    _arrayProductos = filtrarPorGenero(_arrayProductos);
+
     // Recorro el array que pasaron como argumento y lo muestro
-    arrayProductos.forEach((producto)=> {
+    _arrayProductos.forEach((producto)=> {
         $contenedorProductos.append(producto.generarEstructuraHtml());
     })
     // Le agrego los eventos clicks a todos los botones
@@ -94,23 +108,7 @@ function mostrarProductos(arrayProductos) {
 /*
  * Genero los filtros de forma dinámica
  */
-const $aside = document.createElement("aside"); // Contenedor general
-const $ul = document.createElement("ul"); // ul con los filtros
-const $li = document.createElement("li"); // cada tipo de filtro
-const $a = document.createElement("a");
-const $tipoFiltro = document.createElement("span");
-const $icono = document.createElement("span");
-const $contenido = document.createElement("span");
-
-$tipoFiltro.innerText = "Filtrar por género";
-$icono.innerText = "🔽";
-
-$a.setAttribute("href", "#");
-$a.classList.add("titulo");
-$contenido.classList.add("contenido");
-
-$a.append($tipoFiltro, $icono);
-
+const $contenedor = document.getElementById("generos");
 // filtros por género (array)
 for(let i in GENEROS) {
     // Creo los elementos
@@ -129,64 +127,110 @@ for(let i in GENEROS) {
 
     // Copilación de elementos
     $label.append($checkbox, $texto);
-    $contenido.append($label);
+    $contenedor.append($label);
 }
-
-$li.append($a, $contenido);
-$ul.append($li);
-$aside.append($ul);
-document.body.prepend($aside);
-/*
-// Estructura de cada filtro
-<li>
-    <a href="#" class="titulo"><span>Ítem 02</span> <span>🔽</span></a>
-    <span class="contenido">
-        <label for="id-check"><input id="id-check" type="checkbox"><span>GENERO</span></label>
-    </span>
-</li>
-*/
 
 
 
 // EVENTOS --------------------------------------------------------------------------------------------------------------------
 $verCarrito.addEventListener("click", ()=> {
     // Abrir modal y etc etc
-    console.log(carrito);
+    carrito.consola();
 })
 
+document.querySelector("#buscador").addEventListener("input", ()=> {
+    filtroNombre = document.querySelector("#buscador").value;
+
+    mostrarProductos();
+})
+
+document.querySelector("#filtroPrecio").addEventListener("change", (ev)=> {
+    const $span = document.querySelector("#txtFiltroPrecio");
+    const value = parseInt(ev.currentTarget.value);
+
+    filtroPrecio = value;
+
+    $span.innerText = `Menos de ${value}`; // En caso de que el value sea min o max, el texto se reemplazará
+    if(value >= ev.currentTarget.max){ $span.innerText = "Cualquier precio" }
+    if(value <= ev.currentTarget.min){ $span.innerText = "Gratuito" }
+
+    mostrarProductos();
+})
 const $listaCheckbox = document.querySelectorAll("aside input[type='checkbox']");
 
 $listaCheckbox.forEach(($checkbox)=> {
     $checkbox.addEventListener("click", (ev)=>{
         if(ev.currentTarget.checked) {
-            filtrosPorGenero.push(+ev.currentTarget.dataset.i);
+            filtroGeneros.push(+ev.currentTarget.dataset.i);
         }else {
-            let posicion = filtrosPorGenero.indexOf(+ev.currentTarget.dataset.i);
-            filtrosPorGenero.splice(posicion, ++posicion);
+            let posicion = filtroGeneros.indexOf(+ev.currentTarget.dataset.i);
+            filtroGeneros.splice(posicion, ++posicion);
         }
 
-        const productosFiltrados = productos.filter(producto => producto.tieneGeneros(filtrosPorGenero));
-        mostrarProductos(productosFiltrados);
+        mostrarProductos();
     })
 })
 
 function asignarEventoClick(nodeList) {
-    nodeList.forEach((btn)=> {
-        btn.addEventListener("click", (ev)=> {
+    nodeList.forEach(($btn)=> {
+        $btn.addEventListener("click", (ev)=> {
             const productoId = +ev.currentTarget.parentNode.dataset.id
             // Para que no se repita el producto
-            carrito.push(productoId);
+            carrito.agregarProducto(productoId);
             // console.log(carrito);
             actualizarCarrito();
+        })
+
+        $btn.previousElementSibling.querySelector("img").addEventListener("click", (ev)=> {
+            const productoId = parseInt(ev.currentTarget.parentNode.parentNode.dataset.id);
+            const busqueda = productos.find(producto => producto.getId === productoId);
+
+            const $modal = busqueda.generarModal();
+            document.body.append($modal);
+            $modal.showModal();
+
+            const $imgGrande = document.querySelector(".imgGrande");
+            const $imgChicas = document.querySelectorAll("ol img");
+            const $scroll = "h";
+
+            console.log($imgChicas[1].parentNode.scroll());
+
+            // $contenedor.scrollLeft += 150px;
+
+            $imgChicas.forEach(($img)=> {
+                $img.addEventListener("click", (ev)=> {
+                    $imgGrande.alt = ev.currentTarget.alt;
+                    $imgGrande.src = ev.currentTarget.src;
+                })
+            })
+            $modal.addEventListener("close", ()=> $modal.remove())
         })
     })
 }
 
 function actualizarCarrito() {
     const $span = document.querySelector("#cantidadProductos");
-    $span.innerText = carrito.length;
+    $span.innerText = carrito.getCantidadProductos;
     $span.parentNode.classList.add("activo");
-    if (carrito.length === 0) {
+    if (carrito.getCantidadProductos === 0) {
         $span.parentNode.classList.remove("activo");
     }
+
+    console.log(carrito.getPrecioTotal);
+}
+
+
+
+// FILTROS --------------------------------------------------------------------------------------------------------------------
+function filtrarPorNombre(_productos = productos) {
+    if(filtroNombre.trim() == "") { return _productos } // Si no hay nada, retorna el array con los productos recibidos
+    return _productos.filter(producto => producto.getNombre.toLowerCase().trim().includes(filtroNombre.toLowerCase().trim()));
+}
+
+function filtrarPorPrecio(_productos = productos) {
+    return _productos.filter(producto => producto.getPrecio <= filtroPrecio);
+}
+
+function filtrarPorGenero(_productos = productos) {
+    return _productos.filter(producto => producto.tieneGeneros(filtroGeneros));
 }
