@@ -54,6 +54,46 @@ class Producto {
         return $contenedor;
     }
 
+    generarEstructuraCarrito(cantidad) {
+        // Contenedor general
+        const $contenedor = document.createElement("div");
+        $contenedor.setAttribute("data-id", this.#id);
+
+        // Portada
+        const $portada = document.createElement("img");
+        $portada.setAttribute("src", this.#imagenes[0]);
+        $portada.setAttribute("alt", `Portada del videojuego ${this.#nombre}`);
+
+        // Nombre
+        const $nombre = document.createElement("h3");
+        $nombre.innerText = this.#nombre;
+
+        // Cantidad
+        const $contenedorCantidad = document.createElement("p");
+        const $cantidad = document.createElement("span");
+        $contenedorCantidad.innerText = "X";
+        $cantidad.innerText = cantidad;
+        $contenedorCantidad.append($cantidad);
+
+        // Btn agregar copia
+        const $agregar = document.createElement("button");
+        $agregar.innerText = "Agregar";
+        $agregar.classList.add("btn-agregar")
+
+        // Btn eliminar (de a 1)
+        const $eliminar = document.createElement("button");
+        $eliminar.innerText = "Eliminar";
+        $eliminar.classList.add("btn-eliminar")
+
+        // Precio X unidad
+        const $precio = document.createElement("p");
+        $precio.innerText = this.#precio;
+
+        // Appends finales
+        $contenedor.append($portada, $nombre, $precio, $contenedorCantidad, $eliminar, $agregar);
+        return $contenedor;
+    }
+
     generarModal() {
         // ELEMENTOS (la mayoría)
         const $modal = document.createElement("dialog");
@@ -97,6 +137,7 @@ class Producto {
 
         // ATRIBUTOS
         $modal.classList.add("modal-producto");
+        $modal.setAttribute("data-id", this.#id);
         $contHeader.classList.add("header");
         $contSlider.classList.add("slider");
         $contConten.classList.add("contenido");

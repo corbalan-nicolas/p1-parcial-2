@@ -16,7 +16,7 @@
 const productos = [];
 // https://store.steampowered.com/
 // https://chatgpt.com/
-const carrito = new Carrito;
+const carrito = new Carrito();
 
 // Filtros
 let filtroNombre = ""; // Variable para filtrar por nombre
@@ -75,6 +75,7 @@ fetch("productos.json").then(response => response.json()).then(productoJson => {
         productos.push(obj);
     });
     mostrarProductos(productos);
+    actualizarCarrito();
 });
 
 
@@ -135,7 +136,35 @@ for(let i in GENEROS) {
 // EVENTOS --------------------------------------------------------------------------------------------------------------------
 $verCarrito.addEventListener("click", ()=> {
     // Abrir modal y etc etc
-    carrito.consola();
+    const $modal = carrito.generarModal();
+    document.body.append($modal);
+    $modal.showModal();
+
+    // Eventos dentro del carrito
+    const $arrayAgregar = $modal.querySelectorAll(".btn-agregar")
+    const $arrayEliminar = $modal.querySelectorAll(".btn-eliminar")
+
+    $arrayAgregar.forEach($agregar => $agregar.addEventListener("click", (ev)=> {
+        console.log("Agregar");
+        const productoId = +ev.currentTarget.parentNode.dataset.id;
+        console.log(productoId);
+        carrito.agregarProducto(productoId);
+        const $span = ev.currentTarget.previousElementSibling.previousElementSibling.lastElementChild
+        $span.innerText = parseInt($span.innerText) + 1
+        actualizarCarrito();
+    }))
+    $arrayEliminar.forEach($eliminar => $eliminar.addEventListener("click", (ev)=> {
+        console.log("Eliminar");
+        const productoId = +ev.currentTarget.parentNode.dataset.id;
+        console.log(productoId);
+        carrito.eliminarProducto(productoId);
+        const $span = ev.currentTarget.previousElementSibling.lastElementChild
+        $span.innerText = parseInt($span.innerText) - 1
+        if(parseInt($span.innerText) <= 0) { $span.parentNode.parentNode.remove() }
+        actualizarCarrito();
+    }))
+
+    $modal.addEventListener("close", ()=> $modal.remove())
 })
 
 document.querySelector("#buscador").addEventListener("input", ()=> {
@@ -144,7 +173,7 @@ document.querySelector("#buscador").addEventListener("input", ()=> {
     mostrarProductos();
 })
 
-document.querySelector("#filtroPrecio").addEventListener("change", (ev)=> {
+document.querySelector("#filtroPrecio").addEventListener("input", (ev)=> {
     const $span = document.querySelector("#txtFiltroPrecio");
     const value = parseInt(ev.currentTarget.value);
 
@@ -203,6 +232,13 @@ function asignarEventoClick(nodeList) {
                     $imgGrande.src = ev.currentTarget.src;
                 })
             })
+
+            $modal.querySelector(".contenido button").addEventListener("click", (ev)=> {
+                const productoId = +ev.currentTarget.parentNode.parentNode.dataset.id;
+                carrito.agregarProducto(productoId);
+                actualizarCarrito();
+            })
+
             $modal.addEventListener("close", ()=> $modal.remove())
         })
     })
@@ -215,8 +251,7 @@ function actualizarCarrito() {
     if (carrito.getCantidadProductos === 0) {
         $span.parentNode.classList.remove("activo");
     }
-
-    console.log(carrito.getPrecioTotal);
+    document.querySelector("#precioTotal").innerText = carrito.getPrecioTotal
 }
 
 
