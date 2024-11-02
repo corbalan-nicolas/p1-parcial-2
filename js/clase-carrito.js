@@ -1,89 +1,146 @@
 class Carrito {
-    #carritoProductos;
+    #productos;
     constructor() {
         /**
          * Array de objetos que almacena el idProducto y la cantidad
          */
         if(localStorage.getItem("carrito") !== null) {
-            this.#carritoProductos = JSON.parse(localStorage.getItem("carrito"));
+            this.#productos = JSON.parse(localStorage.getItem("carrito"));
+            this.actualizarCarrito();
         }else {
-            this.#carritoProductos = [];
+            this.#productos = [];
         }
-        this.$btnVerCarrito = document.querySelector("#verCarrito");
     }
 
+    /**
+     * Método que agrega XX unidades de un producto al carrito
+     * @param {Number} id id del producto
+     * @param {Number} _cantidad (opcional) por defecto 1. Cantidad del mismo producto a agregar
+     */
+    agregarProducto(id, _cantidad = 1) {
+        const res = this.#productos.some((producto) => {
+            if(producto.id === id){
+                // Existe, asi que aumento la cantidad y retorno true
+                producto.cantidad += _cantidad;
+                return true;
+            }
+        })
+        // Si el producto no existe, pusheo el nuevo objeto
+        if(!res) { this.#productos.push({id, cantidad : _cantidad}); }
+
+        // Guardo el nuevo carrito en el localStorage y lo actualizo en el html
+        localStorage.setItem("carrito", JSON.stringify(this.#productos));
+        this.actualizarCarrito();
+    }
+
+    /**
+     * Método que elimina XX unidades de un producto del carrito
+     * @param {Number} id id del producto
+     * @param {Number} _cantidad (opcional) por defecto 1. Cantidad de productos a eliminar
+     */
+    eliminarProducto(id, _cantidad = 1) {
+        this.#productos.some((producto, i) => {
+            if(id === producto.id){
+                // Existe, asi que elimino la cantidad solicidata
+                producto.cantidad -= _cantidad;
+                // Si hay 0 unidades o menos, lo borra del array
+                if(producto.cantidad <= 0) { this.#productos.splice(i, 1) }
+                return true; // Para que deje de recorrer el ciclo
+            }
+        })
+
+        // Guardo el nuevo carrito en el localStorage
+        localStorage.setItem("carrito", JSON.stringify(this.#productos));
+        this.actualizarCarrito();
+    }
+
+    /**
+     * Método que se encarga de actualizar el botón para abrir el carrito
+     * (para mostrar la cantidad de productos y el precio total)
+     */
+    actualizarCarrito() {
+        const insignia = document.querySelector("#cantidadProductos");
+        insignia.classList.add("d-none"); // Por default, va a tener display none
+        insignia.innerText = this.getCantidadProductos;
+
+        if(this.getCantidadProductos > 0) {
+            insignia.classList.remove("d-none");
+        }
+    }
+
+    /**
+     * Método que genera la estructura HTML de la modal
+     * @returns {Object} objeto dom del $dialog
+     */
     generarModal() {
-        const $modal = document.createElement("dialog");
-        $modal.classList.add("modal-carrito");
+        const $dialog = document.createElement("dialog");
+        $dialog.classList.add("modal", "bg-dark-dark", "text-light", "rounded", "w-50", "d-flex", "flex-column");
 
-        // Cerrar modal
+        const $header = document.createElement("div");
+        $header.classList.add("modal--header", "d-flex", "justify-content-between");
+
+        const $titulo = document.createElement("p");
+        $titulo.classList.add("modal--header-titulo", "h2");
+        $titulo.innerText = "Tu carrito";
+
         const $formCerrar = document.createElement("form");
-        const $btnCerrar = document.createElement("button");
         $formCerrar.setAttribute("method", "dialog");
+
+        const $btnCerrar = document.createElement("button");
+        $btnCerrar.classList.add("btn", "btn-outline-danger")
         $btnCerrar.innerText = "❌";
+
         $formCerrar.append($btnCerrar);
+        $header.append($titulo, $formCerrar);
 
-        // Titulo
-        const $h2 = document.createElement("h2");
-        $h2.innerText = "Tu carrito";
+        const $body = document.createElement("div");
+        $body.classList.add("border-bottom", "border-top", "py-3", "mb-3", "overflow-auto", "carrito-body", "flex-grow-1");
 
-        // Productos
-        const $contenedorProductos = document.createElement("div");
-        for(let producto of this.#carritoProductos){
-            const busqueda = productos.find(comparador => comparador.getId === producto.id);
-            $contenedorProductos.append(busqueda.generarEstructuraCarrito(producto.cantidad));
+        for(let producto of this.#productos){
+            const $card = juegos.find(juego => juego.getId === producto.id).generarCardCarrito(producto.cantidad);
+            $body.append($card);
         }
 
-        // Append final
-        $modal.append($formCerrar, $contenedorProductos);
-        return $modal;
-    }
+        const $footer = document.createElement("div");
 
-    agregarProducto(id) {
-        // Busco el producto en el carrito para ver si existe
-        const res = this.#carritoProductos.find((producto) => {
-            if(id === producto.id){
-                // Existe, así que sólo le aumento la cantidad en 1
-                producto.cantidad++;
-                return true;
-            }
+        const $precioTotal = document.createElement("p");
+        $precioTotal.classList.add("text-end", "fw-bold")
+        $precioTotal.innerText = `Total: $${this.getPrecioTotal} ARS`;
+
+        const $btnComprar = document.createElement("button");
+        $btnComprar.classList.add("btn", "btn-primary", "d-block", "ms-auto")
+        $btnComprar.innerText = "Continuar con el pago";
+
+        $btnComprar.addEventListener("click", () => {
+            alert("De momento no es posible realizar esta compra, intente de nuevo en unos 2 meses 😙");
         })
-        if(!res) {
-            this.#carritoProductos.push({id, cantidad : 1});
-        }
-        // Guardo el nuevo carrito en el localStorage
-        localStorage.setItem("carrito", JSON.stringify(this.#carritoProductos));
+
+        $body.querySelectorAll("article .btn").forEach($btn => $btn.addEventListener("click", () => {
+            $precioTotal.innerText = `Total: $${this.getPrecioTotal} ARS`;
+        }))
+
+        $footer.append($precioTotal, $btnComprar);
+        $dialog.append($header, $body, $footer)
+        return $dialog;
     }
 
-    eliminarProducto(id) {
-        const res = this.#carritoProductos.find((producto, i) => {
-            if(id === producto.id){
-                // Existe, asi que elimino la cantidad en 1
-                producto.cantidad--;
-                if(producto.cantidad === 0) { this.#carritoProductos.splice(i, 1) }
-                return true;
-            }
-        })
-        // Guardo el nuevo carrito en el localStorage
-        localStorage.setItem("carrito", JSON.stringify(this.#carritoProductos));
-    }
-
-    consola() {
-        console.log("Carrito actualmente", this.#carritoProductos);
-    }
-
+    /**
+     * Método que retorna la cantidad total de productos dentro del carrito
+     * @returns {Number}
+     */
     get getCantidadProductos() {
-        // return this.#carritoProductos.reduce((total, producto)=> total + producto.cantidad, 0);
-        return this.#carritoProductos.reduce((total, producto)=> total + producto.cantidad, 0);
+        return this.#productos.reduce((acumulador, producto)=> acumulador + producto.cantidad, 0);
     }
 
+    /**
+     * Método que retorna el precio total a pagar entre todos los productos del carrito
+     * @returns {Number}
+     */
     get getPrecioTotal() {
-        const total = this.#carritoProductos.reduce((total, producto) => {
-            // Encuentro el producto con el id, para poder obtener el precio
-            const busqueda = productos.find(comparador => comparador.getId === producto.id);
-            return total + busqueda.getPrecio * producto.cantidad
-        }, 0);
-
-        return total;
+        return this.#productos.reduce((acumulador, producto) => {
+            // Encuentro el producto con el id, para poder obtener el precio y sumarlo
+            const busqueda = juegos.find(juego => juego.getId === producto.id);
+            return acumulador + busqueda.getPrecio * producto.cantidad;
+        }, 0).toFixed(2);
     }
 }
