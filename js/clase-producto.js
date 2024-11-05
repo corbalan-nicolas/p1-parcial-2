@@ -39,15 +39,16 @@ class Producto {
 
         const $img = document.createElement("img");
         $img.classList.add("img-fluid", "img-card");
+        $img.setAttribute("title", "Ver más")
         $img.src = this.#imagenes[0];
         $img.alt = `Foto de portada del juego ${this.#nombre}`;
 
         $img.addEventListener("click", () => this.abrirModal());
 
         const $btn = document.createElement("button");
-        $btn.classList.add("btn", "btn-primary", "justify-self-end", "position-absolute", "btn-card");
+        $btn.classList.add("btn", "btn-primary", "justify-self-end", "position-absolute", "btn-card", "btn-carrito-main");
         $btn.setAttribute("title", "Agregar al carrito");
-        $btn.innerText = "➕";
+        $btn.innerText = "➕ Añadir al carrito";
 
         $btn.addEventListener("click", () => agregarAlCarrito(this.#id));
 
@@ -188,19 +189,20 @@ class Producto {
         $sliderContainer.classList.add("slider-container");
 
         const $imgGrande = document.createElement("img");
-        $imgGrande.classList.add("img-fluid");
+        $imgGrande.classList.add("img-fluid", "img-grande", "rounded");
         $imgGrande.src = this.#imagenes[1];
         $imgGrande.alt = "Captura de pantalla 1";
 
         const $btnIzq = document.createElement("button");
         $btnIzq.innerText = "👈";
+        $btnIzq.setAttribute("disabled", "on");
         $btnIzq.addEventListener("click", () => {
 
         })
 
         const $ulImg = document.createElement("ul");
 
-        for(let i = 1; i < this.#imagenes.length; i++){
+        for(let i = 1; i < 5; i++){
             const $li = document.createElement("li");
 
             const $imgChica = document.createElement("img");
@@ -219,6 +221,7 @@ class Producto {
 
         const $btnDer = document.createElement("button");
         $btnDer.innerText = "👉";
+        $btnDer.setAttribute("disabled", "on");
         $btnIzq.addEventListener("click", () => {
             
         })
