@@ -1,183 +1,240 @@
-'use strict';
+'use strict'
+document.title = 'Pwonz';
 
-/*
-Author: Corbalan, Nicolas Leonel
---Index--
-00 Page title
-00 Variables
-00 Json
-00 Show filtered games (function)
-00 Filters configuration
-00 Cart
-00 Checkout
-00 Validations
+// VARIABLES - STARTS ------------------------------------------------------------------------------------------
+const cart = new Cart();
 
-TO DO:
-Oferta de 10 seg a modo de banner flotante que después desaparece
-Checkout
-*/
-
-document.title = 'Tienda - Pwonz';
-/* Variables (Start) ******************************************************/
-const IMG_URL = '../img/games/';
-
-const games = [];
-const genres = {};
-// const cart = new Cart();
+const genres = {}
+const catalog = []
 
 let filterByName = '';
-let filterByPrice = Infinity;
-const filterByGenre = [];
-/* Variables (End) ******************************************************/
+let filterByPrice = 9999;
+let filterByGenres = [];
+
+const genresContainer = document.querySelector('#genresContainer')
+const catalogContainer = document.querySelector('#catalogContainer')
+
+const GAMES_IMG_URL = 'img/games/'
+// VARIABLES - ENDING ------------------------------------------------------------------------------------------
 
 
-/* Json (Start) ******************************************************/
-fetch('db.json').then(response => response.json()).then(db => {
-  
-  db.t_games.forEach(game => {
-    games.push(new Game({
-      id: game.id,
-      name: game.name,
-      description: game.description,
-      genres: game.genres,
-      price: game.price,
-      discount: game.discount,
-      cover: game.cover,
-      carouselImages: game.carousel_images
-    }))
-  });
-  
-  showFilteredGames();
-})
-/* Json (End) ******************************************************/
 
+// JSON - STARTS -----------------------------------------------------------------------------------------------
+fetch('database.json').then(response => response.json()).then(database => {
+  // GENRES
+  // Sort genres by name to make it easier for the user to find a specific genre.
+  database['t_genres'].sort((a, b) => a.name > b.name)
+  for(const genre of database['t_genres']) {
+    const id = genre.id_genre
+    const name = genre.name
 
-/* Show filtered games (Start) ******************************************************/
-function showFilteredGames(_games = games) {
-  // Reset
-  const $container = document.querySelector('#catalog');
-  $container.innerText = '';
-  
+    // I keep the sorted genres in the 'genres' variable. (they don't keep the order tho)
+    genres[`${id}`] = name
 
-  // Filter
-  console.log("HOla");
-  
-  // if(filterByName !== '') {
-  //   _games = _games.filter(game => game.getName.trim().toLowerCase().includes(filterByName.trim().toLowerCase()));
-  // }
-  // _games = _games.filter(game => game.getPrice <= filterByPrice);
-  // _games = _games.filter(game => game.hasGenres(filterByGenre));
-  console.log(_games);
-  
+    // Create the DOM elements and append them into the 'genresContainer'
+    const $container = document.createElement('div')
+    genresContainer.append($container)
 
-  // Show  
-  _games.forEach(game => $container.append(game.createDefaultCard()));
-}
-/* Show filtered games (End) ******************************************************/
+    const $label = createDomElement('label', {'for': `genre?id=${id}`}, name)
+    $container.append($label)
 
-
-/* Filters configuration (Start) ******************************************************/
-document.getElementById('searchByName').addEventListener('input', (ev) => {
-  filterByName = ev.currentTarget.value();
-  showFilteredGames();
-})
-
-// document.getElementById('filterByPrice').addEventListener('input', (ev) => {
-//   const $msjContainer = document.getElementById('mo');
-//   const inputValue = parseInt(ev.currentTarget.value);
-
-//   let msj = `Menos de ${inputValue}`;
-//   msj = ((inputValue >= ev.currentTarget.max)) ? 'Cualquier precio' : msj;
-//   msj = (inputValue <= 0) ? 'Gratuito' : msj;
-
-//   $msjContainer.innerText = msj;
-
-//   filterByPrice = inputValue;
-//   showFilteredGames();
-// })
-
-// const $checkBoxes = document.querySelectorAll('input[type='checkbox']');
-// $checkBoxes.forEach($checkbox => {
-//   $checkbox.addEventListener('change', (ev) => {
-//     const genreId = ev.currentTarget.value;
-//     if(ev.currentTarget.checked) {
-//       filterByGenre.push(genreId);
-//     }else {
-//       let index = filterByGenre.indexOf(genreId);
-//       filterByGenre.splice(index, 1);
-//     }
-
-//     showFilteredGames();
-//   })
-// })
-/* Filters configuration (End) ******************************************************/
-
-
-/* Dom (Start) ******************************************************/
-function createDomElement({tag, attributes = {}, content}){
-  const $domElement = document.createElement(tag);
-
-  for(let att in attributes) {
-    $domElement.setAttribute(att, attributes[att]);
+    const $checkbox = createDomElement('input', {'type': 'checkbox', 'id': `genre?id=${id}`})
+    $label.prepend($checkbox)
+    $checkbox.addEventListener('change', (ev) => {
+      modifyFilterByGenres(id);
+    })
   }
-  if(typeof content === 'object') $domElement.append(content);
-  if(typeof content === 'string') $domElement.innerText = content;
 
-  return $domElement;
+  // GAMES
+  for(const game of database['t_games']) {
+    catalog.push(new Game(game))
+  }
+
+  // RESET
+  document.querySelector('#filterByName').value = '';
+  document.querySelector('#filterByPrice').value = 60;
+  sortCatalog(document.querySelector('#sortBy').value)
+
+  // SHOW
+  showFilteredCatalog()
+})
+// JSON - ENDING -----------------------------------------------------------------------------------------------
+
+
+
+// SHOW CATALOG - STARTS ---------------------------------------------------------------------------------------
+function showFilteredCatalog(games = catalog) {
+  catalogContainer.innerText = '';
+
+  // Filters
+  filterByName = filterByName.trim().toLowerCase();
+  if(filterByName !== '') {
+    games = games.filter(game => game.getName.trim().toLowerCase().includes(filterByName));
+  }
+  games = games.filter(game => parseInt(game.getPrice) <= parseInt(filterByPrice));
+  games = games.filter(game => game.hasGenres(filterByGenres));
+  
+  // Cards
+  for(const game of games) {
+    catalogContainer.append(game.createCard())
+  }
 }
+
+document.querySelector('#btnShowCart').addEventListener('click', () => { cart.showModal()})
+// SHOW CATALOG - ENDING ---------------------------------------------------------------------------------------
+
+
+
+// SORT BY - STARTS --------------------------------------------------------------------------------------------
+function sortCatalog(by = 'moreRelevant', games = catalog) {
+  switch (by) {
+    case 'moreRelevant':
+      games.sort((a, b) => b.getSales - a.getSales)
+      break;
+      
+    case 'lowerPrice':
+      games.sort((a, b) => a.getPrice - b.getPrice)
+      break;
+      
+    case 'higherPrice':
+      games.sort((a, b) => b.getPrice - a.getPrice)
+        break;
+      
+    case 'name':
+      games.sort((a, b) => a.getName > b.getName)
+        break;
+        
+    default:
+        games.sort((a, b) => a.getSales - b.getSales)
+        break;
+  }
+} 
+
+document.querySelector('#sortBy').addEventListener('change', (ev) => {
+  sortCatalog(ev.currentTarget.value)
+  showFilteredCatalog()
+})
+// SORT BY - ENDING --------------------------------------------------------------------------------------------
+
+
+
+// FILTER BY - STARTS ------------------------------------------------------------------------------------------
+document.querySelector('#filterByName').addEventListener('input', (ev) => {
+  filterByName = ev.currentTarget.value;
+  showFilteredCatalog();
+})
+
+document.querySelector('#filterByPrice').addEventListener('input', (ev) => {
+  const $span = document.querySelector('#filterByPriceSpan');
+
+  if(ev.currentTarget.value >= ev.currentTarget.max) { $span.innerText = 'Cualquier precio' }
+  else { $span.innerText = `Menos de ${ev.currentTarget.value}` }
+
+  filterByPrice = ev.currentTarget.value;
+  showFilteredCatalog();
+})
+
+// Call it when every checkbox is generated (in the json call)
+function modifyFilterByGenres(genre) {
+  if(filterByGenres.includes(genre)) {
+    const indexOfGenre = filterByGenres.indexOf(genre);
+    filterByGenres.splice(indexOfGenre, 1)
+  }else {
+    filterByGenres.push(genre);
+  }
+
+  showFilteredCatalog();
+}
+// FILTER BY - ENDING ------------------------------------------------------------------------------------------
+
+
+
+// DOM FUNCTIONS - STARTS --------------------------------------------------------------------------------------
+/**
+ * A function that creates a DOM element. Very useful to avoid repeating so much code
+ * @param {String} tag the html tag you want to create
+ * @param {Object} attributes an object with all the ${'attribute': 'value'} you want to put it on the dom element
+ * @param {String} content very self-explanatory, isn it?
+ */
+function createDomElement(tag, attributes, content = ''){
+  const $domElement = document.createElement(tag)
+  
+  for(const att in attributes) {
+    $domElement.setAttribute(att, attributes[att])
+  }
+  
+  if (content != '') $domElement.innerText = content
+  return $domElement
+}
+
 
 /**
  * 
- * @param {DomElement} modalContent (*) All the dom elements that will be inside (please avoid using strings as content)
- * @param {Boolean} staticBackdrop Makes it able or unable to close the modal by clicking outside of it.
- * @param {String} insertOn 'append' or 'prepend' to put it on the document.body
- * @returns {DomElement} The modal
+ * @param {Object} namedParams Named Parameters
+ * @returns Modal
  */
-function createModal({modalContent, staticBackdrop = false, insertOn = null}) {
-
-  const $modal = document.createElement('dialog');
-
-  // Put the content on the modal
-  if(typeof modalContent === 'object') $modal.append(modalContent);
-  if(typeof modalContent === 'string') $modal.innerHTML = modalContent;
-
-  // Event to remove the modal when it closes
-  $modal.addEventListener('close', ()=>{ $modal.remove() })
-
-  // Close the modal by clicking in the "backdrop"
-  if(!staticBackdrop) {
-    $modal.addEventListener('click', (ev) => {
-      const condA = ev.x < $modal.offsetLeft;
-      const condB = ev.x > $modal.offsetLeft + $modal.offsetWidth;
-      const condC = ev.y < $modal.offsetTop;
-      const condD = ev.y > $modal.offsetTop + $modal.offsetHeight;
-    
-      if(condA || condB || condC || condD) {
-        $modal.close();
-      }  
-    })
+// function createModal({content,  = {type: 'modal', staticBackdrop: false, closeEvent: true, insert = {element: document.body,position: 'prepend'}}}){
+function createModal({content = null, staticBackdrop = false, closeEvent = true, insert = {element: document.body, position: 'prepend'}}){
+  const $modal = document.createElement('dialog')
   
-  }
 
-  // Insert in the document.body
-  if(insertOn !== null && typeof insertOn === 'string') {
-    if(insertOn.trim().toLowerCase() === 'append') {
-      document.body.append($modal);
-    }else if(insertOn.trim().toLowerCase() === 'prepend') {
-      document.body.prepend($modal);
+  // CONRENT
+  if(content !== null) {
+    if(typeof content === 'string') {
+      // Recieved a string. E.g. '<p>Hello world</p>'
+      // $modal.innerHTML = content // ⚠ NO PERMITIDO EN LA CONSIGNA, PERO QUERÍA CONTEMPLARLO IGUALMENTE ⚠
+    }else if (typeof content === 'object' && content.length === undefined) {
+      // Recieved ONE single <DOM element> (I guess)
+      $modal.append(content)
+    }else if (typeof content === 'object') {
+      // Recieved multiples <DOM elements> in an array
+      for(const i of content) {
+        $modal.append(i)
+      }
     }
   }
 
 
+  // STATIC BACKDROP
+  if(!staticBackdrop) {
+    $modal.addEventListener('click', (ev) => {
+      const element = ev.currentTarget.getBoundingClientRect()
+  
+      const conditionA = ev.clientX < element.left
+      const conditionB = ev.clientX > element.right
+      const conditionC = ev.clientY < element.top
+      const conditionD = ev.clientY > element.bottom
+  
+      if(conditionA || conditionB || conditionC || conditionD) {
+        $modal.close();
+      }
+    })
+  }
+
+
+  // CLOSE EVENT
+  if(closeEvent) $modal.addEventListener('close', () => { $modal.remove() })
+
+
+  // INSERT
+  switch(insert.position) {
+    case 'before':
+      insert.element.before($modal);
+      break;
+    case 'prepend':
+      insert.element.prepend($modal);
+      break;
+    case 'append':
+      insert.element.append($modal);
+      break;
+    case 'after':
+      insert.element.after($modal);
+      break;
+    default:
+      // No insert
+      break;
+  }
+  
   return $modal;
-
 }
-/* Dom (End) ******************************************************/
-
-/* Validations (Start) ******************************************************/
-function isEmptyString(value) {
-  return !(typeof value === 'string' && value.trim().length > 0);
-}
-/* Validations (End) ******************************************************/
-
-console.log(isEmptyString(" "));
+// DOM FUNCTIONS - ENDING --------------------------------------------------------------------------------------

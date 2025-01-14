@@ -1,0 +1,46 @@
+{
+  "t_genres":
+  [
+    {"id_genre": 1, "name": "Metroidvania"},
+    {"id_genre": 2, "name": "Aventura"},
+    {"id_genre": 3, "name": "Shooter"}
+  ],
+
+  "t_games":
+  [
+    {
+      "id": 1,
+      "name": "Hollow Knight",
+      "descr": "Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes. Explore twisting caverns, battle tainted creatures and befriend bizarre bugs, all in a classic, hand-drawn 2D style.",
+      "genres": [1, 2],
+      "cover": {
+        "header": "hollow_knight_header.jpg",
+        "capsule": "hollow_knight_capsule.jpg"
+      },
+      "carouselImages": [
+        "hollow_knight_carousel_1.jpg",
+        "hollow_knight_carousel_2.jpg"
+      ],
+      "price": 4.99,
+      "discount": 20,
+      "sales": 12
+    },
+    {
+      "id": 2,
+      "name": "DOOM",
+      "descr": "Now includes all three premium DLC packs (Unto the Evil, Hell Followed, and Bloodfall), maps, modes, and weapons, as well as all feature updates including Arcade Mode, Photo Mode, and the latest Update 6.66, which brings further multiplayer improvements as well as revamps multiplayer progression",
+      "genres": [3],
+      "cover": {
+        "header": "doom_header.jpg",
+        "capsule": "doom_capsule.jpg"
+      },
+      "carouselImages": [
+        "doom_carousel_1.jpg",
+        "doom_carousel_2.jpg"
+      ],
+      "price": 11.99,
+      "discount": 0,
+      "sales": 15
+    }
+  ]
+}

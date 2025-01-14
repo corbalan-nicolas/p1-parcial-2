@@ -2,52 +2,95 @@
 <html lang="es">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>📈 Encontrá lo mejor de los videojuegos en Pwonz</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encuentra lo mejor de videojuegos en Pwonz</title>
 
-	<!-- STYLES -->
-	<link rel="stylesheet" href="css/styles.css">
-	<!-- JAVSCRIPT -->
-	<script src="js/class_game.js" defer></script>
-	<script src="js/class_cart.js" defer></script>
-	<script src="js/main.js" defer></script>
+  <script src="js/class-cart.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/class-game.js" defer></script>
 </head>
 
 <body>
-	<a class="skip" href="#main">Saltear al contenido principal</a>
-	<div class="headerContainer">
-		<header>
-			<h1>Pwonz, lo mejor de lo mejor en cuanto a videojuegos respecta</h1>
-			<!-- <nav>
-				<ul>
-					<li>
-						<a href="index.html">Tienda</a>
-					</li>
-				</ul>
-			</nav> -->
-			<button class="btnCart">🛒</button>
-		</header>
-	</div>
-	<main id="main">
-		<div class="form-group">
-			<button>Filtrar</button>
-			<input id="searchByName" type="text" placeholder="Buscar" aria-label="Buscar por nombre">
-			<button id="doSearch">Realizar búsqueda</button>
-		</div>
-		<div id="catalog">
-			<!-- Dynamic content (from: main.js) -->
-		</div>
-	</main>
-	<div class="footerContainer">
-		<footer>
-			<ul>
-				<li>
-					<p>Corbalan Nicolas Leonel</p>
-				</li>
-			</ul>
-		</footer>
-	</div>
+  <!-- MAIN SKIPS -->
+  <a href="#filtersSection">Saltar a los filtros</a>
+  <a href="#catalogSection">Saltar al catálogo</a>
+
+  <div class="container--header">
+    <header>
+      <h1>Pwonz</h1>
+      <div>
+        <p><span id="quantityOfProducts">0</span> <span class="read-only">producto/s en tu carrito</span></p>
+        <button id="btnShowCart" aria-label="Ver carrito">🛒</button>
+      </div>
+    </header>
+  </div>
+
+
+  <main>
+    <!-- FILTERS -->
+    <div id="filtersSection" class="filters">
+      <div class="filters__block">
+        <p class="filters__block-title">Filtrar por nombre</p>
+        <div class="filters__block-content">
+          <input id="filterByName" type="text" aria-label="Escriba aquí para filtrar por nombre">
+        </div>
+      </div>
+      <div class="filters__block">
+        <p class="filters__block-title">Filtrar por precio</p>
+        <div class="filters__block-content">
+          <span id="filterByPriceSpan">Cualquier precio</span>
+          <div>
+            <input id="filterByPrice" type="range" min="5" max="60" step="5" value="60">
+          </div>
+          <!-- <div>
+            <label for="filterByDiscount">
+              <input type="checkbox" id="filterByDiscount">
+              Juegos de oferta
+            </label>
+          </div> -->
+        </div>
+      </div>
+      <div class="filters__block">
+        <p class="filters__block-title">Filtrar por género</p>
+        <div id="genresContainer" class="filters__block-content">
+          <!-- dynamically generated -->
+        </div>
+      </div>
+    </div>
+
+
+    <!-- CATALOG -->
+    <section id="catalogSection">
+      <div>
+        <span>Ordenar por</span>
+        <select id="sortBy" name="sortBy">
+          <option value="moreRelevant">Más relevante</option>
+          <option value="lowerPrice">Menor precio</option>
+          <option value="name">Nombre</option>
+          <option value="higherPrice">Mayor precio</option>
+        </select>
+      </div>
+      <div id="catalogContainer">
+        <p>catalogo D:</p>
+        <!-- dynamically generated -->
+      </div>
+    </section>
+  </main>
+
+
+  <div class="container--footer">
+    <footer>
+      <ul>
+        <li>Profesor Fabrizio Carlassara</li>
+        <li><a
+            href="mailto:fabrizio.carlassara@davinci.edu.ar?subject=P1%20-%20Consulta%20-%20DW2[M|T|N][A|B]%20-%20Apellido,%20Nombre"
+            target="_blank">fabrizio.carlassara@davinci.edu.ar</a></li>
+        <li>Programación 1</li>
+        <li><a href="#" target="_blank">Repositorio de GitHub</a></li>
+      </ul>
+    </footer>
+  </div>
 </body>
 
 </html>
