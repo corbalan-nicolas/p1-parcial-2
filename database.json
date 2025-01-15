@@ -19,7 +19,15 @@
       },
       "carouselImages": [
         "hollow_knight_carousel_1.jpg",
-        "hollow_knight_carousel_2.jpg"
+        "hollow_knight_carousel_2.jpg",
+        "hollow_knight_carousel_3.jpg",
+        "hollow_knight_carousel_4.jpg",
+        "hollow_knight_carousel_5.jpg",
+        "hollow_knight_carousel_6.jpg",
+        "hollow_knight_carousel_7.jpg",
+        "hollow_knight_carousel_8.jpg",
+        "hollow_knight_carousel_9.jpg",
+        "hollow_knight_carousel_10.jpg"
       ],
       "price": 4.99,
       "discount": 20,
@@ -36,7 +44,16 @@
       },
       "carouselImages": [
         "doom_carousel_1.jpg",
-        "doom_carousel_2.jpg"
+        "doom_carousel_2.jpg",
+        "doom_carousel_3.jpg",
+        "doom_carousel_4.jpg",
+        "doom_carousel_5.jpg",
+        "doom_carousel_6.jpg",
+        "doom_carousel_7.jpg",
+        "doom_carousel_8.jpg",
+        "doom_carousel_9.jpg",
+        "doom_carousel_10.jpg",
+        "doom_carousel_11.jpg"
       ],
       "price": 11.99,
       "discount": 0,

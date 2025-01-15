@@ -1,0 +1,9 @@
+dialog img {
+  width: 200px;
+}
+
+.mini-images {
+  display: flex;
+  flex-wrap: wrap;
+  img { width: 100px }
+}

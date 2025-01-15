@@ -106,7 +106,7 @@ class Cart {
   get getQuantityOfProducts() {
     return this.#products.reduce((total, currentValue) => total + currentValue.amount, 0)
   }
-
+  
   get getTotalToPay() {
     return this.#products.reduce((total, currentValue) => {
       const search = catalog.find(game => game.getId == currentValue.id)

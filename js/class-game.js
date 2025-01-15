@@ -8,7 +8,7 @@ class Game {
   #price
   #discount
   #sales // in this case, it is used to sort by relevance
-  constructor({id, name, descr, genres, cover, carouselImages, price, discount, sales = 0}) {
+  constructor({ id, name, descr, genres, cover, carouselImages, price, discount, sales = 0 }) {
     this.#id = id
     this.#name = name
     this.#descr = descr
@@ -23,13 +23,13 @@ class Game {
   createCard() {
     const $container = document.createElement('div')
     $container.addEventListener('click', () => { this.showDetails($container) })
-    
-    const $aTitle = createDomElement('a', {'href': '#'})
+
+    const $aTitle = createDomElement('a', { 'href': '#' })
     const $title = createDomElement('h2', {}, this.#name)
     $aTitle.append($title)
     $container.append($aTitle)
 
-    const $cover = createDomElement('img', {'src': `${GAMES_IMG_URL}${this.#cover.header}`, 'alt': `Portada del juego ${this.#name}`})
+    const $cover = createDomElement('img', { 'src': `${GAMES_IMG_URL}${this.#cover.header}`, 'alt': `Portada del juego ${this.#name}` })
     $container.append($cover)
 
     const $price = createDomElement('p', {}, `USD$ ${this.getPrice}`)
@@ -56,16 +56,52 @@ class Game {
     })
 
     $header.append($h2, $btnClose)
-    
+
     const $body = document.createElement('div')
-    
+
     const $carousel = document.createElement('div')
+
+    const $bigImg = createDomElement('img', { 'src': GAMES_IMG_URL + this.#carouselImages[0], 'alt': 'Captura de pantalla 1', 'data-i': 0 })
+
+    const $ulCarousel = createDomElement('ul', { 'class': 'mini-images' })
+    $carousel.append($bigImg, $ulCarousel)
+
+    this.#carouselImages.forEach((image, i) => {
+      const $li = document.createElement('li')
+      $ulCarousel.append($li)
+
+      const $img = createDomElement('img', { 'src': GAMES_IMG_URL + image, 'alt': `Captura de pantalla ${i + 1}` })
+      $li.append($img)
+      $img.addEventListener('click', () => {
+        $bigImg.alt = `Captura de pantalla ${i + 1}`
+        $bigImg.src = GAMES_IMG_URL + image;
+        $bigImg.setAttribute('data-i', i)
+      })
+    })
+     
+    function changeBigImage(dir, carouselImages) {
+      let newI = +$bigImg.dataset.i + dir
+      if(newI < 0) newI = carouselImages.length - 1
+      if(newI >= carouselImages.length) newI = 0
+      
+      $bigImg.alt = 'Captura de pantalla ' + newI + 1
+      $bigImg.src = GAMES_IMG_URL + carouselImages[newI];
+      $bigImg.setAttribute('data-i', newI) 
+    }
+
+    const $btnPrev = createDomElement('button', {}, '👈')
+    $btnPrev.addEventListener('click', () => { changeBigImage(-1, this.#carouselImages) })
+    
+    const $btnNext = createDomElement('button', {}, '👉')
+    $btnNext.addEventListener('click', () => { changeBigImage(1, this.#carouselImages) })
+    $carousel.append($btnPrev, $btnNext)
+
     const $more = document.createElement('div')
-    
+
     $body.append($carousel, $more)
-    
-    const $cover = createDomElement('img', {'src': GAMES_IMG_URL + this.#cover.header, 'alt': `Portada del videojuego ${this.#name}`})
-    
+
+    const $cover = createDomElement('img', { 'src': GAMES_IMG_URL + this.#cover.header, 'alt': `Portada del videojuego ${this.#name}` })
+
     const $descr = createDomElement('p', {}, this.#descr);
 
     const $price = createDomElement('p', {}, `USD$ ${this.getPrice}`);
@@ -74,16 +110,16 @@ class Game {
     $addToCart.addEventListener('click', (ev) => {
       cart.addProduct(this.#id);
     })
-    
+
     $more.append($cover, $descr, $price, $addToCart);
-    
-    const $modal = createModal({content: [$header, $body], insert: {element: originalCard, position: 'before'}})
+
+    const $modal = createModal({ content: [$header, $body], insert: { element: originalCard, position: 'before' } })
     $modal.showModal()
   }
 
   hasGenres(genres) {
-    for(const genre of genres){
-      if(!this.#genres.includes(genre)) {
+    for (const genre of genres) {
+      if (!this.#genres.includes(genre)) {
         return false
       }
     }
@@ -105,6 +141,7 @@ class Game {
   get getSales() {
     return this.#sales
   }
+
   get getAllData() {
     return {
       'id': this.#id,
