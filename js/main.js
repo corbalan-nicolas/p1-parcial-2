@@ -211,6 +211,7 @@ function createDomElement(tag, attributes, content = ''){
   for(const att in attributes) {
     $domElement.setAttribute(att, attributes[att])
   }
+  console.log(content);
   
   if (content != '') $domElement.innerText = content
   return $domElement

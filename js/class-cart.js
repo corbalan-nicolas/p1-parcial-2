@@ -110,7 +110,7 @@ class Cart {
       ev.stopPropagation()
     })
 
-    const $btnCheckout = createDomElement('button', {}, 'PAGARRRRR')
+    const $btnCheckout = createDomElement('button', {}, 'Continuar con el pago')
 
     $modal.append($totalToPay, $btnEmptyCart, $btnCheckout)
     $modal.showModal()
@@ -127,9 +127,3 @@ class Cart {
     }, 0).toFixed(2)
   }
 }
-
-
-
-
-// TO DOOOOOOOOOOOOOOOO
-// VER Q ONDA CON LA PRIMERA CARGA (NO PRODUCTOS DESDE EL RANGE)

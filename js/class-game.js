@@ -110,8 +110,15 @@ class Game {
     $addToCart.addEventListener('click', (ev) => {
       cart.addProduct(this.#id);
     })
+    
+    const $ulGenres = createDomElement('ul', {})
+    for(const genre of this.#genres) {
+      const $li = document.createElement('li', {})
+      $li.innerText = `${genres[genre]}`
+      $ulGenres.append($li)
+    }
 
-    $more.append($cover, $descr, $price, $addToCart);
+    $more.append($cover, $descr, $price, $addToCart, $ulGenres)
 
     const $modal = createModal({ content: [$header, $body], insert: { element: originalCard, position: 'before' } })
     $modal.showModal()
@@ -145,7 +152,7 @@ class Game {
   get getDiscount() {
     return this.#discount
   }
-
+  
   get getAllData() {
     return {
       'id': this.#id,
