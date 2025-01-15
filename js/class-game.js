@@ -141,6 +141,10 @@ class Game {
   get getSales() {
     return this.#sales
   }
+  
+  get getDiscount() {
+    return this.#discount
+  }
 
   get getAllData() {
     return {

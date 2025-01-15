@@ -49,21 +49,22 @@ class Cart {
     // console.log("Cantidad de productos:", this.getQuantityOfProducts)
     // console.log("Cantidad a pagar: USD$", this.getTotalToPay)
 
-    const $header = document.createElement('div')
+    const $header = createDomElement('div', {'class': 'header'})
+    const $gamesContainer = createDomElement('div', {'class': 'games-container'})
     const $title = createDomElement('h2', {}, 'Tu carrito')
     const $btnClose = createDomElement('button', {}, 'Cerrar')
     $btnClose.addEventListener('click', (ev) => { ev.currentTarget.closest('dialog').close() })
 
     $header.append($title, $btnClose);
-    const $modal = createModal({content: $header})
+    const $modal = createModal({content: [$header, $gamesContainer]})
     
     const $totalToPay = createDomElement('p', {}, `Total: ${this.getTotalToPay}`)
-
+    
     for(const cartData of this.#products) {
       const gameData = catalog.find(game => game.getId == cartData.id).getAllData
       
       const $container = document.createElement('div')
-      $modal.append($container)
+      $gamesContainer.append($container)
 
       const $h3 = createDomElement('h3', {}, gameData.name)
 
@@ -94,24 +95,25 @@ class Cart {
       })
       
       $container.append($h3, $img, $price, $btnAdd, $btnDelete)
-      console.log(gameData.name)
     }
 
     const $btnEmptyCart = createDomElement('button', {}, 'Vaciar carrito')
-    $btnEmptyCart.addEventListener('click', () => {
+    $btnEmptyCart.addEventListener('click', (ev) => {
       this.#products.length = 0
       localStorage.setItem("cart", JSON.stringify(this.#products))
-
-
-      this.updateMiniCart()
       
-      // $modal.close()
+      $gamesContainer.innerText = ''
+      this.updateMiniCart()
+
+      $modal.close()
+      
+      ev.stopPropagation()
     })
 
     const $btnCheckout = createDomElement('button', {}, 'PAGARRRRR')
 
     $modal.append($totalToPay, $btnEmptyCart, $btnCheckout)
-    $modal.showModal();
+    $modal.showModal()
   }
 
   get getQuantityOfProducts() {

@@ -1,63 +1,312 @@
 {
   "t_genres":
   [
-    {"id_genre": 1, "name": "Metroidvania"},
-    {"id_genre": 2, "name": "Aventura"},
-    {"id_genre": 3, "name": "Shooter"}
+    {"id_genre": 1, "name": "Acción"},
+    {"id_genre": 2, "name": "Arcade y ritmo"},
+    {"id_genre": 3, "name": "Disparos en primera persona"},
+    {"id_genre": 4, "name": "Disparos en tercera persona"},
+    {"id_genre": 5, "name": "Hack and slash"},
+    {"id_genre": 6, "name": "Lucha y artes marciales"},
+    {"id_genre": 7, "name": "Matamarcianos"},
+    {"id_genre": 8, "name": "Plataforma y corredores"},
+    {"id_genre": 9, "name": "Aventura"},
+    {"id_genre": 10, "name": "Buena trama"},
+    {"id_genre": 11, "name": "Metroidvania"},
+    {"id_genre": 12, "name": "Novelas visuales"},
+    {"id_genre": 13, "name": "Objetos ocultos"},
+    {"id_genre": 14, "name": "Puzles"},
+    {"id_genre": 15, "name": "Rol de aventuras"},
+    {"id_genre": 16, "name": "Rol"},
+    {"id_genre": 17, "name": "En grupo"},
+    {"id_genre": 18, "name": "Por turnos"},
+    {"id_genre": 19, "name": "Roguelike"},
+    {"id_genre": 20, "name": "Rol de acción"},
+    {"id_genre": 21, "name": "Rol estratégico"},
+    {"id_genre": 22, "name": "Rol japonés"},
+    {"id_genre": 23, "name": "Simulación"},
+    {"id_genre": 24, "name": "Aficiones y trabajos"},
+    {"id_genre": 25, "name": "Agricultura y fabricación"},
+    {"id_genre": 26, "name": "Citas"},
+    {"id_genre": 27, "name": "Construcción y automatización"},
+    {"id_genre": 28, "name": "De vida e inmersivo"},
+    {"id_genre": 29, "name": "Espacio y vuelo"},
+    {"id_genre": 30, "name": "Sandbox y de física"},
+    {"id_genre": 31, "name": "Estrategia"},
+    {"id_genre": 32, "name": "Cartas y mesa"},
+    {"id_genre": 33, "name": "Ciudades y asentamientos"},
+    {"id_genre": 34, "name": "Defensa de torres"},
+    {"id_genre": 35, "name": "Estrategia en tiempo real"},
+    {"id_genre": 36, "name": "Estrategia por turnos"},
+    {"id_genre": 37, "name": "Gran estrategia y 4X"},
+    {"id_genre": 38, "name": "Militares"},
+    {"id_genre": 39, "name": "Deportes y carreras"},
+    {"id_genre": 40, "name": "Carreras"},
+    {"id_genre": 41, "name": "Deportes de equipo"},
+    {"id_genre": 42, "name": "Deportes individuales"},
+    {"id_genre": 43, "name": "Pesca y caza"},
+    {"id_genre": 44, "name": "Simulador de carreras"},
+    {"id_genre": 45, "name": "Simulador deportivo"},
+    {"id_genre": 46, "name": "Todos los deportes"}
   ],
 
   "t_games":
   [
     {
       "id": 1,
-      "name": "Hollow Knight",
-      "descr": "Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes. Explore twisting caverns, battle tainted creatures and befriend bizarre bugs, all in a classic, hand-drawn 2D style.",
-      "genres": [1, 2],
+      "name": "Black Myth: Wukong",
+      "descr": "Black Myth: Wukong es un RPG de acción inspirado en la mitología china. Encarnarás al Predestinado, que ha de embarcarse en un viaje repleto de peligros y maravillas para descubrir la verdad oculta acerca de una gloriosa leyenda del pasado.",
+      "genres": [1, 20, 16, 10, 5],
       "cover": {
-        "header": "hollow_knight_header.jpg",
-        "capsule": "hollow_knight_capsule.jpg"
+        "header": "wukong_header.jpg",
+        "capsule": "wukong_capsule.jpg"
       },
       "carouselImages": [
-        "hollow_knight_carousel_1.jpg",
-        "hollow_knight_carousel_2.jpg",
-        "hollow_knight_carousel_3.jpg",
-        "hollow_knight_carousel_4.jpg",
-        "hollow_knight_carousel_5.jpg",
-        "hollow_knight_carousel_6.jpg",
-        "hollow_knight_carousel_7.jpg",
-        "hollow_knight_carousel_8.jpg",
-        "hollow_knight_carousel_9.jpg",
-        "hollow_knight_carousel_10.jpg"
+        "wukong_carousel_1.jpg",
+        "wukong_carousel_2.jpg",
+        "wukong_carousel_3.jpg",
+        "wukong_carousel_4.jpg",
+        "wukong_carousel_5.jpg",
+        "wukong_carousel_6.jpg"
       ],
-      "price": 4.99,
-      "discount": 20,
-      "sales": 12
+      "price": 59.99,
+      "discount": 0,
+      "sales": 813542
     },
     {
       "id": 2,
-      "name": "DOOM",
-      "descr": "Now includes all three premium DLC packs (Unto the Evil, Hell Followed, and Bloodfall), maps, modes, and weapons, as well as all feature updates including Arcade Mode, Photo Mode, and the latest Update 6.66, which brings further multiplayer improvements as well as revamps multiplayer progression",
-      "genres": [3],
+      "name": "Grand Theft Auto V",
+      "descr": "Grand Theft Auto V para PC ofrece a los jugadores la opción de explorar el galardonado mundo de Los Santos y el condado de Blaine con una resolución de 4K y disfrutar del juego a 60 fotogramas por segundo.",
+      "genres": [1, 9, 4, 3, 40],
       "cover": {
-        "header": "doom_header.jpg",
-        "capsule": "doom_capsule.jpg"
+        "header": "gtav_header.jpg",
+        "capsule": "gtav_capsule.jpg"
       },
       "carouselImages": [
-        "doom_carousel_1.jpg",
-        "doom_carousel_2.jpg",
-        "doom_carousel_3.jpg",
-        "doom_carousel_4.jpg",
-        "doom_carousel_5.jpg",
-        "doom_carousel_6.jpg",
-        "doom_carousel_7.jpg",
-        "doom_carousel_8.jpg",
-        "doom_carousel_9.jpg",
-        "doom_carousel_10.jpg",
-        "doom_carousel_11.jpg"
+        "gtav_carousel_1.jpg",
+        "gtav_carousel_2.jpg",
+        "gtav_carousel_3.jpg",
+        "gtav_carousel_4.jpg",
+        "gtav_carousel_5.jpg",
+        "gtav_carousel_6.jpg",
+        "gtav_carousel_7.jpg",
+        "gtav_carousel_8.jpg",
+        "gtav_carousel_9.jpg",
+        "gtav_carousel_10.jpg",
+        "gtav_carousel_11.jpg",
+        "gtav_carousel_12.jpg",
+        "gtav_carousel_13.jpg",
+        "gtav_carousel_14.jpg",
+        "gtav_carousel_15.jpg",
+        "gtav_carousel_16.jpg",
+        "gtav_carousel_17.jpg",
+        "gtav_carousel_18.jpg",
+        "gtav_carousel_19.jpg",
+        "gtav_carousel_20.jpg"
       ],
-      "price": 11.99,
+      "price": 29.99,
       "discount": 0,
-      "sales": 15
+      "sales": 1773632
+    },
+    {
+      "id": 3,
+      "name": "Call of Duty®: Black Ops 6",
+      "descr": "Call of Duty®: Black Ops 6 es el Black Ops auténtico, con una campaña cinemática individual, la mejor experiencia Multijugador de su clase y el épico regreso de Zombis por rondas.",
+      "genres": [1, 38, 10],
+      "cover": {
+        "header": "cod_black_ops_6_header.jpg",
+        "capsule": "cod_black_ops_6_capsule.jpg"
+      },
+      "carouselImages": [
+        "cod_black_ops_6_carousel_1.jpg",
+        "cod_black_ops_6_carousel_2.jpg",
+        "cod_black_ops_6_carousel_3.jpg",
+        "cod_black_ops_6_carousel_4.jpg",
+        "cod_black_ops_6_carousel_5.jpg",
+        "cod_black_ops_6_carousel_6.jpg",
+        "cod_black_ops_6_carousel_7.jpg",
+        "cod_black_ops_6_carousel_8.jpg",
+        "cod_black_ops_6_carousel_9.jpg",
+        "cod_black_ops_6_carousel_10.jpg"
+      ],
+      "price": 69.99,
+      "discount": 0,
+      "sales": 9816
+    },
+    {
+      "id": 4,
+      "name": "Path of Exile 2",
+      "descr": "Path of Exile 2 es un RPG de acción gratuito de nueva generación creado por Grinding Gear Games, con un modo cooperativo de hasta seis jugadores. Años después de los acontecimientos de Path of Exile, regresarás al oscuro mundo de Wraeclast para acabar con la corrupción que se está extendiendo.",
+      "genres": [1, 16, 20, 5, 9],
+      "cover": {
+        "header": "path_of_exile_2_header.jpg",
+        "capsule": "path_of_exile_2_capsule.jpg"
+      },
+      "carouselImages": [
+        "path_of_exile_2_carousel_1.jpg",
+        "path_of_exile_2_carousel_2.jpg",
+        "path_of_exile_2_carousel_3.jpg",
+        "path_of_exile_2_carousel_4.jpg",
+        "path_of_exile_2_carousel_5.jpg",
+        "path_of_exile_2_carousel_6.jpg",
+        "path_of_exile_2_carousel_7.jpg",
+        "path_of_exile_2_carousel_8.jpg",
+        "path_of_exile_2_carousel_9.jpg",
+        "path_of_exile_2_carousel_10.jpg",
+        "path_of_exile_2_carousel_11.jpg",
+        "path_of_exile_2_carousel_12.jpg"
+      ],
+      "price": 14.99,
+      "discount": 0,
+      "sales": 87430
+    },
+    {
+      "id": 5,
+      "name": "HELLDIVERS™ 2",
+      "descr": "La última línea de ataque de la galaxia. Alístate en los Helldivers y únete a la lucha por la libertad en una galaxia hostil en un juego de disparos en tercera persona rápido, frenético y feroz.",
+      "genres": [1, 4],
+      "cover": {
+        "header": "helldivers_2_header.jpg",
+        "capsule": "helldivers_2_capsule.jpg"
+      },
+      "carouselImages": [
+        "helldivers_2_carousel_1.jpg",
+        "helldivers_2_carousel_2.jpg",
+        "helldivers_2_carousel_3.jpg",
+        "helldivers_2_carousel_4.jpg",
+        "helldivers_2_carousel_5.jpg",
+        "helldivers_2_carousel_6.jpg",
+        "helldivers_2_carousel_7.jpg",
+        "helldivers_2_carousel_8.jpg",
+        "helldivers_2_carousel_9.jpg",
+        "helldivers_2_carousel_10.jpg",
+        "helldivers_2_carousel_11.jpg",
+        "helldivers_2_carousel_12.jpg"
+      ],
+      "price": 39.99,
+      "discount": 0,
+      "sales": 704697
+    },
+    {
+      "id": 6,
+      "name": "A Dance of Fire and Ice",
+      "descr": "A Dance of Fire and Ice es un juego de ritmo estricto que trata sobre golpear en el ritmo principal de la música. Mantén tu enfoque mientras guías a dos planetas que orbitan a través de un camino sinuoso sin romper su perfecto equilibrio",
+      "genres": [2, 1],
+      "cover": {
+        "header": "dance_fire_ice_header.jpg",
+        "capsule": "dance_fire_ice_capsule.jpg"
+      },
+      "carouselImages": [
+        "dance_fire_ice_carousel_1.jpg",
+        "dance_fire_ice_carousel_2.jpg",
+        "dance_fire_ice_carousel_3.jpg",
+        "dance_fire_ice_carousel_4.jpg",
+        "dance_fire_ice_carousel_5.jpg",
+        "dance_fire_ice_carousel_6.jpg",
+        "dance_fire_ice_carousel_7.jpg",
+        "dance_fire_ice_carousel_8.jpg"
+      ],
+      "price": 3.59,
+      "discount": 0,
+      "sales": 65954
+    },
+    {
+      "id": 7,
+      "name": "DJMAX RESPECT V",
+      "descr": "DJMAX RESPECT V es la última entrega de los creadores de la franquicia de juegos de ritmo aclamada por la crítica 'DJMAX'. Experimenta pistas de artistas populares como Marshmello, Porter Robinson y Yukika, vídeos musicales exclusivos en Full HD, multijugador en línea, nuevos modos de juego y ¡más!",
+      "genres": [2, 1],
+      "cover": {
+        "header": "djmax_header.jpg",
+        "capsule": "djmax_capsule.jpg"
+      },
+      "carouselImages": [
+        "djmax_carousel_1.jpg",
+        "djmax_carousel_2.jpg",
+        "djmax_carousel_3.jpg",
+        "djmax_carousel_4.jpg",
+        "djmax_carousel_5.jpg",
+        "djmax_carousel_6.jpg",
+        "djmax_carousel_7.jpg",
+        "djmax_carousel_8.jpg"
+      ],
+      "price": 49.99,
+      "discount": 0,
+      "sales": 24081
+    },
+    {
+      "id": 8,
+      "name": "Need for Speed™ Heat",
+      "descr": "No pares por el día y arriésgalo todo por la noche en Need for Speed™ Heat Deluxe Edition, un juego de carreras callejeras dinámico donde los límites de la ley se desvanecen cuando empieza a anochecer.",
+      "genres": [2, 1, 9, 39, 40],
+      "cover": {
+        "header": "need_for_speed_heat_header.jpg",
+        "capsule": "need_for_speed_heat_capsule.jpg"
+      },
+      "carouselImages": [
+        "need_for_speed_heat_carousel_1.jpg",
+        "need_for_speed_heat_carousel_2.jpg",
+        "need_for_speed_heat_carousel_3.jpg",
+        "need_for_speed_heat_carousel_4.jpg",
+        "need_for_speed_heat_carousel_5.jpg"
+      ],
+      "price": 69.99,
+      "discount": 10,
+      "sales": 102751
+    },
+    {
+      "id": 9,
+      "name": "ACE COMBAT™ 7: SKIES UNKNOWN",
+      "descr": "¡Conviértete en un as de la aviación y vuela por cielos fotorrealistas con 360 grados de movimiento, acaba con los aviones enemigos y disfruta de la emoción de los despegues realistas! ¡Los combates aéreos nunca han sido mejores!",
+      "genres": [2, 1, 38, 3, 10, 4],
+      "cover": {
+        "header": "ace_combat_7_header.jpg",
+        "capsule": "ace_combat_7_capsule.jpg"
+      },
+      "carouselImages": [
+        "ace_combat_7_carousel_1.jpg",
+        "ace_combat_7_carousel_2.jpg",
+        "ace_combat_7_carousel_3.jpg",
+        "ace_combat_7_carousel_4.jpg",
+        "ace_combat_7_carousel_5.jpg",
+        "ace_combat_7_carousel_6.jpg",
+        "ace_combat_7_carousel_7.jpg",
+        "ace_combat_7_carousel_8.jpg",
+        "ace_combat_7_carousel_9.jpg",
+        "ace_combat_7_carousel_10.jpg"
+      ],
+      "price": 59.99,
+      "discount": 80,
+      "sales": 37150
+    },
+    {
+      "id": 10,
+      "name": "Mortal Kombat 1",
+      "descr": "Descubre un nuevo universo de Mortal Kombat™creado por Liu Kang, Dios del Fuego. ¡Mortal Kombat™ 1 abre paso a una nueva era de esta icónica saga con un nuevo sistema de kombate, modos de juego y fatalities!",
+      "genres": [2, 1, 6, 10],
+      "cover": {
+        "header": "mortal_kombat_1_header.jpg",
+        "capsule": "mortal_kombat_1_capsule.jpg"
+      },
+      "carouselImages": [
+        "mortal_kombat_1_carousel_1.jpg",
+        "mortal_kombat_1_carousel_2.jpg",
+        "mortal_kombat_1_carousel_3.jpg",
+        "mortal_kombat_1_carousel_4.jpg",
+        "mortal_kombat_1_carousel_5.jpg",
+        "mortal_kombat_1_carousel_6.jpg",
+        "mortal_kombat_1_carousel_7.jpg",
+        "mortal_kombat_1_carousel_8.jpg",
+        "mortal_kombat_1_carousel_9.jpg",
+        "mortal_kombat_1_carousel_10.jpg",
+        "mortal_kombat_1_carousel_11.jpg",
+        "mortal_kombat_1_carousel_12.jpg",
+        "mortal_kombat_1_carousel_13.jpg",
+        "mortal_kombat_1_carousel_14.jpg",
+        "mortal_kombat_1_carousel_15.jpg",
+        "mortal_kombat_1_carousel_16.jpg"
+      ],
+      "price": 39.99,
+      "discount": 10,
+      "sales": 21569
     }
   ]
 }
