@@ -50,11 +50,11 @@ class Cart {
     // console.log("Cantidad a pagar: USD$", this.getTotalToPay)
 
     const $header = document.createElement('div')
-    const $titulo = createDomElement('h2', {}, 'Tu carrito')
+    const $title = createDomElement('h2', {}, 'Tu carrito')
     const $btnClose = createDomElement('button', {}, 'Cerrar')
     $btnClose.addEventListener('click', (ev) => { ev.currentTarget.closest('dialog').close() })
 
-    $header.append($titulo, $btnClose);
+    $header.append($title, $btnClose);
     const $modal = createModal({content: $header})
     
     const $totalToPay = createDomElement('p', {}, `Total: ${this.getTotalToPay}`)
@@ -97,9 +97,20 @@ class Cart {
       console.log(gameData.name)
     }
 
+    const $btnEmptyCart = createDomElement('button', {}, 'Vaciar carrito')
+    $btnEmptyCart.addEventListener('click', () => {
+      this.#products.length = 0
+      localStorage.setItem("cart", JSON.stringify(this.#products))
+
+
+      this.updateMiniCart()
+      
+      // $modal.close()
+    })
+
     const $btnCheckout = createDomElement('button', {}, 'PAGARRRRR')
 
-    $modal.append($totalToPay, $btnCheckout)
+    $modal.append($totalToPay, $btnEmptyCart, $btnCheckout)
     $modal.showModal();
   }
 

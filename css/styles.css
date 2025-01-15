@@ -5,5 +5,5 @@ dialog img {
 .mini-images {
   display: flex;
   flex-wrap: wrap;
-  img { width: 100px }
+  img { width: 100px; }
 }

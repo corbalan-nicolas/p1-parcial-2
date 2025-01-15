@@ -182,7 +182,7 @@ function createModal({content = null, staticBackdrop = false, closeEvent = true,
   if(content !== null) {
     if(typeof content === 'string') {
       // Recieved a string. E.g. '<p>Hello world</p>'
-      // $modal.innerHTML = content // ⚠ NO PERMITIDO EN LA CONSIGNA, PERO QUERÍA CONTEMPLARLO IGUALMENTE ⚠
+      // $modal.innerHTML = content // ⚠ NO ESTÁ PERMITIDO EN LA CONSIGNA, PERO QUERÍA CONTEMPLARLO IGUALMENTE ⚠
     }else if (typeof content === 'object' && content.length === undefined) {
       // Recieved ONE single <DOM element> (I guess)
       $modal.append(content)
