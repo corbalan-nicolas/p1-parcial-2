@@ -205,13 +205,12 @@ function generateSpecialOffer(genre) {
  * @param {Object} attributes an object with all the ${'attribute': 'value'} you want to put it on the dom element
  * @param {String} content a string, dom element, or an array of dom elements
  */
-function createDomElement(tag, attributes, content = ''){
+function createDomElement(tag, attributes = {}, content = ''){
   const $domElement = document.createElement(tag)
   
   for(const att in attributes) {
     $domElement.setAttribute(att, attributes[att])
   }
-  console.log(content);
   
   if (content != '') $domElement.innerText = content
   return $domElement
