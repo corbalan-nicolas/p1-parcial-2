@@ -1,3 +1,6 @@
+const maxScroll = document.documentElement.scrollHeight - window.innerHeight
+console.log({maxScroll});
+
 'use strict'
 document.title = 'Pwonz';
 

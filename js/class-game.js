@@ -32,15 +32,25 @@ class Game {
     const $cover = createDomElement('img', {'class': 'card__cover', 'src': `${GAMES_IMG_URL}${this.#cover.header}`, 'alt': `Portada del juego ${this.#name}` })
     $container.append($cover)
 
-    const $price = createDomElement('p', {'class': 'card__price'}, `USD$ ${this.getPrice}`)
-    $container.append($price);
+    const $priceContainer = createDomElement('div', {'class': 'price-container'})
+    const $price = createDomElement('p', {'class': 'price__calculated'}, `USD$ ${this.getPrice}`)
+
+    if(this.#discount > 0) {
+      $priceContainer.classList.add('price-container--discount')
+      const $discount = createDomElement('p', {'class': 'price__discount'}, '-' + this.#discount + '%')
+      const $realPrice = createDomElement('p', {'class': 'price__real'}, `USD$ ${this.#price}`)
+
+      $priceContainer.append($discount, $realPrice)
+    }
 
     const $addToCart = createDomElement('button', {'class': 'btn btn--primary'}, 'Añadir al carrito')
     $addToCart.addEventListener('click', (ev) => {
       cart.addProduct(this.#id);
       ev.stopPropagation();
     })
-    $container.append($addToCart)
+
+    $priceContainer.append($price, $addToCart)
+    $container.append($priceContainer)
 
     return $container
   }
