@@ -45,7 +45,7 @@ class Game {
     return $container
   }
 
-  showDetails(originalCard) {
+  showDetails(originalCard = document.body) {
     const $header = document.createElement('div')
 
     const $h2 = createDomElement('h2', {}, this.#name)
@@ -143,6 +143,10 @@ class Game {
 
   get getPrice() {
     return (this.#price - (this.#discount * this.#price) / 100).toFixed(2)
+  }
+
+  get getCoverCapsule() {
+    return this.#cover.capsule
   }
 
   get getSales() {

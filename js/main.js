@@ -154,9 +154,10 @@ function modifyFilterByGenres(genre) {
 
 // SPECIAL OFFER - STARTS --------------------------------------------------------------------------------------
 function generateSpecialOffer(genre) {
+  // There's an active offer already
   if(document.querySelector('.special-offer')) return false
-
-  const $noModal = createModal({content: 'special-ofertón', attributes: {'class': 'special-offer'}})
+  
+  const $noModal = createModal({attributes: {'class': 'special-offer'}})
   
   // Pick a game and get all the data
   let offerData = {}
@@ -165,7 +166,7 @@ function generateSpecialOffer(genre) {
     // Pick a game based on the selected genre
     console.log("Hay un juego de oferta en esta categoría! más concretamente este:", search);
   }else {
-    // Pick a random
+    // Pick a random game with discount
     const posibilities = catalog.filter((current) => current.getDiscount > 0)
     
     let picked;
@@ -174,20 +175,33 @@ function generateSpecialOffer(genre) {
     }while(picked === lastGameOffered)
     lastGameOffered = picked
 
-    offerData = catalog.find((game) => game.getId == picked).getAllData
+    offerData = catalog.find((game) => game.getId == picked)
   }
   
-  const $img = createDomElement('img', {'src': `${GAMES_IMG_URL + offerData.cover.capsule}`, 'alt': `Portada del juego ${offerData.name}`})
+  const $img = createDomElement('img', {'src': `${GAMES_IMG_URL + offerData.getCoverCapsule}`, 'alt': `Portada del juego ${offerData.getName}`})
   
-  const $title = createDomElement('h2', {}, `Conseguí ${offerData.name} a un ${offerData.discount}% de descuento`)
-
+  const $title = createDomElement('h2', {}, `Conseguí ${offerData.getName} a un ${offerData.getDiscount}% de descuento`)
+  
   const $btnClose = createDomElement('button', {}, 'Cerrar')
-  $noModal.addEventListener('click', () => {
+  $btnClose.addEventListener('click', (ev) => {
+    ev.stopPropagation()
     $noModal.closest('dialog').close()
     clearTimeout(autoClose)
   })
   
-  $noModal.append($img, $title, $btnClose)
+  const $addToCart = createDomElement('button', {}, 'Añadir al carrito')
+  $addToCart.addEventListener('click', (ev) => {
+    ev.stopPropagation()
+    cart.addProduct(offerData.getId)
+    $noModal.closest('dialog').close()
+    clearTimeout(autoClose)
+  })
+  
+  $noModal.addEventListener('click', () => {
+    offerData.showDetails()
+  })
+  
+  $noModal.append($img, $title, $btnClose, $addToCart)
   $noModal.show()
   
   let autoClose = setTimeout(() => {
