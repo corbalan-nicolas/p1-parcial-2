@@ -16,10 +16,10 @@
 
 <body>
   <!-- MAIN SKIPS -->
-  <a href="#filtersSection">Saltar a los filtros</a>
-  <a href="#catalogSection">Saltar al catálogo</a>
+  <a class="skip" href="#filtersSection">Saltar a los filtros</a>
+  <a class="skip" href="#catalogSection">Saltar al contenido principal</a>
 
-  <div class="container--header">
+  <div class="header-container">
     <header>
       <h1>Pwonz</h1>
       <div>
@@ -30,9 +30,9 @@
   </div>
 
 
-  <main>
+  <main class="main-container">
     <!-- FILTERS -->
-    <div id="filtersSection" class="filters">
+    <div id="filtersSection" class="filters-container">
       <div class="filters__block">
         <p class="filters__block-title">Filtrar por nombre</p>
         <div class="filters__block-content">
@@ -64,8 +64,8 @@
 
 
     <!-- CATALOG -->
-    <section id="catalogSection">
-      <div>
+    <section id="catalogSection" class="catalog-container">
+      <div class="catalog-container__sort-by">
         <span>Ordenar por</span>
         <select id="sortBy" name="sortBy">
           <option value="moreRelevant">Más relevante</option>
@@ -74,15 +74,14 @@
           <option value="higherPrice">Mayor precio</option>
         </select>
       </div>
-      <div id="catalogContainer">
-        <p>catalogo D:</p>
+      <div id="catalog" class="catalog-container__catalog">
         <!-- dynamically generated -->
       </div>
     </section>
   </main>
 
 
-  <div class="container--footer">
+  <div class="footer-container">
     <footer>
       <ul>
         <li>Profesor Fabrizio Carlassara</li>

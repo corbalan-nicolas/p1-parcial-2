@@ -14,9 +14,9 @@ let filterByGenres = [];
 let lastGameOffered = null
 
 const genresContainer = document.querySelector('#genresContainer')
-const catalogContainer = document.querySelector('#catalogContainer')
+const catalogContainer = document.querySelector('#catalog')
 
-const GAMES_IMG_URL = 'img/games/'
+const GAMES_IMG_URL = 'img/games/' // The file with all the "games" images (banners and covers)
 // VARIABLES - ENDING ------------------------------------------------------------------------------------------
 
 
@@ -39,7 +39,7 @@ fetch('database.json').then(response => response.json()).then(database => {
 
     const $label = createDomElement('label', {'for': `genre?id=${id}`}, name)
     $container.append($label)
-
+    
     const $checkbox = createDomElement('input', {'type': 'checkbox', 'id': `genre?id=${id}`})
     $label.prepend($checkbox)
     $checkbox.addEventListener('change', (ev) => {
@@ -58,7 +58,7 @@ fetch('database.json').then(response => response.json()).then(database => {
   document.querySelector('#filterByName').value = '';
   document.querySelector('#filterByPrice').value = document.querySelector('#filterByPrice').max;
   sortCatalog(document.querySelector('#sortBy').value)
-
+  
   // SHOW
   showFilteredCatalog()
 })
@@ -94,20 +94,28 @@ function sortCatalog(by = 'moreRelevant', games = catalog) {
   switch (by) {
     case 'moreRelevant':
       games.sort((a, b) => b.getSales - a.getSales)
-      break;
+      break
       
     case 'lowerPrice':
       games.sort((a, b) => a.getPrice - b.getPrice)
-      break;
+      break
       
     case 'higherPrice':
       games.sort((a, b) => b.getPrice - a.getPrice)
-        break;
+      break
       
     case 'name':
-      games.sort((a, b) => a.getName > b.getName)
-        break;
-        
+      games.sort((a, b) => {
+        if(a.getName < b.getName) {
+          return -1
+        }
+        if(a.getName > b.getName) {
+          return 1
+        }
+        return 0
+      })
+      break
+
     default:
         games.sort((a, b) => a.getSales - b.getSales)
         break;
@@ -185,7 +193,8 @@ function generateSpecialOffer(genre) {
   const $btnClose = createDomElement('button', {}, 'Cerrar')
   $btnClose.addEventListener('click', (ev) => {
     ev.stopPropagation()
-    $noModal.closest('dialog').close()
+
+    $noModal.close()
     clearTimeout(autoClose)
   })
   
@@ -193,12 +202,16 @@ function generateSpecialOffer(genre) {
   $addToCart.addEventListener('click', (ev) => {
     ev.stopPropagation()
     cart.addProduct(offerData.getId)
-    $noModal.closest('dialog').close()
+
+    $noModal.close()
     clearTimeout(autoClose)
   })
   
   $noModal.addEventListener('click', () => {
     offerData.showDetails()
+
+    $noModal.close()
+    clearTimeout(autoClose)
   })
   
   $noModal.append($img, $title, $btnClose, $addToCart)

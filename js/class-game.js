@@ -21,21 +21,21 @@ class Game {
   }
 
   createCard() {
-    const $container = document.createElement('div')
+    const $container = createDomElement('div', {'class': 'card'})
     $container.addEventListener('click', () => { this.showDetails($container) })
 
     const $aTitle = createDomElement('a', { 'href': '#' })
-    const $title = createDomElement('h2', {}, this.#name)
-    $aTitle.append($title)
-    $container.append($aTitle)
+    const $title = createDomElement('h2', {'class': 'card__title'}, this.#name)
+    $title.append($aTitle)
+    $container.append($title)
 
-    const $cover = createDomElement('img', { 'src': `${GAMES_IMG_URL}${this.#cover.header}`, 'alt': `Portada del juego ${this.#name}` })
+    const $cover = createDomElement('img', {'class': 'card__cover', 'src': `${GAMES_IMG_URL}${this.#cover.header}`, 'alt': `Portada del juego ${this.#name}` })
     $container.append($cover)
 
-    const $price = createDomElement('p', {}, `USD$ ${this.getPrice}`)
+    const $price = createDomElement('p', {'class': 'card__price'}, `USD$ ${this.getPrice}`)
     $container.append($price);
 
-    const $addToCart = createDomElement('button', {}, 'Añadir al carrito')
+    const $addToCart = createDomElement('button', {'class': 'btn btn--primary'}, 'Añadir al carrito')
     $addToCart.addEventListener('click', (ev) => {
       cart.addProduct(this.#id);
       ev.stopPropagation();

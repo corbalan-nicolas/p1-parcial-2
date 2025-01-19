@@ -306,7 +306,7 @@ class Cart {
 
 
       // "SENDING" THE FORM
-      if(!isValidForm) {
+      if(isValidForm) {
         // $form.submit()
         const payMethod = formData.get('typeOfCard')
         const email = formData.get('email');
