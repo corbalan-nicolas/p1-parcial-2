@@ -56,7 +56,7 @@ class Game {
   }
 
   showDetails(originalCard = document.body) {
-    const $header = document.createElement('div')
+    const $header = createDomElement('div', {'class': 'header'})
 
     const $h2 = createDomElement('h2', {}, this.#name)
 
@@ -67,20 +67,25 @@ class Game {
 
     $header.append($h2, $btnClose)
 
-    const $body = document.createElement('div')
+    const $body = createDomElement('div', {'class': 'body body--product-details'})
 
-    const $carousel = document.createElement('div')
+    const $carousel = createDomElement('div', {'class': 'product-details__carousel'})
+    
+    const $bigImgContainer = createDomElement('div', {'class': 'big-img-container'})
+    const $bigImg = createDomElement('img', {'class': 'big-img', 'src': GAMES_IMG_URL + this.#carouselImages[0], 'alt': 'Captura de pantalla 1', 'data-i': 0 })
+    $bigImgContainer.append($bigImg)
 
-    const $bigImg = createDomElement('img', { 'src': GAMES_IMG_URL + this.#carouselImages[0], 'alt': 'Captura de pantalla 1', 'data-i': 0 })
-
-    const $ulCarousel = createDomElement('ul', { 'class': 'mini-images' })
-    $carousel.append($bigImg, $ulCarousel)
+    const $carouselControls = createDomElement('div', {'class': 'product-details__carousel-controls'})
+    $carousel.append($bigImgContainer, $carouselControls)
+    
+    const $ulCarousel = createDomElement('ul', { 'class': 'small-images-container' })
+    $carouselControls.append($ulCarousel)
 
     this.#carouselImages.forEach((image, i) => {
       const $li = document.createElement('li')
       $ulCarousel.append($li)
 
-      const $img = createDomElement('img', { 'src': GAMES_IMG_URL + image, 'alt': `Captura de pantalla ${i + 1}` })
+      const $img = createDomElement('img', {'class': 'small-img', 'src': GAMES_IMG_URL + image, 'alt': `Captura de pantalla ${i + 1}` })
       $li.append($img)
       $img.addEventListener('click', () => {
         $bigImg.alt = `Captura de pantalla ${i + 1}`
@@ -99,14 +104,16 @@ class Game {
       $bigImg.setAttribute('data-i', newI) 
     }
 
-    const $btnPrev = createDomElement('button', {}, '👈')
+    const $btnPrev = createDomElement('button', {'class': 'btn'}, '👈')
     $btnPrev.addEventListener('click', () => { changeBigImage(-1, this.#carouselImages) })
     
-    const $btnNext = createDomElement('button', {}, '👉')
+    const $btnNext = createDomElement('button', {'class': 'btn'}, '👉')
     $btnNext.addEventListener('click', () => { changeBigImage(1, this.#carouselImages) })
-    $carousel.append($btnPrev, $btnNext)
 
-    const $more = document.createElement('div')
+    $carouselControls.prepend($btnPrev)
+    $carouselControls.append($btnNext)
+
+    const $more = createDomElement('div', {'class': 'product-details__more-info'})
 
     $body.append($carousel, $more)
 

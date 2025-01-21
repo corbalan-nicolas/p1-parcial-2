@@ -66,17 +66,17 @@ class Cart {
     for(const cartData of this.#products) {
       const gameData = catalog.find(game => game.getId == cartData.id).getAllData
       
-      const $container = document.createElement('div')
+      const $container = createDomElement('div', {'class': 'card--horizontal'})
       $gamesContainer.append($container)
 
-      const $h3 = createDomElement('h3', {}, gameData.name)
+      const $h3 = createDomElement('h3', {'class': 'title'}, gameData.name)
 
-      const $quantity = createDomElement('span', {}, `x${cartData.amount} `)
+      const $quantity = createDomElement('span', {'class': 'quantity'}, `x${cartData.amount} `)
       $h3.prepend($quantity)
 
-      const $img = createDomElement('img', {'src': GAMES_IMG_URL + gameData.cover.capsule, 'alt': `Portada del juego ${gameData.name}`})
+      const $img = createDomElement('img', {'class': 'cover', 'src': GAMES_IMG_URL + gameData.cover.capsule, 'alt': `Portada del juego ${gameData.name}`})
       
-      const $price = createDomElement('p', {}, `USD$ ${((gameData.price - (gameData.discount * gameData.price) / 100) * cartData.amount).toFixed(2)}`)
+      const $price = createDomElement('p', {'class': 'price'}, `USD$ ${((gameData.price - (gameData.discount * gameData.price) / 100) * cartData.amount).toFixed(2)}`)
 
       const $btnAdd = createDomElement('button', {}, 'Agregar')
       $btnAdd.addEventListener('click', () => {
@@ -88,12 +88,15 @@ class Cart {
       
       const $btnDelete = createDomElement('button', {}, 'Eliminar')
       $btnDelete.addEventListener('click', (ev) => {
+        ev.stopPropagation()
+
         this.deleteProduct(cartData.id)
         $quantity.innerText = `x${cartData.amount} `
         $price.innerText = `USD$ ${((gameData.price - (gameData.discount * gameData.price) / 100) * cartData.amount).toFixed(2)}`
         $totalToPay.innerText = `Total: ${this.getTotalToPay}`
 
-        if(cartData.amount <= 0) $modal.close()
+        if(this.getQuantityOfProducts <= 0) $modal.close()
+        if(cartData.amount <= 0) $container.remove()
       })
       
       $container.append($h3, $img, $price, $btnAdd, $btnDelete)
