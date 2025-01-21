@@ -1,6 +1,3 @@
-const maxScroll = document.documentElement.scrollHeight - window.innerHeight
-console.log({maxScroll});
-
 'use strict'
 document.title = 'Pwonz';
 
@@ -167,7 +164,7 @@ function modifyFilterByGenres(genre) {
 function generateSpecialOffer(genre) {
   // There's an active offer already
   if(document.querySelector('.special-offer')) return false
-  
+
   const $noModal = createModal({attributes: {'class': 'special-offer'}})
   
   // Pick a game and get all the data
@@ -189,16 +186,21 @@ function generateSpecialOffer(genre) {
     offerData = catalog.find((game) => game.getId == picked)
   }
   
+  const closeModal = function() {
+    $noModal.classList.add('go-right')
+    $noModal.addEventListener('transitionend', () => {
+      $noModal.close()
+      clearTimeout(autoClose)
+    })
+  }
+
   const $img = createDomElement('img', {'src': `${GAMES_IMG_URL + offerData.getCoverCapsule}`, 'alt': `Portada del juego ${offerData.getName}`})
-  
   const $title = createDomElement('h2', {}, `Conseguí ${offerData.getName} a un ${offerData.getDiscount}% de descuento`)
-  
   const $btnClose = createDomElement('button', {}, 'Cerrar')
   $btnClose.addEventListener('click', (ev) => {
     ev.stopPropagation()
 
-    $noModal.close()
-    clearTimeout(autoClose)
+    closeModal()
   })
   
   const $addToCart = createDomElement('button', {}, 'Añadir al carrito')
@@ -206,22 +208,20 @@ function generateSpecialOffer(genre) {
     ev.stopPropagation()
     cart.addProduct(offerData.getId)
 
-    $noModal.close()
-    clearTimeout(autoClose)
+    closeModal()
   })
   
   $noModal.addEventListener('click', () => {
     offerData.showDetails()
 
-    $noModal.close()
-    clearTimeout(autoClose)
+    closeModal()
   })
   
   $noModal.append($img, $title, $btnClose, $addToCart)
   $noModal.show()
   
   let autoClose = setTimeout(() => {
-    $noModal.close()
+    closeModal()
   }, 10000)
 }
 // SPECIAL OFFER - ENDING --------------------------------------------------------------------------------------

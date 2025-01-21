@@ -55,7 +55,7 @@ class Cart {
     const $header = createDomElement('div', {'class': 'header'})
     const $gamesContainer = createDomElement('div', {'class': 'games-container'})
     const $title = createDomElement('h2', {}, 'Tu carro de la compra')
-    const $btnClose = createDomElement('button', {}, 'Cerrar')
+    const $btnClose = createDomElement('button', {'aria-label': 'Cerrar carrito', 'class': 'btn'}, 'X')
     $btnClose.addEventListener('click', (ev) => { ev.currentTarget.closest('dialog').close() })
 
     $header.append($title, $btnClose);
