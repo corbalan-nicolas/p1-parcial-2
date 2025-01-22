@@ -7,7 +7,7 @@ function isNumber(value) {
 }
 
 function isBetweenNumbers(value, min, max = Infinity) {
-  return !isNaN(Number(value)) && (value >= min && value <= max)
+  return !isNaN(Number(value)) && (parseInt(value) >= min && parseInt(value) <= max)
 }
 
 function areDifferentStrings(value1, value2, caseSensitive = false) {

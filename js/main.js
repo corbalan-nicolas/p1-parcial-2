@@ -282,7 +282,7 @@ function createModal({content = null, attributes = {}, staticBackdrop = false, c
 
   // STATIC BACKDROP
   if(!staticBackdrop) {
-    $modal.addEventListener('click', (ev) => {
+    $modal.addEventListener('mousedown', (ev) => {
       const element = ev.currentTarget.getBoundingClientRect()
   
       const conditionA = ev.clientX < element.left
