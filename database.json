@@ -1,3 +1,5 @@
+
+
 {
   "t_genres":
   [
@@ -307,6 +309,144 @@
       "price": 39.99,
       "discount": 10,
       "sales": 21569
+    },
+    {
+      "id": 11,
+      "name": "Rust",
+      "descr": "El único objetivo en Rust es sobrevivir. Todo quiere que mueras: la vida salvaje de la isla, otros habitantes, el medio ambiente y otros supervivientes. Haz lo que sea necesario para durar una noche más.",
+      "genres": [3, 9, 1, 23],
+      "cover": {
+        "header": "rust_header.jpg",
+        "capsule": "rust_capsule.jpg"
+      },
+      "carouselImages": [
+        "rust_carousel_1.jpg",
+        "rust_carousel_2.jpg",
+        "rust_carousel_3.jpg",
+        "rust_carousel_4.jpg",
+        "rust_carousel_5.jpg",
+        "rust_carousel_6.jpg",
+        "rust_carousel_7.jpg",
+        "rust_carousel_8.jpg",
+        "rust_carousel_9.jpg",
+        "rust_carousel_10.jpg",
+        "rust_carousel_11.jpg",
+        "rust_carousel_12.jpg"
+      ],
+      "price": 18.99,
+      "discount": 0,
+      "sales": 971497
+    },
+    {
+      "id": 12,
+      "name": "Tom Clancy's Rainbow Six® Siege",
+      "descr": "Tom Clancy's Rainbow Six® Siege es un shooter táctico realista por equipos donde una cuidadosa planificación y ejecución son claves para la victoria",
+      "genres": [3, 1, 38, 31],
+      "cover": {
+        "header": "rainbow_six_header.jpg",
+        "capsule": "rainbow_six_capsule.jpg"
+      },
+      "carouselImages": [
+        "rainbow_six_carousel_1.jpg",
+        "rainbow_six_carousel_2.jpg",
+        "rainbow_six_carousel_3.jpg",
+        "rainbow_six_carousel_4.jpg",
+        "rainbow_six_carousel_5.jpg",
+        "rainbow_six_carousel_6.jpg",
+        "rainbow_six_carousel_7.jpg",
+        "rainbow_six_carousel_8.jpg",
+        "rainbow_six_carousel_9.jpg",
+        "rainbow_six_carousel_10.jpg",
+        "rainbow_six_carousel_11.jpg",
+        "rainbow_six_carousel_12.jpg",
+        "rainbow_six_carousel_13.jpg",
+        "rainbow_six_carousel_14.jpg"
+      ],
+      "price": 15.99,
+      "discount": 60,
+      "sales": 1149502
+    },
+    {
+      "id": 13,
+      "name": "Arma Reforger",
+      "descr": "Experimenta los auténticos combates de la Guerra Fría y únete a la pugna por la enorme isla de Everon y su vecina más pequeña de Arland en el Atlántico Central... o conviértete en director de partida y crea tus propios escenarios para hacer que los demás se lo pasen genial.",
+      "genres": [3, 38, 23, 1, 31, 30, 35, 4],
+      "cover": {
+        "header": "arma_reforger_header.jpg",
+        "capsule": "arma_reforger_capsule.jpg"
+      },
+      "carouselImages": [
+        "arma_reforger_carousel_1.jpg",
+        "arma_reforger_carousel_2.jpg",
+        "arma_reforger_carousel_3.jpg",
+        "arma_reforger_carousel_4.jpg",
+        "arma_reforger_carousel_5.jpg",
+        "arma_reforger_carousel_6.jpg",
+        "arma_reforger_carousel_7.jpg",
+        "arma_reforger_carousel_8.jpg"
+      ],
+      "price": 19.99,
+      "discount": 0,
+      "sales": 18124
+    },
+    {
+      "id": 14,
+      "name": "Halo: The Master Chief Collection",
+      "descr": "El emblemático viaje del Jefe Maestro incluye seis juegos creados para PC y recopilados en una sola experiencia. Ya seas un seguidor de toda la vida o descubras al Spartan 117 por primera vez, la colección Jefe Maestro te resultará la experiencia de juego definitiva de Halo.",
+      "genres": [3, 10, 1, 9],
+      "cover": {
+        "header": "halo_master_chief_header.jpg",
+        "capsule": "halo_master_chief_capsule.jpg"
+      },
+      "carouselImages": [
+        "halo_master_chief_carousel_1.jpg",
+        "halo_master_chief_carousel_2.jpg",
+        "halo_master_chief_carousel_3.jpg",
+        "halo_master_chief_carousel_4.jpg",
+        "halo_master_chief_carousel_5.jpg",
+        "halo_master_chief_carousel_6.jpg",
+        "halo_master_chief_carousel_7.jpg",
+        "halo_master_chief_carousel_8.jpg",
+        "halo_master_chief_carousel_9.jpg",
+        "halo_master_chief_carousel_10.jpg",
+        "halo_master_chief_carousel_11.jpg",
+        "halo_master_chief_carousel_12.jpg",
+        "halo_master_chief_carousel_13.jpg",
+        "halo_master_chief_carousel_14.jpg"
+      ],
+      "price": 39.99,
+      "discount": 75,
+      "sales": 215342
+    },
+    {
+      "id": 15,
+      "name": "Arma 3",
+      "descr": "Combate realista en un enorme mundo abierto militar. Gran cantidad de contenido en solitario y multijugador, más de 20 vehículos y 40 armas e infinitas posibilidades de creación de contenido. El mejor juego militar para PC. Auténtico, diverso, abierto... Con Arma 3 vas a vivir la guerra.",
+      "genres": [3, 1, 38, 23, 31, 4, 17],
+      "cover": {
+        "header": "arma3_header.jpg",
+        "capsule": "arma3_capsule.jpg"
+      },
+      "carouselImages": [
+        "arma3_carousel_1.jpg",
+        "arma3_carousel_2.jpg",
+        "arma3_carousel_3.jpg",
+        "arma3_carousel_4.jpg",
+        "arma3_carousel_5.jpg",
+        "arma3_carousel_6.jpg",
+        "arma3_carousel_7.jpg",
+        "arma3_carousel_8.jpg",
+        "arma3_carousel_9.jpg",
+        "arma3_carousel_10.jpg",
+        "arma3_carousel_11.jpg",
+        "arma3_carousel_12.jpg",
+        "arma3_carousel_13.jpg",
+        "arma3_carousel_14.jpg",
+        "arma3_carousel_15.jpg"
+      ],
+      "price": 14.99,
+      "discount": 80,
+      "sales": 211674
     }
   ]
 }

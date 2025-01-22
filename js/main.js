@@ -25,10 +25,21 @@ const GAMES_IMG_URL = 'img/games/' // The file with all the "games" images (bann
 fetch('database.json').then(response => response.json()).then(database => {
   // GENRES
   // Sort genres by name to make it easier for the user to find a specific genre.
-  database['t_genres'].sort((a, b) => a.name > b.name)
+  database['t_genres'].sort((a, b) => {
+    if(a.name > b.name) {
+      return 1
+    }else if(a.name < b.name) {
+      return -1
+    }
+    return 0
+  })
+  
   for(const genre of database['t_genres']) {
     const id = genre.id_genre
     const name = genre.name
+    
+    const $p = createDomElement('p', {}, `${id.toString().padStart(2, ' ')}: ${name}`)
+    
 
     // I keep the sorted genres in the 'genres' variable. (they don't keep the order tho)
     genres[`${id}`] = name
@@ -36,7 +47,7 @@ fetch('database.json').then(response => response.json()).then(database => {
     // Create the DOM elements and append them into the 'genresContainer'
     const $container = document.createElement('div')
     genresContainer.append($container)
-
+    
     const $label = createDomElement('label', {'for': `genre?id=${id}`}, name)
     $container.append($label)
     
@@ -195,7 +206,7 @@ function generateSpecialOffer(genre) {
   }
 
   const $img = createDomElement('img', {'src': `${GAMES_IMG_URL + offerData.getCoverCapsule}`, 'alt': `Portada del juego ${offerData.getName}`})
-  const $title = createDomElement('h2', {}, `Conseguí ${offerData.getName} a un ${offerData.getDiscount}% de descuento`)
+  const $title = createDomElement('h2', {}, `Ahorrá un ${offerData.getDiscount}% en ${offerData.getName}`)
   const $btnClose = createDomElement('button', {}, 'Cerrar')
   $btnClose.addEventListener('click', (ev) => {
     ev.stopPropagation()
