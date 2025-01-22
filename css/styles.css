@@ -72,6 +72,12 @@ header, main, footer {
     justify-content: space-between;
   }
 
+  .cart-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
   footer ul {
     list-style: none;
   }
@@ -106,6 +112,8 @@ header, main, footer {
 .btn {
   padding: .7em 1em;
   border-radius: .2rem;
+
+  cursor: pointer;
   .btn--primary {
 
   }
