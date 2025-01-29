@@ -14,7 +14,7 @@
   <script src="js/main.js" defer></script>
 </head>
 
-<body>
+<body data-theme="">
   <!-- MAIN SKIPS -->
   <a class="skip" href="#filtersSection">Saltar a los filtros</a>
   <a class="skip" href="#catalogSection">Saltar al contenido principal</a>
@@ -25,6 +25,13 @@
       <div class="cart-container">
         <p><span id="quantityOfProducts">0</span> <span class="sr-only">producto/s en tu carrito</span></p>
         <button id="btnShowCart" class="btn" aria-label="Ver carrito">🛒</button>
+
+        <div>
+          <label>
+            <input id="darkMode" type="checkbox">
+            <span class="sr-only">Activar / desactivar modo oscuro</span>
+          </label>
+        </div>
       </div>
     </header>
   </div>

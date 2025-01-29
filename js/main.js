@@ -337,6 +337,17 @@ function createModal({content = null, attributes = {}, staticBackdrop = false, c
 
 
 
+// DARK MODE - STARTS ------------------------------------------------------------------------------------------
+document.querySelector('#darkMode').addEventListener('change', (ev) => {
+  if(ev.currentTarget.checked) {
+    document.body.setAttribute('data-theme', 'dark')
+  }else {
+    document.body.setAttribute('data-theme', 'white')
+  }
+})
+// DARK MODE - ENDING ------------------------------------------------------------------------------------------
+
+
 // {
 //   "id": 0,
 //   "name": "gameName",

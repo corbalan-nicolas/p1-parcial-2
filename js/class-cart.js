@@ -103,7 +103,7 @@ class Cart {
     }
     
     const $buttonsContainer = createDomElement('div', {'class': 'footer'})
-    const $btnEmptyCart = createDomElement('button', {'class': 'btn'}, 'Vaciar carrito')
+    const $btnEmptyCart = createDomElement('button', {'class': 'btn btn--outlined'}, 'Vaciar carrito')
     const $btnCheckout = createDomElement('button', {'class': 'btn'}, 'Continuar con el pago')
     $buttonsContainer.append($btnEmptyCart, $btnCheckout)
 
@@ -205,7 +205,7 @@ class Cart {
     
     const $buttonsContainer = createDomElement('div', {'class': 'footer'})
 
-    const $btnPrevStep = createDomElement('button', {'class': 'btn'}, 'Volver')
+    const $btnPrevStep = createDomElement('button', {'class': 'btn btn--outlined'}, 'Volver')
     $btnPrevStep.addEventListener('click', (ev) => {
       ev.preventDefault()
       $modal.close()
@@ -223,17 +223,20 @@ class Cart {
 
     $form.addEventListener('submit', (ev) => {
       ev.preventDefault()
-      console.log('Evento submit activado')
+      const errorMessages = {
+        'isEmpty': 'Este campo es obligatorio',
+        'isNaN': 'Introduzca sólo números'
+      }
       const formData = new FormData(ev.currentTarget)
       let isValidForm = true
       
       // Target Number
       $targetNum.error.innerText = ''
       if(isEmptyString(formData.get('targetNum'))) {
-        $targetNum.error.innerText = 'Este campo es obligatorio, no puede dejarlo vacío'
+        $targetNum.error.innerText = errorMessages['isEmpty']
         isValidForm = false
       }else if(!isNumber(formData.get('targetNum'))) {
-        $targetNum.error.innerText = 'Sólo se admiten números (sin espacios ni guiones)'
+        $targetNum.error.innerText = errorMessages['isNaN']
         isValidForm = false
       }
       
@@ -254,10 +257,10 @@ class Cart {
       // Security Code - securityCode
       $securityCode.error.innerText = ''
       if(isEmptyString(formData.get('securityCode'))) {
-        $securityCode.error.innerText = 'Este campo es obligatorio, no puede dejarlo vacío'
+        $securityCode.error.innerText = errorMessages['isEmpty']
         isValidForm = false
       }else if(!isNumber(formData.get('securityCode'))) {
-        $securityCode.error.innerText = 'Sólo se admiten números (sin espacios ni guiones)'
+        $securityCode.error.innerText = errorMessages['isNaN']
         isValidForm = false
       }else if (!isBetweenNumbers(formData.get('securityCode'), 100, 999)) {
         $securityCode.error.innerText = 'Debe ser un número de 3 dígitos'
@@ -267,28 +270,28 @@ class Cart {
       // Name - name
       $name.error.innerText = ''
       if(isEmptyString(formData.get('name'))){
-        $name.error.innerText = 'Este campo es obligatorio, no puede dejarlo vacío'
+        $name.error.innerText = errorMessages['isEmpty']
         isValidForm = false
       }
       
       // Last names - lastNames
       $lastNames.error.innerText = ''
       if(isEmptyString(formData.get('lastNames'))){
-        $lastNames.error.innerText = 'Este campo es obligatorio, no puede dejarlo vacío'
+        $lastNames.error.innerText = errorMessages['isEmpty']
         isValidForm = false
       }
       
       // Telephone - tel
       $tel.error.innerText = ''
       if(isEmptyString(formData.get('tel'))){
-        $tel.error.innerText = 'Este campo es obligatorio, no puede dejarlo vacío'
+        $tel.error.innerText = errorMessages['isEmpty']
         isValidForm = false
       }
       
       // Direction - direct
       $direct.error.innerText = ''
       if(isEmptyString(formData.get('direct'))){
-        $direct.error.innerText = 'Este campo es obligatorio, no puede dejarlo vacío'
+        $direct.error.innerText = errorMessages['isEmpty']
         isValidForm = false
       }
       
@@ -301,28 +304,28 @@ class Cart {
       // Locality - locality
       $locality.error.innerText = ''
       if(isEmptyString(formData.get('locality'))){
-        $locality.error.innerText = 'Este campo es obligatorio, no puede dejarlo vacío'
+        $locality.error.innerText = errorMessages['isEmpty']
         isValidForm = false
       }
       
       // Zip - zip
       $zip.error.innerText = ''
       if(isEmptyString(formData.get('zip'))){
-        $zip.error.innerText = 'Este campo es obligatorio, no puede dejarlo vacío'
+        $zip.error.innerText = errorMessages['isEmpty']
         isValidForm = false
       }
       
       // Country - country
       $country.error.innerText = ''
       if(isEmptyString(formData.get('country'))){
-        $country.error.innerText = 'Este campo es obligatorio, no puede dejarlo vacío'
+        $country.error.innerText = errorMessages['isEmpty']
         isValidForm = false
       }
       
       // email - email
       $email.error.innerText = ''
       if(isEmptyString(formData.get('email'))){
-        $email.error.innerText = 'Este campo es obligatorio, no puede dejarlo vacío'
+        $email.error.innerText = errorMessages['isEmpty']
         isValidForm = false
       }else if(!isValidEmail(formData.get('email'))) {
         $email.error.innerText = 'Este correo electrónico no es válido'
@@ -335,7 +338,7 @@ class Cart {
       // Repeat repeatEmail
       $repeatEmail.error.innerText = ''
       if(isEmptyString(formData.get('repeatEmail'))){
-        $repeatEmail.error.innerText = 'Este campo es obligatorio, no puede dejarlo vacío'
+        $repeatEmail.error.innerText = errorMessages['isEmpty']
         isValidForm = false
       }else if(!isValidEmail(formData.get('repeatEmail'))) {
         $repeatEmail.error.innerText = 'Este correo electrónico no es válido'
@@ -403,7 +406,7 @@ class Cart {
     
     const $buttonsContainer = createDomElement('div', {'class': 'footer'})
 
-    const $btnCancel = createDomElement('button', {'class': 'btn'}, 'Cancelar')
+    const $btnCancel = createDomElement('button', {'class': 'btn btn--outlined'}, 'Cancelar')
     $btnCancel.addEventListener('click', (ev) => { $modal.close() })
     
     const $btnBuy = createDomElement('button', {'class': 'btn'}, 'Comprar')
