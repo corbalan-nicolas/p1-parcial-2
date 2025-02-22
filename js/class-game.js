@@ -93,7 +93,12 @@ class Game {
         $bigImg.setAttribute('data-i', i)
       })
     })
-     
+    
+    /**
+     * 
+     * @param {*} dir (-1 = Left && 1 = Right)
+     * @param {*} carouselImages 
+     */
     function changeBigImage(dir, carouselImages) {
       let newI = +$bigImg.dataset.i + dir
       if(newI < 0) newI = carouselImages.length - 1
@@ -102,6 +107,8 @@ class Game {
       $bigImg.alt = 'Captura de pantalla ' + newI + 1
       $bigImg.src = GAMES_IMG_URL + carouselImages[newI];
       $bigImg.setAttribute('data-i', newI) 
+
+      $ulCarousel.scrollTo(newI * 100, 0)
     }
 
     const $btnPrev = createDomElement('button', {'class': 'btn'}, '👈')

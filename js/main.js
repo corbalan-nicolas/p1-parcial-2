@@ -90,8 +90,13 @@ function showFilteredCatalog(games = catalog) {
   games = games.filter(game => game.hasGenres(filterByGenres));
   
   // Cards
-  for(const game of games) {
-    catalogContainer.append(game.createCard())
+  if(games.length == 0) {
+    catalogContainer.parentElement.classList.add('no-results')
+  }else {
+    catalogContainer.parentElement.classList.remove('no-results')
+    for(const game of games) {
+      catalogContainer.append(game.createCard())
+    }
   }
 }
 
@@ -151,7 +156,7 @@ document.querySelector('#filterByPrice').addEventListener('input', (ev) => {
   const $span = document.querySelector('#filterByPriceSpan');
 
   if(ev.currentTarget.value >= ev.currentTarget.max) { $span.innerText = 'Cualquier precio' }
-  else { $span.innerText = `Menos de ${ev.currentTarget.value}` }
+  else { $span.innerText = `Menos de USD$ ${ev.currentTarget.value}` }
 
   filterByPrice = ev.currentTarget.value;
   showFilteredCatalog();
@@ -173,7 +178,7 @@ function modifyFilterByGenres(genre) {
 
 // SPECIAL OFFER - STARTS --------------------------------------------------------------------------------------
 function generateSpecialOffer(genre) {
-  // There's an active offer already
+  // If there's an active offer already. It won't do anything (return false)
   if(document.querySelector('.special-offer')) return false
 
   const $noModal = createModal({attributes: {'class': 'special-offer'}})
@@ -205,9 +210,9 @@ function generateSpecialOffer(genre) {
     })
   }
 
-  const $img = createDomElement('img', {'src': `${GAMES_IMG_URL + offerData.getCoverCapsule}`, 'alt': `Portada del juego ${offerData.getName}`})
+  const $img = createDomElement('img', {'class': 'cover', 'src': `${GAMES_IMG_URL + offerData.getCoverCapsule}`, 'alt': `Portada del juego ${offerData.getName}`})
   const $title = createDomElement('h2', {}, `Ahorrá un ${offerData.getDiscount}% en ${offerData.getName}`)
-  const $btnClose = createDomElement('button', {}, 'Cerrar')
+  const $btnClose = createDomElement('button', {'class': 'btn btn--cube btn-close'}, 'X')
   $btnClose.addEventListener('click', (ev) => {
     ev.stopPropagation()
 
@@ -338,13 +343,25 @@ function createModal({content = null, attributes = {}, staticBackdrop = false, c
 
 
 // DARK MODE - STARTS ------------------------------------------------------------------------------------------
-document.querySelector('#darkMode').addEventListener('change', (ev) => {
-  if(ev.currentTarget.checked) {
-    document.body.setAttribute('data-theme', 'dark')
-  }else {
-    document.body.setAttribute('data-theme', 'white')
-  }
+let theme = localStorage.getItem('theme')
+
+if (theme !== 'white' && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  document.body.classList.add('dark-mode');
+}
+
+document.querySelector('#btnDarkMode').addEventListener('click', (ev) => {
+  document.body.classList.toggle('dark-mode');
+  setThemeInLocalStorage()
 })
+
+function setThemeInLocalStorage() {
+  if (document.body.classList.contains('dark-mode')) {
+    theme = 'dark'
+  }else {
+    theme = 'white'
+  }
+  localStorage.setItem('theme', theme)
+}
 // DARK MODE - ENDING ------------------------------------------------------------------------------------------
 
 
