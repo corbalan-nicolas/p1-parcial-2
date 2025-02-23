@@ -48,7 +48,8 @@
     {"id_genre": 43, "name": "Pesca y caza"},
     {"id_genre": 44, "name": "Simulador de carreras"},
     {"id_genre": 45, "name": "Simulador deportivo"},
-    {"id_genre": 46, "name": "Todos los deportes"}
+    {"id_genre": 46, "name": "Todos los deportes"},
+    {"id_genre": 47, "name": "Casual"}
   ],
 
   "t_games":
@@ -560,6 +561,634 @@
       "price": 59.99,
       "discount": 0,
       "sales": 39630
+    },
+    {
+      "id": 21,
+      "name": "Hades II",
+      "descr": "Batalla más allá del Inframundo usando brujería oscura para enfrentarse al Titán del Tiempo en esta fascinante secuela del galardonado rastreador de mazmorras.",
+      "genres": [5, 19, 1, 16, 20, 10],
+      "cover": {
+        "header": "hades2_header.jpg",
+        "capsule": "hades2_capsule.jpg"
+      },
+      "carouselImages": [
+        "hades2_carousel_1.jpg",
+        "hades2_carousel_2.jpg",
+        "hades2_carousel_3.jpg",
+        "hades2_carousel_4.jpg",
+        "hades2_carousel_5.jpg",
+        "hades2_carousel_6.jpg",
+        "hades2_carousel_7.jpg",
+        "hades2_carousel_8.jpg"
+      ],
+      "price": 14.99,
+      "discount": 0,
+      "sales": 56632
+    },
+    {
+      "id": 26,
+      "name": "DYNASTY WARRIORS: ORIGINS",
+      "descr": "Vive emocionantes batallas como un héroe sin nombre en los Tres Reinos.",
+      "genres": [6, 5, 10, 20, 31, 16],
+      "cover": {
+        "header": "dynasty_warriors_header.jpg",
+        "capsule": "dynasty_warriors_capsule.jpg"
+      },
+      "carouselImages": [
+        "dynasty_warriors_carousel_1.jpg",
+        "dynasty_warriors_carousel_2.jpg",
+        "dynasty_warriors_carousel_3.jpg",
+        "dynasty_warriors_carousel_4.jpg",
+        "dynasty_warriors_carousel_5.jpg"
+      ],
+      "price": 58.29,
+      "discount": 0,
+      "sales": 11311
+    },
+    {
+      "id": 31,
+      "name": "HELLDIVERS™ Dive Harder Edition",
+      "descr": "HELLDIVERS™ es un juego cooperativo de tipo shooter que se juega con dos joysticks. Como parte de una unidad de élite llamada HELLDIVERS, los jugadores deben trabajar en equipo para proteger a la SUPERTIERRA y derrotar a los enemigos de la humanidad en una intensa guerra intergaláctica.",
+      "genres": [7, 1, 5, 31],
+      "cover": {
+        "header": "helldivers_header.jpg",
+        "capsule": "helldivers_capsule.jpg"
+      },
+      "carouselImages": [
+        "helldivers_carousel_1.jpg",
+        "helldivers_carousel_2.jpg",
+        "helldivers_carousel_3.jpg",
+        "helldivers_carousel_4.jpg",
+        "helldivers_carousel_5.jpg",
+        "helldivers_carousel_6.jpg",
+        "helldivers_carousel_7.jpg",
+        "helldivers_carousel_8.jpg",
+        "helldivers_carousel_9.jpg",
+        "helldivers_carousel_10.jpg"
+      ],
+      "price": 19.99,
+      "discount": 0,
+      "sales": 23822
+    },
+    {
+      "id": 36,
+      "name": "Spiritfarer®: Edición Farewell",
+      "descr": "Spiritfarer® es un juego de gestión sobre la muerte. Como capitana de un ferri que transporta a los difuntos, deberás construir una embarcación para explorar el mundo, cuidar de tus amigos espíritus y guiarlos hacia el más allá. Incluye el juego base y tres actualizaciones de contenido importantes!",
+      "genres": [8, 10, 23, 43, 25, 27],
+      "cover": {
+        "header": "spiritfarer_header.jpg",
+        "capsule": "spiritfarer_capsule.jpg"
+      },
+      "carouselImages": [
+        "spiritfarer_carousel_1.jpg",
+        "spiritfarer_carousel_2.jpg",
+        "spiritfarer_carousel_3.jpg",
+        "spiritfarer_carousel_4.jpg",
+        "spiritfarer_carousel_5.jpg",
+        "spiritfarer_carousel_6.jpg",
+        "spiritfarer_carousel_7.jpg"
+      ],
+      "price": 29.99,
+      "discount": 85,
+      "sales": 37336
+    },
+    {
+      "id": 41,
+      "name": "Sonic Frontiers",
+      "descr": "¡Experimenta Sonic como nunca antes!",
+      "genres": [9, 1, 10, 8, 20, 6],
+      "cover": {
+        "header": "sonic_frontiers_header.jpg",
+        "capsule": "sonic_frontiers_capsule.jpg"
+      },
+      "carouselImages": [
+        "sonic_frontiers_carousel_1.jpg",
+        "sonic_frontiers_carousel_2.jpg",
+        "sonic_frontiers_carousel_3.jpg",
+        "sonic_frontiers_carousel_4.jpg",
+        "sonic_frontiers_carousel_5.jpg",
+        "sonic_frontiers_carousel_6.jpg",
+        "sonic_frontiers_carousel_7.jpg",
+        "sonic_frontiers_carousel_8.jpg"
+      ],
+      "price": 59.99,
+      "discount": 70,
+      "sales": 18944
+    },
+    {
+      "id": 46,
+      "name": "Lost Records: Bloom & Rage",
+      "descr": "Embárcate en un nuevo viaje narrativo de la mano de los creadores de Life is Strange. Filma tu verano de 1995 y crea recuerdos para toda la vida con tus nuevos amigos. 27 años después, enfréntate a los oscuros secretos que os hicieron prometer a todos que nunca volveríais a hablar después de ese fatídico verano.",
+      "genres": [10, 9],
+      "cover": {
+        "header": "lost_records_header.jpg",
+        "capsule": "lost_records_capsule.jpg"
+      },
+      "carouselImages": [
+        "lost_records_carousel_1.jpg",
+        "lost_records_carousel_2.jpg",
+        "lost_records_carousel_3.jpg",
+        "lost_records_carousel_4.jpg",
+        "lost_records_carousel_5.jpg",
+        "lost_records_carousel_6.jpg",
+        "lost_records_carousel_7.jpg",
+        "lost_records_carousel_8.jpg",
+        "lost_records_carousel_9.jpg",
+        "lost_records_carousel_10.jpg",
+        "lost_records_carousel_11.jpg",
+        "lost_records_carousel_12.jpg",
+        "lost_records_carousel_13.jpg",
+        "lost_records_carousel_14.jpg",
+        "lost_records_carousel_15.jpg",
+        "lost_records_carousel_16.jpg"
+      ],
+      "price": 18.99,
+      "discount": 10,
+      "sales": 747
+    },
+    {
+      "id": 51,
+      "name": "Nine Sols",
+      "descr": "Nine Sols es un juego de acción y plataformas 2D, dibujado a mano, con combate inspirado en Sekiro. Viaja por una fantasía asiática, explora una tierra que fue hogar de una raza alienígena, y sigue la búsqueda vengativa de un héroe para derrotar a los 9 Sols, gobernantes de este reino olvidado.",
+      "genres": [11, 1, 8, 9, 10, 6],
+      "cover": {
+        "header": "nine_sols_header.jpg",
+        "capsule": "nine_sols_capsule.jpg"
+      },
+      "carouselImages": [
+        "nine_sols_carousel_1.jpg",
+        "nine_sols_carousel_2.jpg",
+        "nine_sols_carousel_3.jpg",
+        "nine_sols_carousel_4.jpg",
+        "nine_sols_carousel_5.jpg",
+        "nine_sols_carousel_6.jpg",
+        "nine_sols_carousel_7.jpg",
+        "nine_sols_carousel_8.jpg",
+        "nine_sols_carousel_9.jpg",
+        "nine_sols_carousel_10.jpg",
+        "nine_sols_carousel_11.jpg",
+        "nine_sols_carousel_12.jpg"
+      ],
+      "price": 14.99,
+      "discount": 0,
+      "sales": 21813
+    },
+    {
+      "id":56,
+      "name": "Slay the Princess — The Pristine Cut",
+      "descr": "Estás aquí para matar a la Princesa. No creas sus mentiras.",
+      "genres": [12, 10, 26, 16, 23, 9],
+      "cover": {
+        "header": "slay_the_princess_header.jpg",
+        "capsule": "slay_the_princess_capsule.jpg"
+      },
+      "carouselImages": [
+        "slay_the_princess_carousel_1.jpg",
+        "slay_the_princess_carousel_2.jpg",
+        "slay_the_princess_carousel_3.jpg",
+        "slay_the_princess_carousel_4.jpg",
+        "slay_the_princess_carousel_5.jpg",
+        "slay_the_princess_carousel_6.jpg",
+        "slay_the_princess_carousel_7.jpg",
+        "slay_the_princess_carousel_8.jpg",
+        "slay_the_princess_carousel_9.jpg",
+        "slay_the_princess_carousel_10.jpg",
+        "slay_the_princess_carousel_11.jpg",
+        "slay_the_princess_carousel_12.jpg",
+        "slay_the_princess_carousel_13.jpg"
+      ],
+      "price": 9.29,
+      "discount": 0,
+      "sales": 20236
+    },
+    {
+      "id": 61,
+      "name": "A Little to the Left",
+      "descr": "A Little to the Left juego de puzles encantador para clasificar, apilar y organizar objetos en la casa, y crear un orden agradable mientras vigilas a un gato revoltoso que suele sembrar el caos. Checa este divertido juego de puzles con más de 100 desastres que ordenar.",
+      "genres": [13, 14, 47],
+      "cover": {
+        "header": "a_little_to_the_left_header.jpg",
+        "capsule": "a_little_to_the_left_capsule.jpg"
+      },
+      "carouselImages": [
+        "a_little_to_the_left_carousel_1.jpg",
+        "a_little_to_the_left_carousel_2.jpg",
+        "a_little_to_the_left_carousel_3.jpg",
+        "a_little_to_the_left_carousel_4.jpg",
+        "a_little_to_the_left_carousel_5.jpg",
+        "a_little_to_the_left_carousel_6.jpg"
+      ],
+      "price": 6.99,
+      "discount": 0,
+      "sales": 11182
+    },
+    {
+      "id": 66,
+      "name": "The Talos Principle",
+      "descr": "The Talos Principle es un juego de rompecabezas en primera persona que sigue la tradición de la ciencia ficción filosófica. Creado por Croteam y escrito por Tom Jubert (FTL, The Swapper) y Jonas Kyratzes (The Sea Will Claim Everything).",
+      "genres": [14, 10, 9, 1],
+      "cover": {
+        "header": "the_talos_principle_header.jpg",
+        "capsule": "the_talos_principle_capsule.jpg"
+      },
+      "carouselImages": [
+        "the_talos_principle_carousel_1.jpg",
+        "the_talos_principle_carousel_2.jpg",
+        "the_talos_principle_carousel_3.jpg",
+        "the_talos_principle_carousel_4.jpg",
+        "the_talos_principle_carousel_5.jpg",
+        "the_talos_principle_carousel_6.jpg"
+      ],
+      "price": 14.99,
+      "discount": 0,
+      "sales": 27853
+    },
+    {
+      "id": 71,
+      "name": "Avowed",
+      "descr": "Avowed es un RPG de fantasía en primera persona desarrollado por Obsidian Entertainment.",
+      "genres": [15, 16, 10, 1, 20, 6],
+      "cover": {
+        "header": "avowed_header.jpg",
+        "capsule": "avowed_capsule.jpg"
+      },
+      "carouselImages": [
+        "avowed_carousel_1.jpg",
+        "avowed_carousel_2.jpg",
+        "avowed_carousel_3.jpg",
+        "avowed_carousel_4.jpg",
+        "avowed_carousel_5.jpg",
+        "avowed_carousel_6.jpg",
+        "avowed_carousel_7.jpg",
+        "avowed_carousel_8.jpg",
+        "avowed_carousel_9.jpg",
+        "avowed_carousel_10.jpg",
+        "avowed_carousel_11.jpg",
+        "avowed_carousel_12.jpg",
+        "avowed_carousel_13.jpg",
+        "avowed_carousel_14.jpg",
+        "avowed_carousel_15.jpg",
+        "avowed_carousel_16.jpg",
+        "avowed_carousel_17.jpg",
+        "avowed_carousel_18.jpg",
+        "avowed_carousel_19.jpg",
+        "avowed_carousel_20.jpg"
+      ],
+      "price": 41.99,
+      "discount": 0,
+      "sales": 4505
+    },
+    {
+      "id": 76,
+      "name": "Baldur's Gate 3",
+      "descr": "Baldur’s Gate 3 es un juego de rol basado en grupos y con una rica historia ambientado en el universo de Dungeons & Dragons, donde tus decisiones dan forma a una historia de compañerismo y traición, supervivencia y sacrificio, y el atractivo del poder absoluto.",
+      "genres": [16, 10, 18, 36, 9, 31, 6],
+      "cover": {
+        "header": "baldurs_gate_3_header.jpg",
+        "capsule": "baldurs_gate_3_capsule.jpg"
+      },
+      "carouselImages": [
+        "baldurs_gate_3_carousel_1.jpg",
+        "baldurs_gate_3_carousel_2.jpg",
+        "baldurs_gate_3_carousel_3.jpg",
+        "baldurs_gate_3_carousel_4.jpg",
+        "baldurs_gate_3_carousel_5.jpg",
+        "baldurs_gate_3_carousel_6.jpg",
+        "baldurs_gate_3_carousel_7.jpg",
+        "baldurs_gate_3_carousel_8.jpg",
+        "baldurs_gate_3_carousel_9.jpg",
+        "baldurs_gate_3_carousel_10.jpg",
+        "baldurs_gate_3_carousel_11.jpg",
+        "baldurs_gate_3_carousel_12.jpg",
+        "baldurs_gate_3_carousel_13.jpg",
+        "baldurs_gate_3_carousel_14.jpg",
+        "baldurs_gate_3_carousel_15.jpg",
+        "baldurs_gate_3_carousel_16.jpg",
+        "baldurs_gate_3_carousel_17.jpg",
+        "baldurs_gate_3_carousel_18.jpg",
+        "baldurs_gate_3_carousel_19.jpg"
+      ],
+      "price": 34.99,
+      "discount": 0,
+      "sales": 644304
+    },
+    {
+      "id": 81,
+      "name": "Persona 5 Royal",
+      "descr": "¡Ponte la máscara y únete a los Ladrones Fantasma de Corazones mientras organizan grandes atracos, se infiltran en las mentes de los corruptos y les hacen cambiar sus costumbres!",
+      "genres": [17, 10, 18, 16, 26, 23, 36, 12, 9],
+      "cover": {
+        "header": "persona_5_header.jpg",
+        "capsule": "persona_5_capsule.jpg"
+      },
+      "carouselImages": [
+        "persona_5_carousel_1.jpg",
+        "persona_5_carousel_2.jpg",
+        "persona_5_carousel_3.jpg",
+        "persona_5_carousel_4.jpg",
+        "persona_5_carousel_5.jpg",
+        "persona_5_carousel_6.jpg",
+        "persona_5_carousel_7.jpg",
+        "persona_5_carousel_8.jpg",
+        "persona_5_carousel_9.jpg"
+      ],
+      "price": 50.99,
+      "discount": 0,
+      "sales": 64226
+    },
+    {
+      "id": 86,
+      "name": "Balatro",
+      "descr": "El roguelike de póquer. Balatro es un creador de mazos hipnotizante donde juegas manos de póquer ilegal, descubres comodines que cambian tu juego y activas combinaciones hilarantes y llenas de adrenalina.",
+      "genres": [18, 32, 31, 19, 47, 36, 2],
+      "cover": {
+        "header": "balatro_header.jpg",
+        "capsule": "balatro_capsule.jpg"
+      },
+      "carouselImages": [
+        "balatro_carousel_1.jpg",
+        "balatro_carousel_2.jpg",
+        "balatro_carousel_3.jpg",
+        "balatro_carousel_4.jpg",
+        "balatro_carousel_5.jpg",
+        "balatro_carousel_6.jpg",
+        "balatro_carousel_7.jpg",
+        "balatro_carousel_8.jpg",
+        "balatro_carousel_9.jpg",
+        "balatro_carousel_10.jpg",
+        "balatro_carousel_11.jpg",
+        "balatro_carousel_12.jpg"
+      ],
+      "price": 7.99,
+      "discount": 15,
+      "sales": 103870
+    },
+    {
+      "id": 91,
+      "name": "The Binding of Isaac: Rebirth",
+      "descr": "The Binding of Isaac: Rebirth es un juego de rol de acción y disparos generado aleatoriamente con muchos elementos de estilo roguelike. Siguiendo a Isaac en su viaje, los jugadores encontrarán extraños tesoros que cambiarán la forma de Isaac, lo que le otorgará habilidades sobrehumanas y le permitirá luchar contra hordas de criaturas misteriosas, descubrir secretos y mucho más.",
+      "genres": [19, 1],
+      "cover": {
+        "header": "isaac_rebirth_header.jpg",
+        "capsule": "isaac_rebirth_capsule.jpg"
+      },
+      "carouselImages": [
+        "isaac_rebirth_carousel_1.jpg",
+        "isaac_rebirth_carousel_2.jpg",
+        "isaac_rebirth_carousel_3.jpg",
+        "isaac_rebirth_carousel_4.jpg",
+        "isaac_rebirth_carousel_5.jpg",
+        "isaac_rebirth_carousel_6.jpg",
+        "isaac_rebirth_carousel_7.jpg",
+        "isaac_rebirth_carousel_8.jpg",
+        "isaac_rebirth_carousel_9.jpg",
+        "isaac_rebirth_carousel_10.jpg",
+        "isaac_rebirth_carousel_11.jpg",
+        "isaac_rebirth_carousel_12.jpg"
+      ],
+      "price": 14.99,
+      "discount": 0,
+      "sales": 299290
+    },
+    {
+      "id": 96,
+      "name": "Hogwarts Legacy",
+      "descr": "Hogwarts Legacy es un RPG de acción en un mundo abierto. Ahora puedes tomar el control de la acción y ser el centro de tu propia aventura en el mundo mágico.",
+      "genres": [20, 9, 16, 10, 1, 6, 14],
+      "cover": {
+        "header": "hogwarts_legacy_header.jpg",
+        "capsule": "hogwarts_legacy_capsule.jpg"
+      },
+      "carouselImages": [
+        "hogwarts_legacy_carousel_1.jpg",
+        "hogwarts_legacy_carousel_2.jpg",
+        "hogwarts_legacy_carousel_3.jpg",
+        "hogwarts_legacy_carousel_4.jpg",
+        "hogwarts_legacy_carousel_5.jpg"
+      ],
+      "price": 30,
+      "discount": 0,
+      "sales": 223287
+    },
+    {
+      "id": 101,
+      "name": "Black Desert",
+      "descr": "Black Desert supera los límites de los MMORPG. En este mundo, podrá disfrutar de contenidos, batallas y asedios, exploración y comercio, pesca, entrenamiento, alquimia, cocina, recolección, caza y más. Disfruta de varios contenidos en el vasto mundo abierto. Black Desert, un verdadero.",
+      "genres": [21, 16, 9, 1, 31, 23, 6],
+      "cover": {
+        "header": "black_desert_header.jpg",
+        "capsule": "black_desert_capsule.jpg"
+      },
+      "carouselImages": [
+        "black_desert_carousel_1.jpg",
+        "black_desert_carousel_2.jpg",
+        "black_desert_carousel_3.jpg",
+        "black_desert_carousel_4.jpg",
+        "black_desert_carousel_5.jpg",
+        "black_desert_carousel_6.jpg",
+        "black_desert_carousel_7.jpg"
+      ],
+      "price": 3.59,
+      "discount": 70,
+      "sales": 57996
+    },
+    {
+      "id": 106,
+      "name": "FINAL FANTASY XVI",
+      "descr": "Una fantasía oscura épica donde el destino lo deciden los Eikons y los Dominantes que los controlan. Esta es la historia de Clive Rosfield, un guerrero que jura vengarse del Eikon oscuro Ifrit, una entidad misteriosa que deja desgracias a su paso.",
+      "genres": [22, 20, 10, 1, 16, 5],
+      "cover": {
+        "header": "final_fantasy_xvi_header.jpg",
+        "capsule": "final_fantasy_xvi_capsule.jpg"
+      },
+      "carouselImages": [
+        "final_fantasy_xvi_carousel_1.jpg",
+        "final_fantasy_xvi_carousel_2.jpg",
+        "final_fantasy_xvi_carousel_3.jpg",
+        "final_fantasy_xvi_carousel_4.jpg",
+        "final_fantasy_xvi_carousel_5.jpg",
+        "final_fantasy_xvi_carousel_6.jpg",
+        "final_fantasy_xvi_carousel_7.jpg",
+        "final_fantasy_xvi_carousel_8.jpg",
+        "final_fantasy_xvi_carousel_9.jpg",
+        "final_fantasy_xvi_carousel_10.jpg",
+        "final_fantasy_xvi_carousel_11.jpg"
+      ],
+      "price": 39.99,
+      "discount": 0,
+      "sales": 13944
+    },
+    {
+      "id": 111,
+      "name": "Forza Horizon 5",
+      "descr": "Explora los coloridos paisajes del mundo abierto de México con una acción de conducción ilimitada y divertida en los mejores autos del mundo. Únete a un emocionante juego de persecución con nuestra nueva experiencia multijugador 5c1: Las escondidas.",
+      "genres": [24, 1, 23, 44, 9],
+      "cover": {
+        "header": "forza_horizon_5_header.jpg",
+        "capsule": "forza_horizon_5_capsule.jpg"
+      },
+      "carouselImages": [
+        "forza_horizon_5_carousel_1.jpg",
+        "forza_horizon_5_carousel_2.jpg",
+        "forza_horizon_5_carousel_3.jpg",
+        "forza_horizon_5_carousel_4.jpg",
+        "forza_horizon_5_carousel_5.jpg",
+        "forza_horizon_5_carousel_6.jpg",
+        "forza_horizon_5_carousel_7.jpg",
+        "forza_horizon_5_carousel_8.jpg",
+        "forza_horizon_5_carousel_9.jpg",
+        "forza_horizon_5_carousel_10.jpg",
+        "forza_horizon_5_carousel_11.jpg",
+        "forza_horizon_5_carousel_12.jpg",
+        "forza_horizon_5_carousel_13.jpg",
+        "forza_horizon_5_carousel_14.jpg",
+        "forza_horizon_5_carousel_15.jpg",
+        "forza_horizon_5_carousel_16.jpg"
+      ],
+      "price": 32.78,
+      "discount": 0,
+      "sales": 195918
+    },
+    {
+      "id": 112,
+      "name": "Sid Meier’s Civilization® VI",
+      "descr": "Civilization VI es la última entrega de la galardonada franquicia Civilization. Expande tu imperio, haz avanzar tu cultura y enfréntate a los líderes más importantes de la historia. ¿Resistirá tu civilización la prueba del tiempo?",
+      "genres": [33, 31, 23, 18, 36],
+      "cover": {
+        "header": "civilization_vi_header.jpg",
+        "capsule": "civilization_vi_capsule.jpg"
+      },
+      "carouselImages": [
+        "civilization_vi_carousel_1.jpg",
+        "civilization_vi_carousel_2.jpg",
+        "civilization_vi_carousel_3.jpg",
+        "civilization_vi_carousel_4.jpg",
+        "civilization_vi_carousel_5.jpg",
+        "civilization_vi_carousel_6.jpg",
+        "civilization_vi_carousel_7.jpg",
+        "civilization_vi_carousel_8.jpg"
+      ],
+      "price": 59.99,
+      "discount": 0,
+      "sales": 249944
+    },
+    {
+      "id": 113,
+      "name": "Stardew Valley",
+      "descr": "Has heredado la antigua granja de tu abuelo en Stardew Valley. Armado con herramientas usadas y unas cuantas monedas, te dispones a comenzar una nueva vida. ¿Podrás aprender a vivir de la tierra y convertir estos campos invadidos por la vegetación en un hogar próspero?",
+      "genres": [28, 47, 23, 16, 30, 26],
+      "cover": {
+        "header": "stardew_valley_header.jpg",
+        "capsule": "stardew_valley_capsule.jpg"
+      },
+      "carouselImages": [
+        "stardew_valley_carousel_1.jpg",
+        "stardew_valley_carousel_2.jpg",
+        "stardew_valley_carousel_3.jpg",
+        "stardew_valley_carousel_4.jpg",
+        "stardew_valley_carousel_5.jpg",
+        "stardew_valley_carousel_6.jpg",
+        "stardew_valley_carousel_7.jpg",
+        "stardew_valley_carousel_8.jpg",
+        "stardew_valley_carousel_9.jpg",
+        "stardew_valley_carousel_10.jpg",
+        "stardew_valley_carousel_11.jpg",
+        "stardew_valley_carousel_12.jpg",
+        "stardew_valley_carousel_13.jpg",
+        "stardew_valley_carousel_14.jpg",
+        "stardew_valley_carousel_15.jpg",
+        "stardew_valley_carousel_16.jpg"
+      ],
+      "price": 4.99,
+      "discount": 0,
+      "sales": 729207
+    },
+    {
+      "id": 114,
+      "name": "Bloons TD 6",
+      "descr": "El exitoso juego de defensa de torres",
+      "genres": [34, 31, 47, 1],
+      "cover": {
+        "header": "bloons_td_6_header.jpg",
+        "capsule": "bloons_td_6_capsule.jpg"
+      },
+      "carouselImages": [
+        "bloons_td_6_carousel_1.jpg",
+        "bloons_td_6_carousel_2.jpg",
+        "bloons_td_6_carousel_3.jpg",
+        "bloons_td_6_carousel_4.jpg",
+        "bloons_td_6_carousel_5.jpg",
+        "bloons_td_6_carousel_6.jpg",
+        "bloons_td_6_carousel_7.jpg",
+        "bloons_td_6_carousel_8.jpg",
+        "bloons_td_6_carousel_9.jpg",
+        "bloons_td_6_carousel_10.jpg"
+      ],
+      "price": 7.79,
+      "discount": 0,
+      "sales": 305298
+    },
+    {
+      "id": 115,
+      "name": "FIFA 22",
+      "descr": "Powered by Football™, EA SPORTS™ FIFA 22 acorta las distancias aún más con lo que sucede en la vida real gracias a los avances en la jugabilidad básica y a nuevas características innovadoras en todos los modos.",
+      "genres": [41, 45, 23, 30, 46],
+      "cover": {
+        "header": "fifa_22_header.jpg",
+        "capsule": "fifa_22_capsule.jpg"
+      },
+      "carouselImages": [
+        "fifa_22_carousel_1.jpg",
+        "fifa_22_carousel_2.jpg",
+        "fifa_22_carousel_3.jpg",
+        "fifa_22_carousel_4.jpg",
+        "fifa_22_carousel_5.jpg"
+      ],
+      "price": 42,
+      "discount": 0,
+      "sales": 121007
+    },
+    {
+      "id": 116,
+      "name": "Tony Hawk's™ Pro Skater™ 1 + 2",
+      "descr": "Juega a los juegos Tony Hawk's™ Pro Skater™ y Tony Hawk's™ Pro Skater™ 2 totalmente remasterizados en una colección épica, reconstruida desde cero en increíble HD.",
+      "genres": [46, 45, 42],
+      "cover": {
+        "header": "tony_hawks_header.jpg",
+        "capsule": "tony_hawks_capsule.jpg"
+      },
+      "carouselImages": [
+        "tony_hawks_carousel_1.jpg",
+        "tony_hawks_carousel_2.jpg",
+        "tony_hawks_carousel_3.jpg",
+        "tony_hawks_carousel_4.jpg",
+        "tony_hawks_carousel_5.jpg",
+        "tony_hawks_carousel_6.jpg"
+      ],
+      "price": 39.99,
+      "discount": 60,
+      "sales": 3509
+    },
+    {
+      "id": 117,
+      "name": "Stellaris",
+      "descr": "Explora una galaxia llena de maravillas en este gran juego de estrategia y ciencia ficción de Paradox Development Studios. Interactúa con diversas razas alienígenas, descubre mundos nuevos y extraños con eventos inesperados y amplía el alcance de tu imperio. Cada nueva aventura ofrece posibilidades casi ilimitadas.",
+      "genres": [29, 37, 31, 30, 38],
+      "cover": {
+        "header": "stellaris_header.jpg",
+        "capsule": "stellaris_capsule.jpg"
+      },
+      "carouselImages": [
+        "stellaris_carousel_1.jpg",
+        "stellaris_carousel_2.jpg",
+        "stellaris_carousel_3.jpg",
+        "stellaris_carousel_4.jpg",
+        "stellaris_carousel_5.jpg",
+        "stellaris_carousel_6.jpg"
+      ],
+      "price": 23.99,
+      "discount": 0,
+      "sales": 124727
     }
   ]
 }

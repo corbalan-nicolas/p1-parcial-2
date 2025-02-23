@@ -365,38 +365,16 @@ function setThemeInLocalStorage() {
 // DARK MODE - ENDING ------------------------------------------------------------------------------------------
 
 
-// {
-//   "id": 0,
-//   "name": "gameName",
-//   "descr": "gameDescription",
-//   "genres": [2],
-//   "cover": {
-//     "header": "game_name_header.jpg",
-//     "capsule": "game_name_capsule.jpg"
-//   },
-//   "carouselImages": [
-//     "game_name_carousel_1.jpg",
-//     "game_name_carousel_2.jpg",
-//     "game_name_carousel_3.jpg",
-//     "game_name_carousel_4.jpg",
-//     "game_name_carousel_5.jpg",
-//     "game_name_carousel_6.jpg",
-//     "game_name_carousel_7.jpg",
-//     "game_name_carousel_8.jpg",
-//     "game_name_carousel_9.jpg",
-//     "game_name_carousel_10.jpg",
-//     "game_name_carousel_11.jpg",
-//     "game_name_carousel_12.jpg",
-//     "game_name_carousel_13.jpg",
-//     "game_name_carousel_14.jpg",
-//     "game_name_carousel_15.jpg",
-//     "game_name_carousel_16.jpg",
-//     "game_name_carousel_17.jpg",
-//     "game_name_carousel_18.jpg",
-//     "game_name_carousel_19.jpg",
-//     "game_name_carousel_20.jpg"
-//   ],
-//   "price": 0.99,
-//   "discount": 0,
-//   "sales": 0
-// }
+
+// SHORTCUTS - STARTS ------------------------------------------------------------------------------------------
+document.addEventListener('keydown', (ev) => {
+  // OPEN CART
+  if (ev.key == 'C' || ev.key == 'c') {
+    const dialog = document.querySelector('dialog')
+    if(dialog) dialog.close()
+
+    cart.showModal()
+  }
+})
+// cart.showModal()
+// SHORTCUTS - ENDING ------------------------------------------------------------------------------------------

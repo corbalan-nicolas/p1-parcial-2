@@ -60,7 +60,7 @@ class Game {
 
     const $h2 = createDomElement('h2', {}, this.#name)
 
-    const $btnClose = createDomElement('button', {}, 'Cerrar')
+    const $btnClose = createDomElement('button', {class: 'btn btn--text-only'}, 'X')
     $btnClose.addEventListener('click', () => {
       $btnClose.closest('dialog').close()
     })
@@ -108,6 +108,8 @@ class Game {
       $bigImg.src = GAMES_IMG_URL + carouselImages[newI];
       $bigImg.setAttribute('data-i', newI) 
 
+      // new index * smallImages width. Eg
+      // 3 * 100 = 300 -> scroll to 300
       $ulCarousel.scrollTo(newI * 100, 0)
     }
 
@@ -124,18 +126,18 @@ class Game {
 
     $body.append($carousel, $more)
 
-    const $cover = createDomElement('img', { 'src': GAMES_IMG_URL + this.#cover.header, 'alt': `Portada del videojuego ${this.#name}` })
+    const $cover = createDomElement('img', {'class': 'product-header', 'src': GAMES_IMG_URL + this.#cover.header, 'alt': `Portada del videojuego ${this.#name}` })
 
-    const $descr = createDomElement('p', {}, this.#descr);
+    const $descr = createDomElement('p', {'class': 'description'}, this.#descr);
 
-    const $price = createDomElement('p', {}, `USD$ ${this.getPrice}`);
+    const $price = createDomElement('p', {'class': 'price'}, `USD$ ${this.getPrice}`);
 
-    const $addToCart = createDomElement('button', {}, 'Añadir al carrito')
+    const $addToCart = createDomElement('button', {class: 'btn'}, 'Añadir al carrito')
     $addToCart.addEventListener('click', (ev) => {
       cart.addProduct(this.#id);
     })
     
-    const $ulGenres = createDomElement('ul', {})
+    const $ulGenres = createDomElement('ul', {'class': 'genres'})
     for(const genre of this.#genres) {
       const $li = document.createElement('li', {})
       $li.innerText = `${genres[genre]}`
