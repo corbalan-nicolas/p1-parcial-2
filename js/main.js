@@ -91,9 +91,9 @@ function showFilteredCatalog(games = catalog) {
   
   // Cards
   if(games.length == 0) {
-    catalogContainer.parentElement.classList.add('no-results')
+    document.querySelector('.no-results').classList.remove('d-none')
   }else {
-    catalogContainer.parentElement.classList.remove('no-results')
+    document.querySelector('.no-results').classList.add('d-none')
     for(const game of games) {
       catalogContainer.append(game.createCard())
     }
@@ -147,9 +147,12 @@ document.querySelector('#sortBy').addEventListener('change', (ev) => {
 
 
 // FILTER BY - STARTS ------------------------------------------------------------------------------------------
+let searchTimer = null
 document.querySelector('#filterByName').addEventListener('input', (ev) => {
-  filterByName = ev.currentTarget.value;
-  showFilteredCatalog();
+  filterByName = ev.currentTarget.value
+
+  if(searchTimer != null) clearTimeout(searchTimer)
+  searchTimer = setTimeout(showFilteredCatalog, 300)
 })
 
 document.querySelector('#filterByPrice').addEventListener('input', (ev) => {

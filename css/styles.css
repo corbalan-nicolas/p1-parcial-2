@@ -140,11 +140,16 @@ header, main, footer {
 }
 
 .no-results {
-  background: url('../img/no-results.png') center top no-repeat;
+  text-align: center;
+  font-size: 3em;
+  padding-top: 3rem;
+  opacity: .5;
 
-  &::before {
-    content: 'No se han encontrados resultados';
-  }
+  img { width: 400px; }
+}
+
+.d-none {
+  display: none !important;
 }
 
 .catalog-container {
@@ -345,8 +350,12 @@ header, main, footer {
   font-weight: bold;
 }
 
-.filters__block-content {
-  padding: .5rem 1rem 0 .5rem;
+.filters__block-content:not(#genresContainer) {
+  padding: .5rem 1rem 0 1rem;
+}
+
+#genresContainer {
+  padding: .5rem 1rem 0 0;
 }
 
 #filterByPrice {
@@ -357,7 +366,7 @@ header, main, footer {
 #genresContainer div {
   label {
     padding: .5rem 1rem;
-    transition: 300 ms;
+    transition: 300ms;
     display: block;
     border-radius: 1px;
     background-color: transparent;
@@ -494,7 +503,7 @@ dialog {
 
 }
 
-input:not([type="radio"]) {
+input:not([type="range"]) {
   padding: .4rem .8rem;
 }
 
