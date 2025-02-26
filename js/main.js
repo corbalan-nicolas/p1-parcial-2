@@ -147,14 +147,15 @@ document.querySelector('#sortBy').addEventListener('change', (ev) => {
 
 
 // FILTER BY - STARTS ------------------------------------------------------------------------------------------
-let searchTimer = null
+let filterByNameTimer = null
 document.querySelector('#filterByName').addEventListener('input', (ev) => {
   filterByName = ev.currentTarget.value
 
-  if(searchTimer != null) clearTimeout(searchTimer)
-  searchTimer = setTimeout(showFilteredCatalog, 300)
+  if(filterByNameTimer != null) clearTimeout(filterByNameTimer)
+  filterByNameTimer = setTimeout(showFilteredCatalog, 300)
 })
 
+let filterByPriceTimer = null
 document.querySelector('#filterByPrice').addEventListener('input', (ev) => {
   const $span = document.querySelector('#filterByPriceSpan');
 
@@ -162,7 +163,9 @@ document.querySelector('#filterByPrice').addEventListener('input', (ev) => {
   else { $span.innerText = `Menos de USD$ ${ev.currentTarget.value}` }
 
   filterByPrice = ev.currentTarget.value;
-  showFilteredCatalog();
+
+  if(filterByPriceTimer != null) clearTimeout(filterByPriceTimer)
+  filterByPriceTimer = setTimeout(showFilteredCatalog, 300)
 })
 
 // Call it when every checkbox is generated (in the json call)

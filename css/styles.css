@@ -141,6 +141,8 @@ header, main, footer {
 
 .no-results {
   text-align: center;
+  position: sticky;
+  top: 100px;
   font-size: 3em;
   padding-top: 3rem;
   opacity: .5;
