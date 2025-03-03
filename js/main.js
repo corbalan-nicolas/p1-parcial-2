@@ -373,14 +373,14 @@ function setThemeInLocalStorage() {
 
 
 // SHORTCUTS - STARTS ------------------------------------------------------------------------------------------
-document.addEventListener('keydown', (ev) => {
-  // OPEN CART
-  if (ev.key == 'C' || ev.key == 'c') {
-    const dialog = document.querySelector('dialog')
-    if(dialog) dialog.close()
+// document.addEventListener('keydown', (ev) => {
+//   // OPEN CART
+//   if (ev.key == 'C' || ev.key == 'c') {
+//     const dialog = document.querySelector('dialog')
+//     if(dialog) dialog.close()
 
-    cart.showModal()
-  }
-})
+//     cart.showModal()
+//   }
+// })
 // cart.showModal()
 // SHORTCUTS - ENDING ------------------------------------------------------------------------------------------
