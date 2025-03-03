@@ -6,7 +6,7 @@
   --main-bg: #f9f9f9; /* main background color */
   --main-bg-2: #efefef; /* main background color */
   --main-fc: #1b1b1b; /* main font color / fore color */
-  --fc-light: rgba(0 0 0 / .7);
+  --fc-light: rgba(0 0 0 / .5);
   --discount-bg: #79ef97;
 
   --pwonz-color-1: #5CAEBF;
@@ -22,7 +22,7 @@ body.dark-mode {
   --main-bg: #1e1e1e; /* main background color */
   --main-bg-2: #393939; /* main background color */
   --main-fc: #f6f6f6; /* main font color / fore color */
-  --fc-light: rgba(255, 255, 255, 0.7);
+  --fc-light: rgba(255, 255, 255, 0.3);
   --discount-bg: #548760;
 
   --soft-shadow: 8px 0px 24px rgba(79, 79, 79, 0.15);
@@ -140,6 +140,7 @@ header, main, footer {
 }
 
 .no-results {
+  z-index: -1;
   text-align: center;
   position: sticky;
   top: 100px;
@@ -177,7 +178,7 @@ header, main, footer {
   padding: .7em 1em;
   border-radius: var(--rounded-border);
   background-color: var(--pwonz-color-1);
-  color: #fff;
+  color: #000;
   border: none;
 
   cursor: pointer;
@@ -200,11 +201,6 @@ header, main, footer {
   outline: none;
   background: none;
   color: var(--main-fc);
-  transition: outline 500ms ease-in-out;
-
-  &:hover {
-    outline: 1px solid rgba(0 0 0 / .15)
-  }
 }
 
 .card {
@@ -311,6 +307,7 @@ header, main, footer {
   .add, .delete {
     background: none;
     border: none;
+    color: var(--fc-light);
     text-decoration: underline solid 1px var(--fc-light);
 
     cursor: pointer;
@@ -374,14 +371,14 @@ header, main, footer {
     background-color: transparent;
     
     &:hover {
-      background-color: #ebebeb;
-      color: #000;
+      background-color: var(--main-bg-2);
+      color: var(--main-fc);
       cursor: pointer;
     }
-
+    
     &:has(:checked) {
-      background-color: #6969dd;
-      color: #ffffff;
+      background-color: var(--pwonz-color-1);
+      color: #000;
     }
   }
 
@@ -402,6 +399,8 @@ dialog {
   margin: auto;
   animation: slideInLeft 500ms cubic-bezier( 0.46, 0.42, 0.16, 1 );
   padding: 1em;
+  background-color: var(--main-bg);
+  color: var(--main-fc);
   border: 0px;
   border-radius: var(--rounded-border);
   
@@ -443,6 +442,8 @@ dialog {
           align-items: center;
           scroll-behavior: smooth;
           overflow-x: auto;
+          width: 100%;
+          background-color: var(--main-bg-2);
           list-style: none;
           /* width: 500px; */
 
@@ -466,6 +467,7 @@ dialog {
       }
 
       .description {
+        margin-top: .5rem;
         order: 3;
       }
 
@@ -475,22 +477,8 @@ dialog {
         margin: .5rem 0;
       }
 
-      .genres {
-        order: 2;
-        display: flex;
-        flex-flow: row wrap;
-        list-style: none;
-        gap: .5rem;
-        margin: .5rem 0;
-
-        li {
-          border-radius: 500px;
-          padding: 4px 12px;
-          border: 1px solid red;
-        }
-      }
-
       .btn {
+        margin-top: auto;
         order: 5;
       }
     }
@@ -505,8 +493,26 @@ dialog {
 
 }
 
+.genres {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  gap: .5rem;
+  margin-top: 1rem;
+  
+  li {
+    border-radius: 500px;
+    padding: 4px 12px;
+    background-color: var(--main-bg-2);
+  }
+}
+
 input:not([type="range"]) {
   padding: .4rem .8rem;
+  background-color: var(--main-bg-2);
+  color: var(--main-fc);
+  border: 0;
+  outline: none;
 }
 
 form {
@@ -612,6 +618,15 @@ small {
   color: #ae2f2f;
 }
 
+#btnShowCart {
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: .5rem;
+  }
+}
+
 .info {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -637,6 +652,7 @@ small {
   padding: 0;
   border: 1px solid rgba(0 0 0 / .5);
   border-radius: .2rem;
+  box-shadow: var(--soft-shadow);
   overflow: hidden;
 
   position: fixed;
@@ -645,14 +661,28 @@ small {
   margin-right: 10px;
   bottom: 10px;
 
-  display: grid;
-
-  grid-template-columns: repeat(4, auto);
-  column-gap: .5rem;
-
+  display: flex;
+  
+  .offer-body {
+    padding: .5rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+  }
+  
+  .title {
+    font-weight: normal;
+    font-size: 1rem;
+  }
   .btn-close {
-    grid-row: 1 / 2;
+    grid-row: -1 / -2;
     grid-column: -2 / -1;
+
+    justify-self: end;
+  }
+
+  .btn-add-to-cart {
+    grid-column: -1 / -2;
   }
 }
 
@@ -684,17 +714,4 @@ small {
   to {
     transform: translateX(0px);
   }
-}
-
-/*
-CONSIGNAS DE DISEÑO:
-  ● Serán desaprobadas las entregas que carezcan de diseño o que el mismo no se visualice de
-  manera apropiada en los navegadores de uso común.
-  ● Debe respetarse una interfaz navegable y comprensible, donde el usuario pueda interpretar el
-  proceso completo de la compra.
-  ● Se debe usar una o más hojas de estilo, a elección del/de la alumno/a.
-*/
-
-* {
-  /* border: 1px solid red; */
 }
