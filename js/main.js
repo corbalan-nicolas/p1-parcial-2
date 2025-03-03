@@ -217,15 +217,16 @@ function generateSpecialOffer(genre) {
   }
 
   const $img = createDomElement('img', {'class': 'cover', 'src': `${GAMES_IMG_URL + offerData.getCoverCapsule}`, 'alt': `Portada del juego ${offerData.getName}`})
-  const $title = createDomElement('h2', {}, `Ahorrá un ${offerData.getDiscount}% en ${offerData.getName}`)
-  const $btnClose = createDomElement('button', {'class': 'btn btn--cube btn-close'}, 'X')
+  const $title = createDomElement('h2', {'class': 'title'}, `Ahorrá un ${offerData.getDiscount}%`)
+  const $price = createDomElement('p', {'class': 'price'}, `USD $${offerData.getPrice}`)
+  const $btnClose = createDomElement('button', {'class': 'btn btn--cube btn-close btn--text-only'}, 'X')
   $btnClose.addEventListener('click', (ev) => {
     ev.stopPropagation()
 
     closeModal()
   })
   
-  const $addToCart = createDomElement('button', {}, 'Añadir al carrito')
+  const $addToCart = createDomElement('button', {'class': 'btn btn-add-to-cart'}, 'Añadir al carrito')
   $addToCart.addEventListener('click', (ev) => {
     ev.stopPropagation()
     cart.addProduct(offerData.getId)
@@ -239,7 +240,10 @@ function generateSpecialOffer(genre) {
     closeModal()
   })
   
-  $noModal.append($img, $title, $btnClose, $addToCart)
+  const $body = createDomElement('div', {'class': 'offer-body'})
+  $body.append($title, $btnClose, $price, $addToCart)
+
+  $noModal.append($img, $body)
   $noModal.show()
   
   let autoClose = setTimeout(() => {

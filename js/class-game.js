@@ -136,6 +136,8 @@ class Game {
     $addToCart.addEventListener('click', (ev) => {
       cart.addProduct(this.#id);
     })
+
+    const $footer = document.createElement('div')
     
     const $ulGenres = createDomElement('ul', {'class': 'genres'})
     for(const genre of this.#genres) {
@@ -143,10 +145,11 @@ class Game {
       $li.innerText = `${genres[genre]}`
       $ulGenres.append($li)
     }
+    
+    $footer.append($ulGenres)
+    $more.append($cover, $descr, $price, $addToCart)
 
-    $more.append($cover, $descr, $price, $addToCart, $ulGenres)
-
-    const $modal = createModal({ content: [$header, $body], insert: { element: originalCard, position: 'before' } })
+    const $modal = createModal({ content: [$header, $body, $footer], insert: { element: originalCard, position: 'before' } })
     $modal.showModal()
   }
 
