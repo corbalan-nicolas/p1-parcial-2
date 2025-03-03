@@ -203,20 +203,20 @@ class Cart {
     const $repeatEmail = createInput({type: 'email', id: 'repeatEmail', labelText: '(*) Repetir gmail'})
     $recieveContainer.append($recieveTitle, $message, $email.container, $repeatEmail.container)
     
-    const $buttonsContainer = createDomElement('div', {'class': 'footer'})
+    const $buttonsContainer = createDomElement('div', {'class': 'footer buttons-container'})
 
-    const $btnPrevStep = createDomElement('button', {'class': 'btn btn--outlined'}, 'Volver')
+    const $btnPrevStep = createDomElement('button', {'class': 'btn btn--outlined btn-prev-step'}, 'Volver')
     $btnPrevStep.addEventListener('click', (ev) => {
       ev.preventDefault()
       $modal.close()
       this.showModal()
     })
     
-    const $btnNextStep = createDomElement('button', {'class': 'btn'}, 'Continuar')
+    const $btnNextStep = createDomElement('button', {'class': 'btn btn-next-step'}, 'Continuar')
     $btnNextStep.addEventListener('click', (ev) => {
     })
     
-    $buttonsContainer.append($btnPrevStep, $btnNextStep)
+    $buttonsContainer.append($btnNextStep, $btnPrevStep)
     $form.append($payMethodContainer, $facturationInfoContainer, $recieveContainer, $buttonsContainer)
     $modal.append($title, $form)
     $modal.showModal()

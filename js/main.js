@@ -278,7 +278,7 @@ function createDomElement(tag, attributes = {}, content = ''){
  * @param {Object} namedParams Named Parameters D:
  * @returns Modal
  */
-function createModal({content = null, attributes = {}, staticBackdrop = false, closeEvent = true, insert = {element: document.body, position: 'prepend'}}){
+function createModal({content = null, attributes = {}, staticBackdrop = false, closeEvent = true, insert = {element: document.body, position: 'append'}}){
   const $modal = document.createElement('dialog')
   
 

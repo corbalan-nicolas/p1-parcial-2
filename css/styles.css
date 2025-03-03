@@ -3,11 +3,12 @@
 :root {
   scroll-behavior: smooth;
 
-  --main-bg: #f9f9f9; /* main background color */
-  --main-bg-2: #efefef; /* main background color */
+  --main-bg: #e8e8e8; /* main background color */
+  --main-bg-2: #fff; /* main background color */
   --main-fc: #1b1b1b; /* main font color / fore color */
   --fc-light: rgba(0 0 0 / .5);
   --discount-bg: #79ef97;
+  --form-error-fc: #b90000;
 
   --pwonz-color-1: #5CAEBF;
 
@@ -24,6 +25,7 @@ body.dark-mode {
   --main-fc: #f6f6f6; /* main font color / fore color */
   --fc-light: rgba(255, 255, 255, 0.3);
   --discount-bg: #548760;
+  --form-error-fc: #FB8888;
 
   --soft-shadow: 8px 0px 24px rgba(79, 79, 79, 0.15);
 
@@ -376,6 +378,11 @@ header, main, footer {
       cursor: pointer;
     }
     
+    &:has(:focus) {
+      background-color: var(--main-bg-2);
+      color: var(--main-fc);
+    }
+    
     &:has(:checked) {
       background-color: var(--pwonz-color-1);
       color: #000;
@@ -383,6 +390,7 @@ header, main, footer {
   }
 
   & input {
+    outline: none;
     width: 1px;
     height: 1px;
     position: absolute;
@@ -512,7 +520,29 @@ input:not([type="range"]) {
   background-color: var(--main-bg-2);
   color: var(--main-fc);
   border: 0;
-  outline: none;
+  outline: 2px solid var(--main-bg);
+  transition: outline 100ms ease-in-out;
+}
+
+select {
+  padding: .4rem .8rem;
+  background-color: var(--main-bg-2);
+  color: var(--main-fc);
+  border: 0;
+  outline: 2px solid var(--main-bg);
+  transition: outline 100ms ease-in-out;
+}
+
+input:not([type="range"]):focus {
+  outline: 2px solid var(--fc-light);
+}
+
+input:not([type="range"]):hover {
+  outline: 2px solid var(--fc-light);
+}
+
+.btn-next-step {
+  order: 1;
 }
 
 form {
@@ -523,9 +553,9 @@ form {
   
   .pay-method, .facturation, .recieve {
     display: grid;
-    grid-template-columns: 25% 25% 30% 20%;
-    row-gap: .3rem;
-  
+    grid-template-columns: repeat(4, 1fr);
+    gap: .5rem;
+
     & .h3-title {
       margin-top: 1rem;
       grid-column: 1 / -1;
@@ -615,7 +645,8 @@ form {
 
 small {
   display: block;
-  color: #ae2f2f;
+  color: var(--form-error-fc);
+  transition: ease-in-out;
 }
 
 #btnShowCart {
