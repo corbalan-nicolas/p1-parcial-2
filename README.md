@@ -1,6 +1,6 @@
 # Parcial 2
 
-##📎 Demo: (https://corbalan-nicolas.github.io/p1-parcial-2/)[https://corbalan-nicolas.github.io/p1-parcial-2/]
+## 📎 Demo: [https://corbalan-nicolas.github.io/p1-parcial-2/](https://corbalan-nicolas.github.io/p1-parcial-2/)
 
 ## Consignas de entrega
 
